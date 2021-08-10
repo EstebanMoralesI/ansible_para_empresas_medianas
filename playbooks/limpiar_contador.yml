@@ -1,0 +1,13 @@
+---
+- name: Limpiar los contadores de las interfaces
+  hosts:
+    - all
+  gather_facts: no
+
+  tasks:
+    - name: Limpiar los contadores de las interfaces
+      ios_command:
+        commands:
+        - command: 'clear counters'
+          prompt: 'Limpiar el contador "show interface" de las interfaces'
+          answer: 'y'

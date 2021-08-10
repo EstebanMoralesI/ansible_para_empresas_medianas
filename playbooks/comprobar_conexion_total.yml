@@ -1,0 +1,42 @@
+---
+###########
+# PLEASE SAVE THIS FILE AS .yml
+# Udemy does not allow .yml format to be added to the lectures so I had to save it as .txt file
+###########
+
+# This playbook is used to ping test all the network devices
+
+# Play 1
+
+- hosts: all
+  gather_facts: false
+  connection: local
+
+  #vars:
+  #  cli:
+  #    username: nms
+  #    password: cisco
+
+  tasks:
+
+    - name: ping test a la red
+      ios_command:
+        #provider: "{{ cli }}"
+        commands:
+          - ping 192.168.122.81 repeat 5
+          - ping 192.168.122.82 repeat 5
+          - ping 192.168.122.83 repeat 5
+          - ping 192.168.122.84 repeat 5
+          - ping 192.168.122.85 repeat 5
+          - ping 192.168.122.86 repeat 5
+          #- ping r2 repeat 5
+          #- ping r3 repeat 5
+          #- ping s1 repeat 5
+          #- ping s2 repeat 5
+          #- ping s3 repeat 5
+          
+      register: print_output
+
+    - name: Imprimir a la pantalla
+      debug:
+        var=print_output.stdout_lines

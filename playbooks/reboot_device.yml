@@ -1,0 +1,13 @@
+---
+- name: Reiniciar equipo
+  hosts:
+    - r3
+  gather_facts: no
+
+  tasks:
+    - name: Reiniciar equipo
+      ios_command:
+        commands:
+        - command: reload
+          prompt: 'Proceder a reiniciar? '
+          answer: 'y'

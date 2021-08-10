@@ -1,0 +1,18 @@
+---
+- name: Vizualizar la tabla ARP 
+  hosts:
+    - all
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Ejecutando el comando
+      ios_command:
+        commands:
+          - show arp 
+      register: arp
+    
+    - name: Copiar la tabla ARP a un archivo
+      copy:
+        content: "{{ arp.stdout_lines }}"
+        dest: "{{ inventory_hostname }}-arp-table.txt"
