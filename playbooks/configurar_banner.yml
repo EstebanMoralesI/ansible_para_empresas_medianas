@@ -1,0 +1,26 @@
+---
+- name: Configuración del login del banner
+  hosts: r1
+  gather_facts: no
+
+  tasks:
+    - name: Remover antiguo banner
+      ios_banner:
+        banner: motd
+        state: absent
+
+  #  - name: Reemplazando con nuevo banner
+  #    ios_banner:
+  #      banner: motd
+  #      text: 
+  #        esto es una prueba de banner!!!
+  #        esto es una prueba de banner!!!
+  #        esto es una prueba de banner!!!
+  #        esto es una prueba de banner!!!
+  #      state: present
+
+    - name: Remplazando con banner de archivo
+      ios_banner:
+        banner: motd
+        text: "{{ lookup('file', './parametros/banner.cfg')}}"
+        state: present 
