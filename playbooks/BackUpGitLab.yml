@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: r1
   gather_facts: no
   tasks:
     - name: cisco cfg backup

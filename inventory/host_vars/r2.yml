@@ -1,3 +1,5 @@
 ---
 loopback: 2.2.2.2
 router_id: 2.2.2.2
+ospf_network: 192.168.122.0 0.0.0.255
+ospf_area: 0
