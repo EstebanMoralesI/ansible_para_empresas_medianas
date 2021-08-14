@@ -1,0 +1,13 @@
+---
+- name: Crear Vlans
+  hosts: switch-ios
+  gather_facts: no
+
+  tasks:
+    - name: Crear Vlans en cada equipo
+      ios_config:
+        lines:
+          - name "{{ item.vlan_name }}"
+          - no shutdown
+        parents: "vlan {{ item.vlan_id }}"
+      loop: "{{ vlans }}"

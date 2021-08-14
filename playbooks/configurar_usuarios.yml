@@ -1,0 +1,12 @@
+---
+- name: Creando usuarios en los equipos
+  hosts: all 
+  gather_facts: no 
+
+  tasks:
+    - name: Creando usuarios y encriptando passwords
+      ios_config:
+        lines:
+          - username "{{ item.username }}" password "{{ item.password }}"
+          - service password-encryption
+      loop: "{{ users }}"
