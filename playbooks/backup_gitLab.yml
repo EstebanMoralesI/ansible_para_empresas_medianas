@@ -10,6 +10,7 @@
           dir_path: ./playbooks
     - name: read cfg file content
       set_fact:
+        dir_path: ./playbooks
         file_content: "{{ item }}"
       with_file:
         - "{{ inventory_hostname }}.cfg"
@@ -68,8 +69,9 @@
         action_dict: {}
       when: commit_action == "update" and file_content_in_gitlab == file_content
 
-    - name: remove local cfg files
+    - name: remove local cfg files      
       file:
+       # dir_path: ./playbooks   
         path: "{{ inventory_hostname }}.cfg"
         state: absent
 
