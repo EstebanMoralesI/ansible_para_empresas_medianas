@@ -1,7 +1,7 @@
 ---
 - name: Reiniciar equipo
   hosts:
-    - r3
+    - all 
   gather_facts: no
 
   tasks:
