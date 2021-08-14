@@ -1,5 +1,5 @@
 ---
-- hosts: r1
+- hosts: all
   gather_facts: no
   tasks:
     - name: cisco cfg backup
@@ -7,7 +7,7 @@
         backup: yes
         backup_options:
           filename: "{{ inventory_hostname }}.cfg"
-          dir_path: ./
+          dir_path: ./playbooks
     - name: read cfg file content
       set_fact:
         file_content: "{{ item }}"
