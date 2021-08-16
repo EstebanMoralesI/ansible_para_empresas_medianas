@@ -9,6 +9,8 @@ users:
   - username: user3
     password: user3
   
-  - username: user7
-    password: user7
+  - username: user4
+    password: user4
   
+  - username: user5
+    password: user5
