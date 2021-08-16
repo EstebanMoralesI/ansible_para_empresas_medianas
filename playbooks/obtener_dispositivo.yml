@@ -1,6 +1,6 @@
 ---
 - name: Obtener datos de los dispositivos y guardarlos en un formato csv
-  hosts: r1
+  hosts: all
   gather_facts: no
 
   vars:
