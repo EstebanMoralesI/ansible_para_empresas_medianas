@@ -14,5 +14,6 @@
     
     - name: Copiar la tabla ARP a un archivo
       copy:
-        content: "{{ arp.stdout_lines }}"
-        dest: "{{ inventory_hostname }}-arp-table.txt"
+        #content: "{{ arp.stdout_lines }}"
+        content: "{{ arp.stdout[0] }}"
+        dest: ./repositorio/tablas-arp/"{{ inventory_hostname }}-arp-table.txt"

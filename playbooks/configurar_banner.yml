@@ -1,6 +1,6 @@
 ---
 - name: Configuración del login del banner
-  hosts: r1
+  hosts: all
   gather_facts: no
 
   tasks:
@@ -22,5 +22,5 @@
     - name: Remplazando con banner de archivo
       ios_banner:
         banner: motd
-        text: "{{ lookup('file', './parametros/banner.cfg')}}"
+        text: "{{ lookup('file', './parametros/banner.cfg' )}}"
         state: present 

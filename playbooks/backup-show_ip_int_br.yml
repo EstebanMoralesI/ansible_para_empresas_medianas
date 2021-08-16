@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+  
+  tasks:
+
+    - name: pull device configurations
+      ios_command:        
+        commands:
+          - show ip interface brief
+      
+      register: show_ip_int_br_output
+
+    - name: save device configurations
+      copy:
+        content: "{{show_ip_int_br_output.stdout[0]}}"
+        dest: repositorio/backup-show_ip_int_br/{{inventory_hostname}}.txt 
