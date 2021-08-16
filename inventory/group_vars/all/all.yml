@@ -12,3 +12,11 @@ gitlab_access_token: 3Ye2qu2WJQnzYmZW2X-G
 
 ospf_network: 192.168.1.0 255.255.255.0
 ospf_area: 0
+
+ntp_servers:
+    - 192.168.2.1
+    - 192.168.2.2
+    - 192.168.2.3
+dns_servers:
+    - 192.168.3.1
+    - 192.168.3.2

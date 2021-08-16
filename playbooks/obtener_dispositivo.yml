@@ -1,0 +1,25 @@
+---
+- name: Obtener datos de los dispositivos y guardarlos en un formato csv
+  hosts: r1
+  gather_facts: no
+
+  vars:
+    info_dir: "/home/esteban/ansible_para_empresas_medianas/facts"
+    report_file: "{{ info_dir }}/device-facts.csv"
+  
+  tasks:
+    - name: Creando/confirmando directorio
+      file:
+        path: "{{ info_dir }}"
+        state: directory
+      run_once: yes
+      delegate_to: localhost
+    
+    - name: get IOS device facts 
+      ios_facts:
+        gather_subset: all
+    
+    - name: Save device facts
+      template:
+        src: template/facts_output.j2
+        dest: "{{ report_file }}"

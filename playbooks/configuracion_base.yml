@@ -1,0 +1,16 @@
+---
+- name: Instanciando la configuración base
+  hosts: r1
+  gather_facts: no
+
+  tasks:
+
+    - name: Instanciando la configuración
+      template:
+        src: ./template/configuracion_equipos.j2
+        dest: ./build/{{ inventory_hostname }}.cfg 
+    
+    - name: Push instantiated config 
+      ios_config:
+        src: ./build/{{ inventory_hostname }}.cfg
+        diff_against: startup
