@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: all 
   gather_facts: no
   tasks:
     - name: cisco cfg backup
@@ -7,13 +7,13 @@
         backup: yes
         backup_options:
           filename: "{{ inventory_hostname }}.cfg"
-          dir_path: ./playbooks
+          dir_path: ./
     - name: read cfg file content
       set_fact:
-        dir_path: ./playbooks
-        file_content: "{{ item }}"
+        dir_path: ./
+        file_content: "{{ item }}"        
       with_file:
-        - "{{ inventory_hostname }}.cfg"
+        - "{{ inventory_hostname }}.cfg"      
       no_log: True
     - name: get the repository file tree
       uri:
@@ -71,7 +71,7 @@
 
     - name: remove local cfg files      
       file:
-       # dir_path: ./playbooks   
+        #dir_path: ./playbooks  
         path: "{{ inventory_hostname }}.cfg"
         state: absent
 
