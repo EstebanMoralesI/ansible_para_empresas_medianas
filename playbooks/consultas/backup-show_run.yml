@@ -16,4 +16,4 @@
     - name: save device configurations
       copy:
         content: "{{show_run_output.stdout[0]}}"
-        dest: repositorio/backup-show_run/{{inventory_hostname}}.txt 
+        dest: repositorio/backup-show_run/{{inventory_hostname}}-sh-run.txt 

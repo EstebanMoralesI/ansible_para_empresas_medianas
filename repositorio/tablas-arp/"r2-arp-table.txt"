@@ -1,8 +1,0 @@
-Protocol  Address          Age (min)  Hardware Addr   Type   Interface
-Internet  192.168.122.71        227   0200.4c4f.4f50  ARPA   GigabitEthernet0/0
-Internet  192.168.122.81         86   0ca2.3363.0a00  ARPA   GigabitEthernet0/0
-Internet  192.168.122.82          -   0ca2.33cf.b900  ARPA   GigabitEthernet0/0
-Internet  192.168.122.83         86   0ca2.33ec.b900  ARPA   GigabitEthernet0/0
-Internet  192.168.122.84         86   0ca2.335c.8001  ARPA   GigabitEthernet0/0
-Internet  192.168.122.85         86   0ca2.33d9.8001  ARPA   GigabitEthernet0/0
-Internet  192.168.122.86         86   0ca2.339a.8001  ARPA   GigabitEthernet0/0

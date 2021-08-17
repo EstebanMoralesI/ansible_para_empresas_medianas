@@ -16,4 +16,4 @@
     - name: save device configurations
       copy:
         content: "{{show_ip_int_br_output.stdout[0]}}"
-        dest: repositorio/backup-show_ip_int_br/{{inventory_hostname}}.txt 
+        dest: repositorio/backup-show_ip_int_br/{{inventory_hostname}}-sh-ip-int-br.txt 

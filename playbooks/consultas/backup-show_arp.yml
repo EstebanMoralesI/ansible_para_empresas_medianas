@@ -10,10 +10,10 @@
       ios_command:
         commands:
           - show arp 
-      register: arp
+      register: arp_output
     
     - name: Copiar la tabla ARP a un archivo
       copy:
         #content: "{{ arp.stdout_lines }}"
-        content: "{{ arp.stdout[0] }}"
-        dest: ./repositorio/tablas-arp/"{{ inventory_hostname }}-arp-table.txt"
+        content: "{{ arp_output.stdout[0] }}"
+        dest: ./repositorio/backup-show_arp/"{{ inventory_hostname }}-show-arp.txt"
