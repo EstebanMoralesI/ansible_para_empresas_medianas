@@ -1,0 +1,13 @@
+---
+- name: Verificar conexión total a todos los equipos
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: ping test a la red      
+      ios_command:        
+        commands:         
+          - ping "{{ item.ips_id }}"
+      loop: "{{ ips }}"      
+   

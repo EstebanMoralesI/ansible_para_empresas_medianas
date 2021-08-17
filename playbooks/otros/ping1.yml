@@ -20,15 +20,20 @@
   tasks:
 
     - name: ping test a la red
+    
+      
       ios_command:
         #provider: "{{ cli }}"
         commands:
+          #- ping 192.168.122.81 repeat 5
+          #- ping 192.168.122.82 repeat 5
+          #- ping 192.168.122.83 repeat 5
+          #- ping 192.168.122.84 repeat 5
+          #- ping 192.168.122.85 repeat 5
+          #- ping 192.168.122.86 repeat 5
+          #- ping "{{ ips-de-equipos }}""
           - ping 192.168.122.81 repeat 5
-          - ping 192.168.122.82 repeat 5
-          - ping 192.168.122.83 repeat 5
-          - ping 192.168.122.84 repeat 5
-          - ping 192.168.122.85 repeat 5
-          - ping 192.168.122.86 repeat 5
+        #loop: "{{ ips-de-equipos }}"
           #- ping r2 repeat 5
           #- ping r3 repeat 5
           #- ping s1 repeat 5
