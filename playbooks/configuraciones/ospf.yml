@@ -20,9 +20,9 @@
     - name: Ejecutando el comando "show ospf neighbors"
       ios_command:
         commands: show ip ospf neighbor 
-      register: ospf
+      register: ospf_neighbor
 
     - name: Visualizar vecinos
       debug:
-        var: ospf.stdout_lines
+        var: ospf_neighbor.stdout_lines
 

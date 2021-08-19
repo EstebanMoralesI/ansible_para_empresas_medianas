@@ -1,4 +1,7 @@
 ---
+# PARAMETROS DE USUARIOS Y PASSWORDS
+# En el parámetro "username" introducir el nombre del usuario
+# En el parámetro "password" introducir el password del usuario
 users:
   - username: user1
     password: user1

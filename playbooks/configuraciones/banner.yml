@@ -9,18 +9,19 @@
         banner: motd
         state: absent
 
-  #  - name: Reemplazando con nuevo banner
-  #    ios_banner:
-  #      banner: motd
-  #      text: 
-  #        esto es una prueba de banner!!!
-  #        esto es una prueba de banner!!!
-  #        esto es una prueba de banner!!!
-  #        esto es una prueba de banner!!!
-  #      state: present
-
-    - name: Remplazando con banner de archivo
+    - name: Configurando el login banner
       ios_banner:
         banner: motd
-        text: "{{ lookup('file', './parametros/banner.cfg' )}}"
-        state: present 
+        text: |
+          !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          !!!!!!! Esto es una prueba de !!!!!!!
+          !!!!!!!  un nuevo banner con  !!!!!!! 
+          !!!!!!!         texto         !!!!!!!
+          !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+        state: present
+
+    # - name: Configurando el banner desde un archivo
+    #   ios_banner:
+    #     banner: motd
+    #     text: "{{ lookup('file', './parametros/banner.cfg') }}"
+    #     state: present  
