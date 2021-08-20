@@ -9,8 +9,7 @@
     - name: pull device configurations
       ios_command:        
         commands:
-          - show run
-      
+          - show run      
       register: show_run_output
 
     - name: save device configurations

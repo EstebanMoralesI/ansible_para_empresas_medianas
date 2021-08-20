@@ -13,7 +13,6 @@
       register: arp_output
     
     - name: Copiar la tabla ARP a un archivo
-      copy:
-        #content: "{{ arp.stdout_lines }}"
+      copy:        
         content: "{{ arp_output.stdout[0] }}"
         dest: ./repositorio/backup-show_arp/"{{ inventory_hostname }}-show-arp.txt"

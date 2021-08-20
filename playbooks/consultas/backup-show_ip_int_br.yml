@@ -9,8 +9,7 @@
     - name: pull device configurations
       ios_command:        
         commands:
-          - show ip interface brief
-      
+          - show ip interface brief      
       register: show_ip_int_br_output
 
     - name: save device configurations

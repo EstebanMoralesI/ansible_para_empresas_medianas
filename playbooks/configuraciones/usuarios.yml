@@ -1,6 +1,6 @@
 ---
 - name: Creando usuarios en los equipos
-  hosts: switch-ios 
+  hosts: switch-access 
   gather_facts: no 
 
   tasks:
