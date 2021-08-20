@@ -1,6 +1,6 @@
 ---
 - name: Instanciando la configuración base
-  hosts: r1
+  hosts: all
   gather_facts: no
 
   tasks:

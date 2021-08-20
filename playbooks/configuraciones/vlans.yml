@@ -1,6 +1,6 @@
 ---
 - name: Crear Vlans
-  hosts: switch-ios
+  hosts: switch-access
   gather_facts: no
 
   tasks:
