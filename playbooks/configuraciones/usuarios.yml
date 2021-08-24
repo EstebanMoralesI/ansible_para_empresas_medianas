@@ -10,4 +10,5 @@
           - username "{{ item.username }}" password "{{ item.password }}"
           - service password-encryption
       loop: "{{ users }}"
+
       

@@ -1,6 +1,6 @@
 ---
 - name: Configuración del login del banner
-  hosts: router1
+  hosts: all
   gather_facts: no
 
   tasks:
