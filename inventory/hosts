@@ -1,11 +1,13 @@
 [router]
 router1
-  
-[switch-core]
-switch-core1
-switch-core2
 
-[switch-access]
-switch-access1
-switch-access2
-switch-access3
+[switch]
+
+    [switch-core]
+    switch-core1
+    switch-core2
+
+    [switch-access]
+    switch-access1
+    switch-access2
+    switch-access3

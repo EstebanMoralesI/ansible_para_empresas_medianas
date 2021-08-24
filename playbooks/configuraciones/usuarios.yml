@@ -1,6 +1,6 @@
 ---
 - name: Creando usuarios en los equipos
-  hosts: switch-access 
+  hosts: all
   gather_facts: no 
 
   tasks:
@@ -10,3 +10,4 @@
           - username "{{ item.username }}" password "{{ item.password }}"
           - service password-encryption
       loop: "{{ users }}"
+      

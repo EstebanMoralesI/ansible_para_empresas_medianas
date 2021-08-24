@@ -1,6 +1,6 @@
 ---
 - name: Configuración del login del banner
-  hosts: all
+  hosts: router1
   gather_facts: no
 
   tasks:
@@ -14,3 +14,5 @@
         banner: motd
         text: "{{ lookup('file', './parametros/banner.cfg') }}"
         state: present  
+
+        
