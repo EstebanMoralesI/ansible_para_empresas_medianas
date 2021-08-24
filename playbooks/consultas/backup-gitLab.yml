@@ -2,20 +2,20 @@
 - hosts: all 
   gather_facts: no
   tasks:
-    - name: cisco cfg backup
+    - name: Backup de la Configuración de los equipos
       ios_config:
         backup: yes
         backup_options:
           filename: "{{ inventory_hostname }}.cfg"
           dir_path: ./
-    - name: read cfg file content
+    - name: LEctura del contenido de los archivos cfg
       set_fact:
         dir_path: ./
         file_content: "{{ item }}"        
       with_file:
         - "{{ inventory_hostname }}.cfg"      
       no_log: True
-    - name: get the repository file tree
+    - name: Obtener el árbol de archivos del repositorio
       uri:
         url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/tree?ref=master&per_page=100&page=1
         body_format: json
@@ -26,21 +26,19 @@
           Private-Token: "{{ gitlab_access_token }}"
       register: response
       delegate_to: localhost
-    # please install jmespath
-    # pip install jmespath
-    - name: get project files
+    - name: Obtener los archivos del proyecto
       set_fact:
         project_files: "{{ response.json | json_query('[].name') }}"
         file_name: "{{ inventory_hostname }}.cfg"
-    - name: set commit action as create
+    - name: Establecer la acción de confirmación como "create"
       set_fact:
         commit_action: create
       when: file_name is not in project_files
-    - name: set commit action as update
+    - name: Establecer la acción de confirmación como "update"
       set_fact:
         commit_action: update
       when: file_name in project_files
-    - name: get cfg file content from gitlab
+    - name: Obtener el contenido del archivo cfg de gitlab
       uri:
         url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/files/{{ file_name }}/raw?ref=master
         body_format: json
@@ -52,40 +50,36 @@
       register: response
       delegate_to: localhost
       when: commit_action == "update"
-
-    - name: save file content from gitlab
+    - name: Grabando el contenido del archivo de gitlab
       set_fact:
         file_content_in_gitlab: "{{ response.content }}"
       when: commit_action == "update"
-    - name: create action dict
+    - name: Creando el action dict
       set_fact:
         action_dict:
           action: "{{ commit_action}}"
           file_path: "{{ inventory_hostname }}.cfg"
           content: "{{ file_content }}"
       when: commit_action == "create" or (commit_action == "update" and file_content_in_gitlab != file_content)
-    - name: create empty dict
+    - name: Creando empty dict
       set_fact:
         action_dict: {}
       when: commit_action == "update" and file_content_in_gitlab == file_content
-
-    - name: remove local cfg files      
+    - name: Removiendo los archivos cfg locales      
       file:
         #dir_path: ./playbooks  
         path: "{{ inventory_hostname }}.cfg"
         state: absent
-
-- name: push to gitlab
+- name: Push a gitlab
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: create action list
+    - name: Creando action list
       set_fact:
         action_list: "{{ action_list | default([]) + [ hostvars[item].action_dict ] }}"
       loop: "{{ groups['all'] }}"
       when: hostvars[item].action_dict != {}
-
-    - name: push new/updated cfg to gitlab
+    - name: Push nuevo/actualizado cfg a gitlab
       uri:
         url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/commits
         headers:
