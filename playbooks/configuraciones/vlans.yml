@@ -1,6 +1,6 @@
 ---
 - name: Crear Vlans
-  hosts: switch
+  hosts: switch-core
   gather_facts: no
 
   tasks:
