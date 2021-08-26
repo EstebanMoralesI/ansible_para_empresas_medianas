@@ -1,6 +1,6 @@
 ---
 - name: Creando usuarios en los equipos
-  hosts: all
+  hosts: router1
   gather_facts: no 
 
   tasks:
@@ -10,5 +10,12 @@
           - username "{{ item.username }}" password "{{ item.password }}"
           - service password-encryption
       loop: "{{ users }}"
-
-      
+    
+    - name: Ejecutar comando show run
+      ios_command:
+        commands: show run | include username
+      register: usuarios
+    
+    - name: Visualizar usuarios 
+      debug:
+        var: usuarios.stdout_lines
