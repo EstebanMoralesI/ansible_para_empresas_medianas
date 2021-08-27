@@ -8,7 +8,7 @@
         backup_options:
           filename: "{{ inventory_hostname }}.cfg"
           dir_path: ./
-    - name: LEctura del contenido de los archivos cfg
+    - name: Lectura del contenido de los archivos cfg
       set_fact:
         dir_path: ./
         file_content: "{{ item }}"        
