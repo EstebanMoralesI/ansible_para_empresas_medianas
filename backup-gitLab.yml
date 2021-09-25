@@ -1,5 +1,5 @@
 ---
-- hosts: all 
+- hosts: router 
   gather_facts: no
   tasks:
     - name: Backup de la Configuración de los equipos

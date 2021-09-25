@@ -1,7 +1,7 @@
 ---
 # PARAMETROS GENERALES DE ENTORNO
 
-# !!!PRECAUCIÓN!!! PARAMETROS QUE NO SE DEBEN MODIFICAR
+# !!!PRECAUCIÓN!!! NO MODIFICAR ESTOS PARAMETROS
 ansible_connection: network_cli
 ansible_network_os: ios
 ansible_become: yes
@@ -15,11 +15,15 @@ ansible_password: cisco
 # En el parámetro "ansible_become_pass" introducir el password del nodo principal
 ansible_become_pass: cisco
 # En el parámetro "gitlab_project_id" introducir el id del proyecto de su entorno en gitlab
-gitlab_project_id: 23287753
-#gitlab_project_id: 29126697
+#gitlab_project_id: 23287753
+
+# ansible-empresa1
+gitlab_project_id: 29900751
 # En el parámetro "gitlab_access_token" introducir el token del proyecto de su entorno en gitlab
-gitlab_access_token: 3Ye2qu2WJQnzYmZW2X-G
-#gitlab_access_token: Y2s5fDXk8gjj_uokooVH
+#gitlab_access_token: 3Ye2qu2WJQnzYmZW2X-G
+
+# token ansible-empresa1
+gitlab_access_token: GhuGL8w4GuxMsJjb6Uon
 
 # PARAMETROS GENERALES DE RED
 
