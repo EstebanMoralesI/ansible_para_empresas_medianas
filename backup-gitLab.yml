@@ -1,5 +1,5 @@
 ---
-- hosts: router 
+- hosts: all 
   gather_facts: no
   tasks:
     - name: Backup de la Configuración de los equipos
@@ -19,7 +19,7 @@
       uri:
         url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/tree?ref=master&per_page=100&page=1
         body_format: json
-        validate_certs: no
+        validate_certs: no  
         status_code: 200
         return_content: yes
         headers:

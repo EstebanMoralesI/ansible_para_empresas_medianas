@@ -15,15 +15,15 @@ ansible_password: cisco
 # En el parámetro "ansible_become_pass" introducir el password del nodo principal
 ansible_become_pass: cisco
 # En el parámetro "gitlab_project_id" introducir el id del proyecto de su entorno en gitlab
-#gitlab_project_id: 23287753
+gitlab_project_id: 23287753
 
-# ansible-empresa1
-gitlab_project_id: 29900751
+# ansible-backup
+#gitlab_project_id: 29906080
 # En el parámetro "gitlab_access_token" introducir el token del proyecto de su entorno en gitlab
-#gitlab_access_token: 3Ye2qu2WJQnzYmZW2X-G
+gitlab_access_token: 3Ye2qu2WJQnzYmZW2X-G
 
-# token ansible-empresa1
-gitlab_access_token: GhuGL8w4GuxMsJjb6Uon
+# token ansible-backup
+#gitlab_access_token: HCc43h8fHxFi22HPHEd-
 
 # PARAMETROS GENERALES DE RED
 
