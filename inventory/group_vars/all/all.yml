@@ -14,6 +14,7 @@ ansible_user: esteban
 ansible_password: cisco
 # En el parámetro "ansible_become_pass" introducir el password del nodo principal
 ansible_become_pass: cisco
+
 # En el parámetro "gitlab_project_id" introducir el id del proyecto de su entorno en gitlab
 gitlab_project_id: 23287753
 
