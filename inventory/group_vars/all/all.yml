@@ -19,12 +19,12 @@ ansible_become_pass: cisco
 gitlab_project_id: 23287753
 
 # ansible-backup
-#gitlab_project_id: 29906080
+
 # En el parámetro "gitlab_access_token" introducir el token del proyecto de su entorno en gitlab
 gitlab_access_token: 3Ye2qu2WJQnzYmZW2X-G
 
 # token ansible-backup
-#gitlab_access_token: HCc43h8fHxFi22HPHEd-
+
 
 # PARAMETROS GENERALES DE RED
 
