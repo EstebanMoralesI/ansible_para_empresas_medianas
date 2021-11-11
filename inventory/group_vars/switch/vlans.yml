@@ -15,4 +15,7 @@ vlans:
   - vlan_name: VLAN50
     vlan_id: 50
 
+  - vlan_name: VLAN60
+    vlan_id: 60
+
     
