@@ -1,5 +1,18 @@
-[ios]
-r1.cisco.com
+[router]
+router1
 
-[web]
-192.168.205.10
+[switch]
+switch-core1
+switch-core2
+switch-access1
+switch-access2
+switch-access3
+
+[switch-core]
+switch-core1
+switch-core2
+
+[switch-access]
+switch-access1
+switch-access2
+switch-access3
