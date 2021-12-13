@@ -1,0 +1,18 @@
+---
+- name: Prueba
+  hosts: all
+  gather_facts: no
+  #connection: local
+  tasks: 
+    - name: Backup de la Configuración de los equipos
+      ios_config:
+        backup: yes
+        backup_options:
+          filename: "{{ inventory_hostname }}.cfg"
+          dir_path: ./
+        
+    - name: Removiendo los archivos cfg locales      
+      file:
+        #dir_path: ./playbooks  
+        path: "{{ inventory_hostname }}.cfg"
+        state: absent

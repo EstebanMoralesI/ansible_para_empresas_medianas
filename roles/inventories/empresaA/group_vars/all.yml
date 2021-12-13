@@ -3,6 +3,8 @@
 
 # !!!PRECAUCIÓN!!! NO MODIFICAR ESTOS PARAMETROS
 ansible_connection: network_cli
+#ansible_connection: local
+#ansible_connection: ansible.netcommon.network_cli
 ansible_network_os: ios
 ansible_become: yes
 ansible_become_method: enable
@@ -43,3 +45,18 @@ ntp_servers:
 dns_servers:
     - 192.168.3.1
     - 192.168.3.2
+
+
+ips:
+  - ips_name: router1
+    ips_id: 192.168.122.91
+  - ips_name: switch-core1
+    ips_id: 192.168.122.92
+  - ips_name: switch-core2
+    ips_id: 192.168.122.93
+  - ips_name: switch-access1
+    ips_id: 192.168.122.94
+  - ips_name: switch-access2
+    ips_id: 192.168.122.95
+  - ips_name: switch-access3
+    ips_id: 192.168.122.96
