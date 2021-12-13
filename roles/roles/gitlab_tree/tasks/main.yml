@@ -5,7 +5,7 @@
 
 - name: get the repository file tree
   uri:
-    url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/tree?ref=master&per_page=2&page={{ page_num }}
+    url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/tree?ref=main&per_page=2&page={{ page_num }}
     body_format: json
     validate_certs: no
     status_code: 200

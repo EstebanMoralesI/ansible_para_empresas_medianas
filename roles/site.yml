@@ -1,12 +1,7 @@
 ---
-- hosts: ios
+- hosts: all
   gather_facts: no
-  tasks:
-    # - include_role:
-    #     name: cisco_ios
-    # - name: print running cfg
-    #   debug:
-    #     var: running_cfg
+  tasks:  
     - include_role:
         name: gitlab_tree
       vars:
