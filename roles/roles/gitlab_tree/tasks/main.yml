@@ -11,15 +11,16 @@
 
 - name: Backup de la Configuración de los equipos
   ios_config:
+    #connection: local
     backup: yes
     backup_options:
       filename: "{{ inventory_hostname }}.cfg"
       dir_path: ./        
-- name: Removiendo los archivos cfg locales      
-  file:
-    #dir_path: ./playbooks  
-    path: "{{ inventory_hostname }}.cfg"
-    state: absent
+# - name: Removiendo los archivos cfg locales      
+#   file:
+    
+#     path: "{{ inventory_hostname }}.cfg"
+#     state: absent
 
 
 
@@ -119,3 +120,36 @@
 #     body_format: json
 #   delegate_to: localhost
 #   when: action_list is defined
+
+
+
+
+
+
+
+
+# - name: create fact
+#   set_fact:
+#     gitlab_repo_file_list: []
+#   when: gitlab_repo_file_list is not defined
+
+# - name: get the repository file tree
+#   uri:
+#     url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/tree?ref=master&per_page=2&page={{ page_num }}
+#     body_format: json
+#     validate_certs: no
+#     status_code: 200
+#     return_content: yes
+#     headers:
+#       Private-Token: "{{ gitlab_access_token }}"
+#   register: response
+#   delegate_to: localhost
+# - name: save the file name
+#   set_fact:
+#     gitlab_repo_file_list: "{{ gitlab_repo_file_list }} + {{ response.json | json_query('[].name') }}"
+# - include_role:
+#     name: gitlab_tree
+#   vars:
+#     page_num: "{{ response.x_next_page }}"
+#   when: response.x_next_page
+

@@ -1,18 +1,10 @@
 [router]
-router1
+r1 
+r2
+r3
 
 [switch]
-switch-core1
-switch-core2
-switch-access1
-switch-access2
-switch-access3
-
 [switch-core]
-switch-core1
-switch-core2
-
-[switch-access]
-switch-access1
-switch-access2
-switch-access3
+s1
+s2
+s3

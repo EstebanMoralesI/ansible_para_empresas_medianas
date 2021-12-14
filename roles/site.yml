@@ -1,12 +1,13 @@
 ---
 - hosts: all
   gather_facts: no
-  #connection: local 
+  
+  connection: local 
   tasks:  
     - include_role:
         name: gitlab_tree
       vars:
-        page_num: 1
+         page_num: 1
     - name: imprimir resultados
       debug:
         var: gitlab_repo_file_list
