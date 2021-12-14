@@ -1,8 +1,9 @@
 ---
 - hosts: all
   gather_facts: no
+  connection: local
   
-  connection: local 
+  
   tasks:  
     - include_role:
         name: gitlab_tree
@@ -11,3 +12,9 @@
     - name: imprimir resultados
       debug:
         var: gitlab_repo_file_list
+
+
+
+
+  
+  
