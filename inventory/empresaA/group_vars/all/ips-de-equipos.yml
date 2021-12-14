@@ -1,0 +1,17 @@
+---
+# PARAMETROS DE TODOS LOS EQUIPOS CON SUS RESPECTIVAS IP'S
+# En el parámetro "ips_name" introducir el nombre del equipo
+# En el parámetro "ips_id" introducir la ip del equipo
+ips:
+  - ips_name: router1
+    ips_id: 192.168.122.91
+  - ips_name: switch-core1
+    ips_id: 192.168.122.92
+  - ips_name: switch-core2
+    ips_id: 192.168.122.93
+  - ips_name: switch-access1
+    ips_id: 192.168.122.94
+  - ips_name: switch-access2
+    ips_id: 192.168.122.95
+  - ips_name: switch-access3
+    ips_id: 192.168.122.96
