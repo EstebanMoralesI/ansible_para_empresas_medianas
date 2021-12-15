@@ -15,8 +15,7 @@
       file: 
         path: ./repositorio/{{ nombre_empresa }}/backup-show_arp/       
         state: directory
-      run_once: yes
-      delegate_to: localhost  
+
 
     - name: Copiar la tabla ARP a un archivo
       copy:        
