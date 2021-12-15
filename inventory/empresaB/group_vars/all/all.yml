@@ -33,6 +33,9 @@ gitlab_access_token: glpat-R6vWoLKRt4LEM-tgPPpY
 
 # PARAMETROS GENERALES DE RED
 
+# NOMBRE DE LA EMPRESA
+nombre_empresa: empresaB
+
 # PARAMETROS DE OSPF NETWORK Y AREA
 ospf_network: 192.168.10.0 255.255.255.0
 ospf_area: 0

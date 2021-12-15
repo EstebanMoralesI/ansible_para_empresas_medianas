@@ -9,10 +9,10 @@
     - name: Ejecutando el comando
       ios_command:
         commands:
-          - show arp 
+          - show arp           
       register: arp_output
     
     - name: Copiar la tabla ARP a un archivo
       copy:        
         content: "{{ arp_output.stdout[0] }}"
-        dest: ./repositorio/backup-show_arp/"{{ inventory_hostname }}-show-arp.txt"
+        dest: ./repositorio/{{ nombre_empresa }}/backup-show_arp/"{{ inventory_hostname }}-show-arp.txt"
