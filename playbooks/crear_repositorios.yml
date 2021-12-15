@@ -6,28 +6,28 @@
   
   tasks:
     - stat:
-        path: ./repositorio/{{ nombre_empresa }}/backup-show_arp
+        path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_arp
       register: output_arp
     - name: Crear directorio "show arp"
       file: 
-        path: ./repositorio/{{ nombre_empresa }}/backup-show_arp/       
+        path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_arp/       
         state: directory
       when: output_arp.stat.exists == false
 
     - stat:
-        path: ./repositorio/{{ nombre_empresa }}/backup-show_ip_int_br
+        path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_ip_int_br
       register: output_ip_int_br
     - name: Crear directorio "show ip interface brief"
       file: 
-        path: ./repositorio/{{ nombre_empresa }}/backup-show_ip_int_br/       
+        path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_ip_int_br/       
         state: directory
       when: output_ip_int_br.stat.exists == false
 
     - stat:
-        path: ./repositorio/{{ nombre_empresa }}/backup-show_run
+        path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_run
       register: output_run
     - name: Crear directorio "show run"
       file: 
-        path: ./repositorio/{{ nombre_empresa }}/backup-show_run/       
+        path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_run/       
         state: directory
       when: output_run.stat.exists == false

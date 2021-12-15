@@ -1,7 +1,0 @@
-"Device hostname","Model","IOS verison","Serial number","Total memory left:","Image location:"
-"r1","IOSv","15.6(2)T","94OOK8QA6M1NBALFOV3MU","758750.18359375","flash0:/vios-adventerprisek9-m"
-"r2","IOSv","15.6(2)T","91GKQCAX0F6JYE1OFV6HZ","758756.48828125","flash0:/vios-adventerprisek9-m"
-"r3","IOSv","15.6(2)T","9K212DNAHNP8J4IFPSSE3","758749.80078125","flash0:/vios-adventerprisek9-m"
-"S1","IOSv","15.2(20170321:233949)","9VERMB27JM0","1634161.609375","flash0:/vios_l2-adventerprisek9-m"
-"S2","IOSv","15.2(20170321:233949)","9MSMAWS70XC","1634161.609375","flash0:/vios_l2-adventerprisek9-m"
-"S3","IOSv","15.2(20170321:233949)","9ZMURPWMCQA","1634161.609375","flash0:/vios_l2-adventerprisek9-m"

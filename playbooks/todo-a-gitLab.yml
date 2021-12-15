@@ -1,0 +1,99 @@
+---
+- hosts: all 
+  gather_facts: no
+  tasks:
+    # - name: Backup de la Configuración de los equipos
+    #   ios_config:
+    #     backup: yes
+    #     backup_options:
+    #       filename: "{{ inventory_hostname }}.cfg"
+    #       dir_path: ./playbooks/read
+    - name: Lectura del contenido de los archivos txt
+      set_fact:
+        dir_path: ./repositorio/{{ nombre_empresa }}/backup-show_arp
+        file_content: "{{ item }}"        
+      with_file:
+        - "./repositorio/{{ nombre_empresa }}/backup-show_arp/arp-{{ inventory_hostname }}.txt"      
+      no_log: True
+
+
+
+
+    - name: Obtener el árbol de archivos del repositorio
+      uri:
+        url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/tree?ref=master&per_page=100&page=1
+        body_format: json
+        validate_certs: no  
+        status_code: 200
+        return_content: yes
+        headers:
+          Private-Token: "{{ gitlab_access_token }}"
+      register: response
+      delegate_to: localhost
+    - name: Obtener los archivos del proyecto
+      set_fact:
+        project_files: "{{ response.json | json_query('[].name') }}"
+        file_name: "arp-{{ inventory_hostname }}.txt"
+    - name: Establecer la acción de confirmación como "create"
+      set_fact:
+        commit_action: create
+      when: file_name is not in project_files
+    - name: Establecer la acción de confirmación como "update"
+      set_fact:
+        commit_action: update
+      when: file_name in project_files
+    - name: Obtener el contenido del archivo cfg de gitlab
+      uri:
+        url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/files/{{ file_name }}/raw?ref=master
+        body_format: json
+        validate_certs: no
+        status_code: 200, 404
+        return_content: yes
+        headers:
+          Private-Token: "{{ gitlab_access_token }}"
+      register: response
+      delegate_to: localhost
+      when: commit_action == "update"
+    - name: Grabando el contenido del archivo de gitlab
+      set_fact:
+        file_content_in_gitlab: "{{ response.content }}"
+      when: commit_action == "update"
+    - name: Creando el action dict
+      set_fact:
+        action_dict:
+          action: "{{ commit_action}}"
+          file_path: "arp-{{ inventory_hostname }}.txt"
+          content: "arp-{{ file_content }}.txt"
+      when: commit_action == "create" or (commit_action == "update" and file_content_in_gitlab != file_content)
+    - name: Creando empty dict
+      set_fact:
+        action_dict: {}
+      when: commit_action == "update" and file_content_in_gitlab == file_content
+    # - name: Removiendo los archivos cfg locales                      
+    #   file:               
+    #     path: "./playbooks/read/{{ inventory_hostname }}.cfg"
+    #     state: absent
+- name: Push a gitlab
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Creando action list
+      set_fact:
+        action_list: "{{ action_list | default([]) + [ hostvars[item].action_dict ] }}"
+      loop: "{{ groups['all'] }}"
+      when: hostvars[item].action_dict != {}
+    - name: Push nuevo/actualizado cfg a gitlab
+      uri:
+        url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/commits
+        headers:
+          Private-Token: "{{ gitlab_access_token }}"
+        validate_certs: no
+        method: POST
+        body:
+          branch: master
+          commit_message: backup tablas arp 
+          actions: "{{ action_list }}"
+        status_code: 201
+        body_format: json
+      delegate_to: localhost
+      when: action_list is defined
