@@ -5,19 +5,13 @@
   gather_facts: no
 
   tasks:
-    - name: Ejecutando el comando
+    - name: Ejecutando el comando "show arp"
       ios_command:
         commands:
           - show arp           
       register: arp_output
     
-    - name: Crear directorio
-      file: 
-        path: ./repositorio/{{ nombre_empresa }}/backup-show_arp/       
-        state: directory
-
-
-    - name: Copiar la tabla ARP a un archivo
+    - name: Grabar la configuracion de los equipos de red
       copy:        
         content: "{{ arp_output.stdout[0] }}"
         dest: ./repositorio/{{ nombre_empresa }}/backup-show_arp/"{{ inventory_hostname }}-show-arp.txt"

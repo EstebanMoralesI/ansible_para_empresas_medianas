@@ -6,18 +6,13 @@
   
   tasks:
 
-    - name: pull device configurations
+    - name: Ejecutando el comando "show ip interface brief"
       ios_command:        
         commands:
           - show ip interface brief      
       register: show_ip_int_br_output
 
-    - name: Crear directorio
-      file: 
-        path: ./repositorio/{{ nombre_empresa }}/backup-show_ip_int_br/       
-        state: directory
-
-    - name: save device configurations
+    - name: Grabar la configuracion de los equipos de red
       copy:
         content: "{{show_ip_int_br_output.stdout[0]}}"
         dest: repositorio/{{ nombre_empresa }}/backup-show_ip_int_br/{{inventory_hostname}}-sh-ip-int-br.txt 

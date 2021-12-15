@@ -1,0 +1,21 @@
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  192.168.10.205          0   0c98.a4f0.8502  ARPA   GigabitEthernet0/2
+Internet  192.168.10.206          -   0c98.a445.9402  ARPA   GigabitEthernet0/2
+Internet  192.168.10.213          -   0c98.a445.9409  ARPA   GigabitEthernet2/1
+Internet  192.168.10.214          0   0c98.a4d5.df09  ARPA   GigabitEthernet2/1
+Internet  192.168.10.221          -   0c98.a445.940a  ARPA   GigabitEthernet2/2
+Internet  192.168.10.222          0   0c98.a441.350a  ARPA   GigabitEthernet2/2
+Internet  192.168.10.229          -   0c98.a445.940b  ARPA   GigabitEthernet2/3
+Internet  192.168.10.230          0   0c98.a479.070b  ARPA   GigabitEthernet2/3
+Internet  192.168.122.71          0   0200.4c4f.4f50  ARPA   GigabitEthernet3/3
+Internet  192.168.122.81          0   0c98.a4db.bd00  ARPA   GigabitEthernet3/3
+Internet  192.168.122.82          0   0c98.a464.5b00  ARPA   GigabitEthernet3/3
+Internet  192.168.122.83          0   0c98.a4fc.9000  ARPA   GigabitEthernet3/3
+Internet  192.168.122.85          0   0c98.a4a1.8001  ARPA   GigabitEthernet3/3
+Internet  192.168.122.86          0   0c98.a4dc.8001  ARPA   GigabitEthernet3/3
+Internet  192.168.122.91          0   0c98.a4f0.8500  ARPA   GigabitEthernet3/3
+Internet  192.168.122.92          0   0c98.a4c6.ea0f  ARPA   GigabitEthernet3/3
+Internet  192.168.122.93          -   0c98.a445.940f  ARPA   GigabitEthernet3/3
+Internet  192.168.122.94          0   0c98.a4d5.df0f  ARPA   GigabitEthernet3/3
+Internet  192.168.122.95          0   0c98.a441.350f  ARPA   GigabitEthernet3/3
+Internet  192.168.122.96          0   0c98.a479.070f  ARPA   GigabitEthernet3/3

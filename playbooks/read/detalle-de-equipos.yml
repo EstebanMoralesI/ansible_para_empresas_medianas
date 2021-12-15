@@ -6,18 +6,11 @@
      
   tasks:
 
-    - name: get IOS device facts 
+    - name: obteniendo los parametros de los equipos de red
       ios_facts:
         gather_subset: all  
 
-    # - name: Crear directorio
-    #   file: 
-    #     path: ./repositorio/{{ nombre_empresa }}/detalles      
-    #     state: directory
-    #   run_once: yes
-    #   delegate_to: localhost  
-
-    - name: Save device facts
+    - name: Grabando los parametros de los equipos de red
       template:
         #src: ./template/detalle-de-equipos.j2
         src: detalle-de-equipos.j2
