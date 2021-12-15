@@ -6,7 +6,7 @@
      
   tasks:
 
-    - name: obteniendo los parametros de los equipos de red
+    - name: Obteniendo los parametros de los equipos de red
       ios_facts:
         gather_subset: all  
 
