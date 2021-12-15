@@ -12,7 +12,12 @@
           - show run      
       register: show_run_output
 
+    - name: Crear directorio
+      file: 
+        path: ./repositorio/{{ nombre_empresa }}/backup-show_run/       
+        state: directory
+
     - name: save device configurations
       copy:
         content: "{{show_run_output.stdout[0]}}"
-        dest: repositorio/backup-show_run/{{inventory_hostname}}-sh-run.txt 
+        dest: repositorio/{{ nombre_empresa }}/backup-show_run/{{inventory_hostname}}-sh-run.txt 
