@@ -7,10 +7,10 @@
         backup: yes
         backup_options:
           filename: "{{ inventory_hostname }}.cfg"
-          dir_path: ./playbooks/read
+          dir_path: ./
     - name: Lectura del contenido de los archivos cfg
       set_fact:
-        dir_path: ./playbooks/read
+        dir_path: ./
         file_content: "{{ item }}"        
       with_file:
         - "{{ inventory_hostname }}.cfg"      
@@ -67,7 +67,7 @@
       when: commit_action == "update" and file_content_in_gitlab == file_content
     - name: Removiendo los archivos cfg locales                      
       file:               
-        path: "./playbooks/read/{{ inventory_hostname }}.cfg"
+        path: "./{{ inventory_hostname }}.cfg"
         state: absent
 - name: Push a gitlab
   hosts: localhost

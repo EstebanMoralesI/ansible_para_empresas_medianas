@@ -1,6 +1,6 @@
 ---
 - name: Creando usuarios en los equipos
-  hosts: router1
+  hosts: all
   gather_facts: no 
 
   tasks:
