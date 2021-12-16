@@ -1,43 +1,58 @@
 Building configuration...
 
-Current configuration : 3968 bytes
+  
+Current configuration : 3190 bytes
 !
-! Last configuration change at 15:04:25 UTC Thu Dec 16 2021
-!
-version 15.2
+version 15.6
 service timestamps debug datetime msec
 service timestamps log datetime msec
 no service password-encryption
-service compress-config
 !
-hostname swtich-core2
+hostname r2
 !
 boot-start-marker
 boot-end-marker
 !
 !
 !
-username esteban privilege 15 password 0 cisco
 no aaa new-model
+ethernet lmi ce
+!
+!
+!
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+no ip icmp rate-limit unreachable
 !
 !
 !
 !
 !
 !
-!
-!
-ip domain-name cisco.com
+no ip domain lookup
+ip domain name cisco.com
 ip cef
 no ipv6 cef
 !
+multilink bundle-name authenticated
 !
 !
-spanning-tree mode pvst
-spanning-tree extend system-id
 !
-vlan internal allocation policy ascending
 !
+username esteban privilege 15 password 0 cisco
+!
+redundancy
+!
+no cdp log mismatch duplex
+!
+ip tcp synwait-time 5
 ! 
 !
 !
@@ -51,89 +66,39 @@ vlan internal allocation policy ascending
 !
 !
 !
-interface Loopback0
- ip address 10.1.2.2 255.255.255.255
-!
 interface GigabitEthernet0/0
+ ip address 192.168.122.82 255.255.255.0
+ duplex auto
+ speed auto
  media-type rj45
- negotiation auto
 !
 interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
  media-type rj45
- negotiation auto
 !
 interface GigabitEthernet0/2
- no switchport
- ip address 192.168.10.206 255.255.255.252
- negotiation auto
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
 !
 interface GigabitEthernet0/3
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
  media-type rj45
- negotiation auto
-!
-interface GigabitEthernet1/0
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet1/1
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet1/2
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet1/3
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet2/0
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet2/1
- no switchport
- ip address 192.168.10.213 255.255.255.252
- negotiation auto
-!
-interface GigabitEthernet2/2
- no switchport
- ip address 192.168.10.221 255.255.255.252
- negotiation auto
-!
-interface GigabitEthernet2/3
- no switchport
- ip address 192.168.10.229 255.255.255.252
- negotiation auto
-!
-interface GigabitEthernet3/0
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet3/1
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet3/2
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet3/3
- no switchport
- ip address 192.168.122.93 255.255.255.0
- negotiation auto
-!
-router ospf 1
- router-id 1.1.2.2
- network 0.0.0.0 255.255.255.255 area 0
 !
 ip forward-protocol nd
 !
+!
 no ip http server
 no ip http secure-server
-!
 ip ssh version 2
-!
 !
 !
 !
@@ -169,10 +134,17 @@ banner login ^C
 **************************************************************************^C
 !
 line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
 line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
 line vty 0 4
  login local
  transport input all
 !
+no scheduler allocate
 !
 end

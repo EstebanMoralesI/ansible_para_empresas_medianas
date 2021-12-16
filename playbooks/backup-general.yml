@@ -1,5 +1,6 @@
 ---
-- hosts: all 
+- name: Backup General
+  hosts: all 
   gather_facts: no
   tasks:
 
@@ -51,15 +52,30 @@
 
     # # # A GITLAB # # #
 
-    # GITLAB "show arp" #
+    # PREPARANDO GITLAB "show arp" #
     - include_role:
         name: gitlab
       vars: 
-        backup_ruta: "backup-show_arp/arp"
+        git_prefijo: "arp-"
+        git_ruta: "backup-show_arp"
         mensaje_commit: "backup tablas arp"
-        numero: 1
-    
-    # - include: algit.yml
-    #   vars: 
-    #     backup_ruta: "backup-show_arp/arp"
-    #     mensaje_commit: "backup tablas arp"
+
+    # PREPARANDO GITLAB "show ip interface brief" #
+    - include_role:
+        name: gitlab
+      vars: 
+        git_prefijo: "ip-int-br-"
+        git_ruta: "backup-show_ip_int_br"
+        mensaje_commit: "backup show ip interface brief"
+
+
+
+
+- name: Push a gitlab
+  hosts: localhost
+  gather_facts: no
+  tasks:
+
+    - include_role:
+        name: push_gitlab
+
