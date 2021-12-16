@@ -57,6 +57,7 @@
       vars: 
         backup_ruta: "backup-show_arp/arp"
         mensaje_commit: "backup tablas arp"
+        numero: 1
     
     # - include: algit.yml
     #   vars: 
