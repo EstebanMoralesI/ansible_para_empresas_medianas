@@ -1,0 +1,34 @@
+# CREACIÓN DEL REPOSITORIO #
+
+# CREACIÓN DEL DIRECTORIO "backup-show-arp" #
+
+- stat:
+    path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_arp
+  register: output_arp
+- name: Crear directorio "show arp"
+  file: 
+    path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_arp/       
+    state: directory
+  when: output_arp.stat.exists == false
+
+# CREACIÓN DEL DIRECTORIO "backup-show-ip_int_br" #
+
+- stat:
+    path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_ip_int_br
+  register: output_ip_int_br
+- name: Crear directorio "show ip interface brief"
+  file: 
+    path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_ip_int_br/       
+    state: directory
+  when: output_ip_int_br.stat.exists == false
+
+# CREACIÓN DEL DIRECTORIO "backup-show-run" #
+
+- stat:
+    path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_run
+  register: output_run
+- name: Crear directorio "show run"
+  file: 
+    path: ./playbooks/repositorio/{{ nombre_empresa }}/backup-show_run/       
+    state: directory
+  when: output_run.stat.exists == false

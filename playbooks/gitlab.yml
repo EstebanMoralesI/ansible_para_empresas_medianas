@@ -3,7 +3,7 @@
     dir_path: ./repositorio/{{ nombre_empresa }}/backup-show_arp
     file_content: "{{ item }}"        
   with_file:
-    - "./repositorio/{{ nombre_empresa }}/backup-show_arp/arp-{{ inventory_hostname }}.txt"      
+    - "./repositorio/{{ nombre_empresa }}/{{ backup_ruta }}-{{ inventory_hostname }}.txt"      
   no_log: True
 
 
@@ -82,7 +82,7 @@
     method: POST
     body:
       branch: master
-      commit_message: backup tablas arp 
+      commit_message: "{{ mensaje_commit }}" 
       actions: "{{ action_list }}"
     status_code: 201
     body_format: json
