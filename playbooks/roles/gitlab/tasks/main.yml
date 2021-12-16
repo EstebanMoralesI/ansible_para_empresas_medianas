@@ -6,9 +6,6 @@
     - "./repositorio/{{ nombre_empresa }}/{{ backup_ruta }}-{{ inventory_hostname }}.txt"      
   no_log: True
 
-
-
-
 - name: Obtener el árbol de archivos del repositorio
   uri:
     url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/tree?ref=master&per_page=100&page=1
@@ -59,14 +56,6 @@
   set_fact:
     action_dict: {}
   when: commit_action == "update" and file_content_in_gitlab == file_content
-    # - name: Removiendo los archivos cfg locales                      
-    #   file:               
-    #     path: "./playbooks/read/{{ inventory_hostname }}.cfg"
-    #     state: absent
-# - name: Push a gitlab
-#   hosts: localhost
-#   gather_facts: no
-#   tasks:
 
 - name: Creando action list
   set_fact:

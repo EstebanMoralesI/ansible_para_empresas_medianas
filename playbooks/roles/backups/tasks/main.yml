@@ -1,0 +1,10 @@
+- name: Ejecutando los comandos solicitados
+  ios_command:
+    commands:
+      - "{{ comando_backup }}"           
+  register: output
+
+- name: Grabar la configuracion de los equipos de red
+  copy:        
+    content: "{{ output.stdout[0] }}"
+    dest: ./playbooks/repositorio/{{ nombre_empresa }}/{{ backup_nombre_carpeta }}/{{ backup_nombre_archivo }}-{{ inventory_hostname }}.txt
