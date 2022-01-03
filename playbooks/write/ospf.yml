@@ -1,6 +1,6 @@
 ---
 - name: Configurar OSPF
-  hosts: router
+  hosts: all
   gather_facts: no
 
   tasks:

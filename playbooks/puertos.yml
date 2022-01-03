@@ -1,6 +1,6 @@
 ---
 - name: Configurar PUERTOS
-  hosts: s3
+  hosts: all
   gather_facts: no
 
   tasks:
@@ -10,8 +10,7 @@
         lines:
           - interface {{ item.puerto_id }}          
           - ip address {{ item.puerto_ip }} {{ item.puerto_mascara }} 
-          - no shutdown
-        #parents: router ospf 1
+          - no shutdown      
       loop: "{{ puertos_parametros }}"
 
     - name: Ejecutando el comando "show ip interface brief"
