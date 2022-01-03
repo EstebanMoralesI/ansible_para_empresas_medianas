@@ -1,11 +1,12 @@
 ---
+# PARAMETROS GLOBALES
+
 loopback: 1.1.1.1
 router_id: 1.1.1.1
-# ospf_network: 10.10.10.0 
-# ospf_wildcard: 0.0.0.255
-# ospf_area: 0
 
-ospf_networks:
+# OSPF
+
+ospf_parametros:
   - ospf_network: 10.10.10.0 
     ospf_wildcard: 0.0.0.255
     ospf_area: 0
@@ -13,3 +14,11 @@ ospf_networks:
   - ospf_network: 10.10.20.0 
     ospf_wildcard: 0.0.0.255
     ospf_area: 0
+
+puertos_parametros:
+  - puerto_id: g0/1
+    puerto_ip: 192.168.10.213
+    puerto_mascara: 255.255.255.252
+  - puerto_id: g0/2
+    puerto_ip: 192.168.10.209
+    puerto_mascara: 255.255.255.252

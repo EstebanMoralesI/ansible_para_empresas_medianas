@@ -13,11 +13,10 @@
     - name: Configurar OSPF
       ios_config:
         lines:
-          - router-id {{ router_id }}
-          #- network {{ ospf_network }} {{ ospf_wildcard }} area {{ ospf_area }}
+          - router-id {{ router_id }}          
           - network {{ item.ospf_network }} {{ item.ospf_wildcard }} area {{ item.ospf_area }}
         parents: router ospf 1
-      loop: "{{ ospf_networks }}"
+      loop: "{{ ospf_parametros }}"
 
     - name: Ejecutando el comando "show ospf neighbors"
       ios_command:

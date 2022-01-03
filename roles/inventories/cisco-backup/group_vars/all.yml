@@ -1,6 +1,0 @@
-# En el parámetro "gitlab_project_id" introducir el id del proyecto de su entorno en gitlab
-gitlab_project_id: 23287753
-
-
-# En el parámetro "gitlab_access_token" introducir el token del proyecto de su entorno en gitlab
-gitlab_access_token: 3Ye2qu2WJQnzYmZW2X-G

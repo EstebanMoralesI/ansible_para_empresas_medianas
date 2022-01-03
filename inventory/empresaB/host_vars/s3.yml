@@ -1,3 +1,9 @@
 ---
 loopback: 6.6.6.6
 router_id: 6.6.6.6
+
+puertos_parametros:
+
+  - puerto_id: g0/3
+    puerto_ip: 192.168.10.194
+    puerto_mascara: 255.255.255.252
