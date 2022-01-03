@@ -4,6 +4,10 @@ enable password {{ ansible_password }}
 !
 ip domain-name cisco.com
 !
+{% for item dns_servers %}
+ip name-server {{ item }}
+{% endfor %}
+!
 line vty 0 4
  login local
  transport input ssh 

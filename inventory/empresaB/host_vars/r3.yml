@@ -1,3 +1,16 @@
 ---
 loopback: 3.3.3.3
 router_id: 3.3.3.3
+
+# ospf_network: 10.10.10.0 
+# ospf_wildcard: 0.0.0.255
+# ospf_area: 0
+
+ospf_networks:
+  - ospf_network: 10.10.10.0 
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+
+  - ospf_network: 10.10.20.0 
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0

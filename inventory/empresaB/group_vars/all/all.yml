@@ -16,20 +16,11 @@ ansible_password: cisco
 ansible_become_pass: cisco
 
 # En el parámetro "gitlab_project_id" introducir el id del proyecto de su entorno en gitlab
-# cisco-cfg-backup
-#gitlab_project_id: 23287753
-# empresa-a-backup
-#gitlab_project_id: 32086553
-# empresa-b-backup
+# "empresa-b-backup"
 gitlab_project_id: 32027565
 
 # En el parámetro "gitlab_access_token" introducir el token del proyecto de su entorno en gitlab
-#gitlab_access_token: 3Ye2qu2WJQnzYmZW2X-G
-#gitlab_access_token: glpat-zHF8e9sLgXgSy9mgYF8x
 gitlab_access_token: glpat-R6vWoLKRt4LEM-tgPPpY
-
-# token ansible-backup
-
 
 # PARAMETROS GENERALES DE RED
 
@@ -37,8 +28,9 @@ gitlab_access_token: glpat-R6vWoLKRt4LEM-tgPPpY
 nombre_empresa: empresaB
 
 # PARAMETROS DE OSPF NETWORK Y AREA
-ospf_network: 192.168.10.0 255.255.255.0
-ospf_area: 0
+# ospf_network: 10.10.0.0 
+# ospf_wildcard: 0.0.0.255
+# ospf_area: 0
 
 # PARAMETROS DE SERVIDORES NTP
 # En el parámetro "ntp_servers" introducir todas las ip's necesarias
