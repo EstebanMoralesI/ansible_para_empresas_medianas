@@ -1,7 +1,17 @@
 ---
+# PARAMETROS GLOBALES
 loopback: 6.6.6.6
 router_id: 6.6.6.6
 
+# OSPF
+ospf_parametros:
+  - ospf_network: 192.168.10.192
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 192.168.10.128
+    ospf_wildcard: 0.0.0.63
+    ospf_area: 0
+# PUERTOS
 puertos_parametros:
 
   - puerto_id: g0/3

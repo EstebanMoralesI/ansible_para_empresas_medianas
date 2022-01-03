@@ -10,10 +10,16 @@
           - ip address {{ loopback }} 255.255.255.255
         parents: interface loopback 1
       
+    - name: Configurar ROUTER ID
+      ios_config:
+        lines:
+          - router-id {{ router_id }}    
+        parents: router ospf 1      
+  
     - name: Configurar OSPF
       ios_config:
         lines:
-          - router-id {{ router_id }}          
+          #- router-id {{ router_id }}          
           - network {{ item.ospf_network }} {{ item.ospf_wildcard }} area {{ item.ospf_area }}
         parents: router ospf 1
       loop: "{{ ospf_parametros }}"

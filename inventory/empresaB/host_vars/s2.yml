@@ -1,7 +1,20 @@
 ---
+# PARAMETROS GLOBALES
 loopback: 5.5.5.5
 router_id: 5.5.5.5
 
+# OSPF
+ospf_parametros:
+  - ospf_network: 192.168.10.200
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 192.168.10.196
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 192.168.10.64
+    ospf_wildcard: 0.0.0.63
+    ospf_area: 0
+# PUERTOS
 puertos_parametros:
 
   - puerto_id: g0/1
