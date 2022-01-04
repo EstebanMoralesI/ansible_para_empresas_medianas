@@ -1,5 +1,5 @@
 ---
-- name: RESETEAR PUERTOS
+- name: RESETEAR PARAMETROS DE ROUTER/SWITCH
   hosts: all
   gather_facts: no
 
