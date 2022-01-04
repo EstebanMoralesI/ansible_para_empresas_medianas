@@ -14,5 +14,3 @@
         banner: motd
         text: "{{ lookup('file', './parametros/banner.cfg') }}"
         state: present  
-
-        
