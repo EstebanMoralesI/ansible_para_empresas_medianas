@@ -5,18 +5,18 @@
 
   tasks:
      
-    # - name: RESETEAR PUERTOS
-    #   ios_config:
-    #     lines:
-    #       - interface {{ item.puerto_id }}          
-    #       - no ip address 
-    #       - shutdown      
-    #   loop: "{{ puertos_parametros }}"
+    - name: RESETEAR PUERTOS
+      ios_config:
+        lines:
+          - interface {{ item.puerto_id }}          
+          - no ip address 
+          - shutdown      
+      loop: "{{ puertos_parametros }}"
 
-    # - name: RESETEAR OSPF
-    #   ios_config:
-    #     lines:                    
-    #       - no router ospf 1  
+    - name: RESETEAR OSPF
+      ios_config:
+        lines:                    
+          - no router ospf 1  
 
     - name: RESETEAR USUARIOS 
       ios_user:
