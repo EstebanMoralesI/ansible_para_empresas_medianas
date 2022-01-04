@@ -17,7 +17,7 @@
     - name: Ejecutando el comando "show ip route"
       ios_command:
         commands:         
-          show ip route
+          show running-config | section ospf
       register: ospf_datos1
 
     - name: Visualizar vecinos

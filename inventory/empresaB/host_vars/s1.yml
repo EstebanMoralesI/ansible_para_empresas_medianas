@@ -14,7 +14,9 @@ ospf_parametros:
 
 # PUERTOS
 puertos_parametros:
-
+  - puerto_id: g0/1
+    puerto_ip: 192.168.10.1
+    puerto_mascara: 255.255.255.192
   - puerto_id: g0/2
-    puerto_ip: 192.168.10.226
+    puerto_ip: 192.168.10.206
     puerto_mascara: 255.255.255.252
