@@ -1,0 +1,9 @@
+---
+- name: Configurar PUERTOS ROUTER
+  hosts: router
+  gather_facts: no
+
+  tasks:
+
+    - include_role:
+        name: configurar-puertos

@@ -1,0 +1,17 @@
+---
+- name: Configurar PUERTOS SWITCH
+  hosts: switch 
+  gather_facts: no
+
+  tasks:
+     
+    - name: Configurar PUERTOS a NO SWITCHPORT
+      ios_config:
+        lines:
+          - ip routing
+          - interface {{ item.puerto_id }}          
+          - no switchport                
+      loop: "{{ puertos_parametros }}"
+
+    - include_role:
+        name: configurar-puertos    
