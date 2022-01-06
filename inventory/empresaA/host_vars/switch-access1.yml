@@ -1,0 +1,19 @@
+---
+# PARAMETROS GLOBALES
+loopback: 4.4.4.4
+router_id: 4.4.4.4
+
+# PUERTOS
+puertos_parametros:
+  - puerto_id: g1/0
+    puerto_ip: 172.16.0.210
+    puerto_mascara: 255.255.255.252
+  - puerto_id: g2/0
+    puerto_ip: 172.16.0.222
+    puerto_mascara: 255.255.255.252
+  - puerto_id: g3/0
+    puerto_ip: 172.16.0.1
+    puerto_mascara: 255.255.255.224
+  - puerto_id: g3/1
+    puerto_ip: 172.16.0.33
+    puerto_mascara: 255.255.255.224

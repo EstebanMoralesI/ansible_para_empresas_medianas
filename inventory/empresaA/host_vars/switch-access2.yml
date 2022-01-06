@@ -1,0 +1,19 @@
+---
+# PARAMETROS GLOBALES
+loopback: 5.5.5.5
+router_id: 5.5.5.5
+
+# PUERTOS
+puertos_parametros:
+  - puerto_id: g1/1
+    puerto_ip: 172.16.0.214
+    puerto_mascara: 255.255.255.252
+  - puerto_id: g2/1
+    puerto_ip: 172.16.0.226
+    puerto_mascara: 255.255.255.252
+  - puerto_id: g3/0
+    puerto_ip: 172.16.65
+    puerto_mascara: 255.255.255.224
+  - puerto_id: g3/1
+    puerto_ip: 172.16.0.97
+    puerto_mascara: 255.255.255.224

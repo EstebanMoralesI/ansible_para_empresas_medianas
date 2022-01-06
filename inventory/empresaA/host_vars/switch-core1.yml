@@ -1,3 +1,25 @@
 ---
+# PARAMETROS GLOBALES
 loopback: 2.2.2.2
 router_id: 2.2.2.2
+
+# PUERTOS
+puertos_parametros:
+  - puerto_id: g0/1
+    puerto_ip: 172.16.0.202
+    puerto_mascara: 255.255.255.252
+  - puerto_id: g1/3
+    puerto_ip: 172.16.0.193
+    puerto_mascara: 255.255.255.248
+  - puerto_id: g2/3
+    puerto_ip: 172.16.0.195
+    puerto_mascara: 255.255.255.248
+  - puerto_id: g1/0
+    puerto_ip: 172.16.0.209
+    puerto_mascara: 255.255.255.252
+  - puerto_id: g1/1
+    puerto_ip: 172.16.0.213
+    puerto_mascara: 255.255.255.252
+  - puerto_id: g1/2
+    puerto_ip: 172.16.0.217
+    puerto_mascara: 255.255.255.252
