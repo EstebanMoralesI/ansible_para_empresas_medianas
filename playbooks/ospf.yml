@@ -1,6 +1,6 @@
 ---
 - name: Configurar OSPF
-  hosts: router, switch-core
+  hosts: equipos-ospf
   gather_facts: no
 
   tasks:
@@ -24,14 +24,7 @@
         parents: router ospf 1
       loop: "{{ ospf_parametros }}"
 
-    # - name: Ejecutando el comando "show ospf neighbors"
-    #   ios_command:
-    #     commands: show ip ospf neighbor 
-    #   register: ospf_neighbor
 
-    # - name: Visualizar vecinos
-    #   debug:
-    #     var: ospf_neighbor.stdout_lines
 
         
 

@@ -1,6 +1,6 @@
 ---
 - name: Configurar PUERTOS SWITCH
-  hosts: switch 
+  hosts: switch
   gather_facts: no
 
   tasks:
@@ -14,4 +14,19 @@
       loop: "{{ puertos_parametros }}"
 
     - include_role:
-        name: configurar-puertos    
+        name: configurar-puertos   
+
+    # - name: Configurar PUERTOS
+    #   ios_config:
+    #     lines:
+    #       - interface {{ item.puerto_id }}          
+    #       - ip address {{ item.puerto_ip }} {{ item.puerto_mascara }} 
+    #       - no shutdown      
+    #   loop: "{{ puertos_parametros }}"
+    # - name: Ejecutando el comando "show ip interface brief"
+    #   ios_command:
+    #     commands: show ip interface brief 
+    #   register: ip_int_br
+    # - name: SHOW IP INTERFACE BRIEF
+    #   debug:
+    #     var: ip_int_br.stdout_lines 

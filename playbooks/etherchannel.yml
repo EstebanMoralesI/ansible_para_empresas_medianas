@@ -1,0 +1,33 @@
+---
+- name: Configurar ETHERCHANNEL
+  hosts: switch-etherchannel 
+  gather_facts: no
+
+  tasks:
+     
+    - name: Preparando Etherchannel
+      ios_config:
+        lines:
+          - interface port-channel {{ etherchannel_numero }}
+          - no switchport   
+          - ip address {{ etherchannel_ip }} {{ etherchannel_mascara }}       
+      
+     
+    - name: Configuracion de interfaces fisicas
+      ios_config:
+        lines:
+          - interface range {{ etherchannel_range }}
+          - shutdown
+          - no switchport 
+          - no ip address
+          - channel-group {{ etherchannel_numero }} mode active
+          - no shutdown
+
+    - name: Ejecutando el comando "show etherchannel sumary"
+      ios_command:
+        commands: show etherchannel summary 
+      register: etherchannel
+
+    - name: Visualizar etherchannel
+      debug:
+        var: etherchannel.stdout_lines

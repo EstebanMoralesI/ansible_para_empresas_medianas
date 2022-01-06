@@ -17,8 +17,8 @@ ospf_parametros:
   - ospf_network: 172.16.0.216
     ospf_wildcard: 0.0.0.3
     ospf_area: 0
-  - ospf_network: 172.16.0.192
-    ospf_wildcard: 0.0.0.7
+  - ospf_network: 172.16.0.232
+    ospf_wildcard: 0.0.0.3
     ospf_area: 0
 
 # PUERTOS
@@ -26,12 +26,6 @@ puertos_parametros:
   - puerto_id: g0/1
     puerto_ip: 172.16.0.202
     puerto_mascara: 255.255.255.252
-  - puerto_id: g1/3
-    puerto_ip: 172.16.0.193
-    puerto_mascara: 255.255.255.248
-  - puerto_id: g2/3
-    puerto_ip: 172.16.0.195
-    puerto_mascara: 255.255.255.248
   - puerto_id: g1/0
     puerto_ip: 172.16.0.209
     puerto_mascara: 255.255.255.252
@@ -41,3 +35,10 @@ puertos_parametros:
   - puerto_id: g1/2
     puerto_ip: 172.16.0.217
     puerto_mascara: 255.255.255.252
+
+# ETHERCHANNEL
+
+etherchannel_numero: 1
+etherchannel_ip: 172.16.0.233  
+etherchannel_mascara: 255.255.255.252
+etherchannel_range: g1/3,g2/3

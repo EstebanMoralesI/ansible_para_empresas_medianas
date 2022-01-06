@@ -27,7 +27,7 @@ puertos_parametros:
     puerto_ip: 172.16.0.230
     puerto_mascara: 255.255.255.252
   - puerto_id: g3/0
-    puerto_ip: 172.16.129
+    puerto_ip: 172.16.0.129
     puerto_mascara: 255.255.255.224
   - puerto_id: g3/1
     puerto_ip: 172.16.0.161
