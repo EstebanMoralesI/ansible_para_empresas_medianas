@@ -3,6 +3,21 @@
 loopback: 6.6.6.6
 router_id: 6.6.6.6
 
+# OSPF
+ospf_parametros:
+  - ospf_network: 172.16.0.216
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 172.16.0.228
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 172.16.0.128
+    ospf_wildcard: 0.0.0.31
+    ospf_area: 0
+  - ospf_network: 172.16.0.160
+    ospf_wildcard: 0.0.0.31
+    ospf_area: 0
+
 # PUERTOS
 puertos_parametros:
   - puerto_id: g1/2

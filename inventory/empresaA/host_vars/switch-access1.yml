@@ -3,6 +3,21 @@
 loopback: 4.4.4.4
 router_id: 4.4.4.4
 
+# OSPF
+ospf_parametros:
+  - ospf_network: 172.16.0.208
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 172.16.0.220
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 172.16.0.0
+    ospf_wildcard: 0.0.0.31
+    ospf_area: 0
+  - ospf_network: 172.16.0.32
+    ospf_wildcard: 0.0.0.31
+    ospf_area: 0
+
 # PUERTOS
 puertos_parametros:
   - puerto_id: g1/0
