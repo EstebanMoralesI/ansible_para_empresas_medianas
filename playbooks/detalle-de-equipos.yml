@@ -15,4 +15,5 @@
         #src: ./template/detalle-de-equipos.j2
         src: detalle-de-equipos.j2
         #dest: "{{ report_file }}"
-        dest: ./repositorio/{{ nombre_empresa }}/detalle-de-equipos.csv
+        dest: ./playbooks/repositorio/{{ nombre_empresa }}/detalle-de-equipos.csv
+
