@@ -19,7 +19,7 @@ switch-access1
 switch-access2
 switch-access3
 
-[switch-etherchannel]
+[equipos-etherchannel]
 switch-core1
 switch-core2
 

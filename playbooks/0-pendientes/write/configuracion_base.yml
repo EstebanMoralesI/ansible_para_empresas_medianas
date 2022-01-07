@@ -8,9 +8,9 @@
     - name: Instanciando la configuración
       template:
         src: ./configuracion_equipos.j2
-        dest: ./build/{{ inventory_hostname }}.cfg 
+        dest: ./{{ inventory_hostname }}.cfg 
     
     - name: Push instantiated config 
       ios_config:
-        src: ./build/{{ inventory_hostname }}.cfg
+        src: ./{{ inventory_hostname }}.cfg
         diff_against: startup

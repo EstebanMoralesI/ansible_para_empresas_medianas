@@ -2,20 +2,21 @@
 # This playbook creates an access-list named VTY_ACCESS and apply it to VTY lines
 # It will also save configurations to startup
 
-- hosts: network
-  gather_facts: false
-  connection: local
+- name: Configuracion Access List
+  hosts: all
+  gather_facts: no
+  #connection: local
 
-  vars:
-    cli:
-      username: nms
-      password: cisco
+  # vars:
+  #   cli:
+  #     username: nms
+  #     password: cisco
   
   tasks:
 
     - name: create access list VTY_ACCESS
       ios_config:
-        provider: "{{cli}}"
+     #   provider: "{{cli}}"
         lines:
           permit host 192.168.0.100
         parents:
@@ -24,21 +25,21 @@
 
     - name: apply access list to VTY lines
       ios_config:
-        provider: "{{cli}}"
+      #  provider: "{{cli}}"
         lines:
           access-class VTY_ACCESS in
         parents:
           line vty 0 4
         save_when: changed
     
-    - name: pull device configurations
-      ios_command:
-        provider: "{{cli}}"
-        commands:
-          show run | begin VTY_ACCESS
+    # - name: pull device configurations
+    #   ios_command:
+    #   #  provider: "{{cli}}"
+    #     commands:
+    #       show run | begin VTY_ACCESS
       
-      register: show_run_output
+    #   register: show_run_output
 
-    - name: print output to screen
-      debug:
-        var=show_run_output.stdout_lines
+    # - name: print output to screen
+    #   debug:
+    #     var=show_run_output.stdout_lines
