@@ -18,8 +18,7 @@
   
     - name: Configurar OSPF
       ios_config:
-        lines:
-        #  - router-id {{ router_id }}          
+        lines:           
           - network {{ item.ospf_network }} {{ item.ospf_wildcard }} area {{ item.ospf_area }}
         parents: router ospf 1
       loop: "{{ ospf_parametros }}"

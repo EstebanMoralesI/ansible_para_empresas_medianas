@@ -1,0 +1,8 @@
+- name: Ejecutando el comando 
+  ios_command:
+    commands: "{{ comando_visualizar }}"
+  register: comando
+
+- name: Visualizar show
+  debug:
+    var: comando.stdout_lines

@@ -38,7 +38,8 @@ puertos_parametros:
 
 # ETHERCHANNEL
 
-etherchannel_numero: 1
-etherchannel_ip: 172.16.0.234  
-etherchannel_mascara: 255.255.255.252
-etherchannel_range: g1/3,g2/3
+etherchannel_parametros:
+  - etherchannel_numero: 1
+    etherchannel_ip: 172.16.0.234  
+    etherchannel_mascara: 255.255.255.252
+    etherchannel_range: g1/3,g2/3

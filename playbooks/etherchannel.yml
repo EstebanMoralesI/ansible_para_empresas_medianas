@@ -8,26 +8,24 @@
     - name: Preparando Etherchannel
       ios_config:
         lines:
-          - interface port-channel {{ etherchannel_numero }}
+          - interface port-channel {{ item.etherchannel_numero }}
           - no switchport   
-          - ip address {{ etherchannel_ip }} {{ etherchannel_mascara }}       
+          - ip address {{ item.etherchannel_ip }} {{ item.etherchannel_mascara }}  
+      loop: "{{ etherchannel_parametros }}"     
       
      
     - name: Configuracion de interfaces fisicas
       ios_config:
         lines:
-          - interface range {{ etherchannel_range }}
+          - interface range {{ item.etherchannel_range }}
           - shutdown
           - no switchport 
           - no ip address
-          - channel-group {{ etherchannel_numero }} mode active
+          - channel-group {{ item.etherchannel_numero }} mode active
           - no shutdown
+      loop: "{{ etherchannel_parametros }}"
 
-    - name: Ejecutando el comando "show etherchannel sumary"
-      ios_command:
-        commands: show etherchannel summary 
-      register: etherchannel
-
-    - name: Visualizar etherchannel
-      debug:
-        var: etherchannel.stdout_lines
+    - include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show etherchannel summary"
