@@ -12,8 +12,6 @@
 
     - name: Grabando los parametros de los equipos de red
       template:
-        #src: ./template/detalle-de-equipos.j2
-        src: detalle-de-equipos.j2
-        #dest: "{{ report_file }}"
+        src: ./template/detalle-de-equipos.j2
         dest: ./playbooks/repositorio/{{ nombre_empresa }}/detalle-de-equipos.csv
 
