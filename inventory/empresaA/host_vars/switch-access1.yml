@@ -1,9 +1,15 @@
 ---
-# PARAMETROS GLOBALES
+#######################
+# PARAMETROS GLOBALES #
+#######################
+
+# # # LOOPBACK # # #
 loopback: 4.4.4.4
+
+# # # ROUTER ID # # #
 router_id: 4.4.4.4
 
-# OSPF
+# # # OSPF # # #
 ospf_parametros:
   - ospf_network: 172.16.0.208
     ospf_wildcard: 0.0.0.3

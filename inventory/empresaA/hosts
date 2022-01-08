@@ -1,8 +1,19 @@
+#####################################
+# LISTE TODOS LOS EQUIPOS DE LA RED #
+#####################################
 [equipos]
+router1
+switch-core1
+switch-core2
+switch-access1
+switch-access2
+switch-access3
 
+# # # LISTE AQUI EL/LOS ROUTER/S # # #
 [router]
 router1
 
+# # # LISTE AQUI EL/LOS SWITCH/ES # # #
 [switch]
 switch-core1
 switch-core2
@@ -10,18 +21,28 @@ switch-access1
 switch-access2
 switch-access3
 
-[switch-core]
+# # # LISTE AQUI EL/LOS SWITCH/ES CAPA 3 # # #
+[switch-capa3]
 switch-core1
 switch-core2
 
-[switch-access]
+# # # LISTE AQUI EL/LOS SWITCH/ES CAPA 2 # # #
+[switch-capa2]
 switch-access1
 switch-access2
 switch-access3
 
-[equipos-etherchannel]
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL CAPA 3 # # #
+[equipos-etherchannel-capa3]
 switch-core1
 switch-core2
+
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL CAPA 2 # # #
+[equipos-etherchannel-capa2]
+switch-core1
+switch-core2
+
+# # #  LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
 
 [equipos-ospf]
 router1
@@ -30,3 +51,6 @@ switch-core2
 switch-access1
 switch-access2
 switch-access3
+
+[equipos-vlan]
+switch-access1

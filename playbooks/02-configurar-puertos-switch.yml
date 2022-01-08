@@ -3,12 +3,11 @@
 # CONFIGURACION DE PUERTOS DE UN SWITCH DE ACUERDO A PARAMETROS EN INVENTORY #
 ##############################################################################
 
-
 - name: Configurar PUERTOS SWITCH
   hosts: switch
   gather_facts: no
   tasks:
-
+  
     # # # CONFIGURANDO LOS PUERTOS A "NO SWITCHPORT" # # # 
     - name: Configurar PUERTOS a NO SWITCHPORT
       ios_config:

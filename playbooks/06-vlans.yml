@@ -1,6 +1,6 @@
 ---
 - name: Crear Vlans
-  hosts: switch
+  hosts: equipos-vlan
   gather_facts: no
 
   tasks:

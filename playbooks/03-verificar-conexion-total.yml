@@ -1,13 +1,16 @@
 ---
+########################################################################################
+# VERIFICACION DE CONEXION POR MEDIO DEL MODULO PING A TODOS LOS EQUIPOS DEL INVENTORY #
+########################################################################################
+
 - name: Verificar conexión total a todos los equipos
   hosts: all
   gather_facts: no
   connection: local
-
-  tasks:
-    - name: ping test a la red      
-      ios_command:        
-        commands:         
-          - ping "{{ item.ips_id }}"
-      loop: "{{ ips }}"      
+  tasks:  
+    # # # PING A TODA LA RED DE LA EMPRESA # # #
+    - name: TEST DE ACCESIBILIDAD A LA RED
+      ios_ping:
+        dest: "{{ item.ips_id }}" 
+      loop: "{{ ips }}"   
    
