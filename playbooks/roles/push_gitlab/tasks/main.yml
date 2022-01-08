@@ -3,7 +3,7 @@
     action_list: "{{ action_list | default([]) + [ hostvars[item].action_dict ] }}"
   loop: "{{ groups['all'] }}"
   when: hostvars[item].action_dict != {}
-- name: Push nuevo/actualizado cfg a gitlab
+- name: Push nuevo/actualizado a gitlab
   uri:
     url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/commits
     headers:

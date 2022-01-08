@@ -3,7 +3,7 @@
     dir_path: ./repositorio/{{ nombre_empresa }}/{{ git_ruta }}    
     file_content: "{{ item }}"        
   with_file:
-    - "./repositorio/{{ nombre_empresa }}/{{ git_ruta }}/{{ git_prefijo }}{{ inventory_hostname }}.txt"      
+    - "./repositorio/{{ nombre_empresa }}/{{ git_ruta }}/{{ git_prefijo }}{{ nombre_equipo }}{{ extension }}"      
   no_log: True
 
 - name: Obtener el árbol de archivos del repositorio
@@ -20,7 +20,7 @@
 - name: Obtener los archivos del proyecto
   set_fact:
     project_files: "{{ response.json | json_query('[].name') }}"
-    file_name: "{{ git_prefijo }}{{ inventory_hostname }}.txt"
+    file_name: "{{ git_prefijo }}{{ nombre_equipo }}{{ extension }}"
 - name: Establecer la acción de confirmación como "create"
   set_fact:
     commit_action: create
@@ -49,8 +49,8 @@
   set_fact:
     action_dict:
       action: "{{ commit_action}}"
-      file_path: "{{ git_prefijo }}{{ inventory_hostname }}.txt"
-      content: "{{ git_prefijo }}{{ file_content }}.txt"
+      file_path: "{{ git_prefijo }}{{ nombre_equipo }}{{ extension }}"
+      content: "{{ git_prefijo }}{{ file_content }}{{ extension }}"
   when: commit_action == "create" or (commit_action == "update" and file_content_in_gitlab != file_content)
 - name: Creando empty dict
   set_fact:
