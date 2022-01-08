@@ -1,10 +1,15 @@
 ---
+##############################################################################
+# CONFIGURACION DE PUERTOS DE UN SWITCH DE ACUERDO A PARAMETROS EN INVENTORY #
+##############################################################################
+
+
 - name: Configurar PUERTOS SWITCH
   hosts: switch
   gather_facts: no
-
   tasks:
-     
+
+    # # # CONFIGURANDO LOS PUERTOS A "NO SWITCHPORT" # # # 
     - name: Configurar PUERTOS a NO SWITCHPORT
       ios_config:
         lines:
@@ -13,20 +18,6 @@
           - no switchport                
       loop: "{{ puertos_parametros }}"
 
+    # # # LLAMADO A ROL CONFIGURAR PUERTOS # # #
     - include_role:
         name: configurar-puertos   
-
-    # - name: Configurar PUERTOS
-    #   ios_config:
-    #     lines:
-    #       - interface {{ item.puerto_id }}          
-    #       - ip address {{ item.puerto_ip }} {{ item.puerto_mascara }} 
-    #       - no shutdown      
-    #   loop: "{{ puertos_parametros }}"
-    # - name: Ejecutando el comando "show ip interface brief"
-    #   ios_command:
-    #     commands: show ip interface brief 
-    #   register: ip_int_br
-    # - name: SHOW IP INTERFACE BRIEF
-    #   debug:
-    #     var: ip_int_br.stdout_lines 
