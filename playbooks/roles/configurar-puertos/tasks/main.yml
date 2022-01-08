@@ -1,3 +1,8 @@
+#####################################################################################
+# ROL DE CONFIGURACION DE PUERTOS DE UN ROUTER DE ACUERDO A PARAMETROS EN INVENTORY #
+#####################################################################################
+
+# # # CONFIGURACION DE PUERTOS # # #
 - name: Configurar PUERTOS
   ios_config:
     lines:
@@ -5,10 +10,10 @@
       - ip address {{ item.puerto_ip }} {{ item.puerto_mascara }} 
       - no shutdown      
   loop: "{{ puertos_parametros }}"
+
+# # # LLAMADO A ROL VISUALIZACION DE RESULTADOS # # #
 - name: Ejecutando el comando "show ip interface brief"
-  ios_command:
-    commands: show ip interface brief 
-  register: ip_int_br
-- name: SHOW IP INTERFACE BRIEF
-  debug:
-    var: ip_int_br.stdout_lines
+  include_role:
+    name: visualizar
+  vars: 
+    comando_visualizar: "show ip interface brief"

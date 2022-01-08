@@ -13,9 +13,10 @@ ospf_parametros:
     ospf_area: 0
 # PUERTOS
 puertos_parametros:
-  - puerto_id: g3/3
-    puerto_ip: 192.168.10.129
-    puerto_mascara: 255.255.255.192
   - puerto_id: g0/3
     puerto_ip: 192.168.10.194
     puerto_mascara: 255.255.255.252
+  - puerto_id: g3/3
+    puerto_ip: 192.168.10.129
+    puerto_mascara: 255.255.255.192
+

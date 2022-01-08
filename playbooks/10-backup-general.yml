@@ -1,4 +1,5 @@
 ---
+# # # BACKUP GENERAL # # #
 - name: Backup Local
   hosts: all 
   gather_facts: no
@@ -30,7 +31,7 @@
       vars: 
         repositorio_nombre_carpeta: detalle-de-equipos
 
-    # # # GENERACIÓNN DE BACKUPS EN DIRECTORIOS # # #
+    # # # GENERACIÓN DE BACKUPS EN DIRECTORIOS # # #
 
     # BACKUP "show arp" #
     - include_role:
@@ -65,7 +66,7 @@
         src: ./template/detalle-de-equipos.j2
         dest: ./playbooks/repositorio/{{ nombre_empresa }}/detalle-de-equipos/detalle-de-equipos.csv
 
-  # # # BACKUPS A GITLAB # # #
+# # # BACKUPS A GITLAB # # #
 
 # BACKUP SHOW ARP #
 - name: Backup GITLAB "show arp"

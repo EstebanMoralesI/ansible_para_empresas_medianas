@@ -1,8 +1,14 @@
+#########################################
+# ROL DE VISUALIZACION DE COMANDOS SHOW #
+#########################################
+
+# # # EJECUTANDO EL COMANDO "SHOW" SOLICITADO # # #
 - name: Ejecutando el comando 
   ios_command:
     commands: "{{ comando_visualizar }}"
   register: comando
 
+# # # VISUALIZANDO EN PANTALLA EL COMANDO "SHOW" SOLICITADO # # #
 - name: Visualizar show
   debug:
     var: comando.stdout_lines

@@ -1,9 +1,10 @@
 ---
+##############################################################################
+# CONFIGURACION DE PUERTOS DE UN ROUTER DE ACUERDO A PARAMETROS EN INVENTORY #
+##############################################################################
 - name: Configurar PUERTOS ROUTER
   hosts: router
   gather_facts: no
-
   tasks:
-
     - include_role:
         name: configurar-puertos

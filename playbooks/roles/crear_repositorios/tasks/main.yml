@@ -1,8 +1,13 @@
-# CREACIÓN DEL REPOSITORIO #
+###################################
+# ROL DE CREACIÓN DEL REPOSITORIO #
+###################################
 
+# # # COMPROBACION DE EXISTENCIA DE DIRECTORIO # # #
 - stat:
     path: ./playbooks/repositorio/{{ nombre_empresa }}/{{ repositorio_nombre_carpeta }}
   register: output
+
+# # # CREACION DE DIRECTORIO # # #
 - name: Crear directorio 
   file: 
     path: ./playbooks/repositorio/{{ nombre_empresa }}/{{ repositorio_nombre_carpeta }}/       

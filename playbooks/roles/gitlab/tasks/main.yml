@@ -1,3 +1,8 @@
+################################################
+# ROL DE PREPARACION DEL CONTENIDO PARA GITLAB #
+################################################
+
+# # # LECTURA DEL CONTENIDO DE LOS ARCHIVOS EN EL INVENTORY # # #
 - name: Lectura del contenido de los archivos txt
   set_fact:
     dir_path: ./repositorio/{{ nombre_empresa }}/{{ git_ruta }}    
@@ -6,6 +11,7 @@
     - "./repositorio/{{ nombre_empresa }}/{{ git_ruta }}/{{ git_prefijo }}{{ nombre_equipo }}{{ extension }}"      
   no_log: True
 
+# # # GENERANDO EL ARBOL DE ARCHIVOS DEL REPOSITORIO # # #
 - name: Obtener el árbol de archivos del repositorio
   uri:
     url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/tree?ref=master&per_page=100&page=1
@@ -17,19 +23,27 @@
       Private-Token: "{{ gitlab_access_token }}"
   register: response
   delegate_to: localhost
+
+# # # OBTENIENDO LOS ARCHIVOS DEL REPOSITORIO # # #
 - name: Obtener los archivos del proyecto
   set_fact:
     project_files: "{{ response.json | json_query('[].name') }}"
     file_name: "{{ git_prefijo }}{{ nombre_equipo }}{{ extension }}"
+
+# # # ESTABLECIENDO ACCION "CREATE" CUANDO NO EXISTAN ARCHIVOS EN EL PROYECTO # # #
 - name: Establecer la acción de confirmación como "create"
   set_fact:
     commit_action: create
   when: file_name is not in project_files
+
+# # # ESTABLECIENDO ACCION "UPDATE" CUANDO EXISTAN ARCHIVOS EN EL PROYECTO # # #
 - name: Establecer la acción de confirmación como "update"
   set_fact:
     commit_action: update
   when: file_name in project_files
-- name: Obtener el contenido del archivo cfg de gitlab
+
+# # # OBTENIENDO EL CONTENIDO DE LOS ARCHIVOS EN GITLAB CUANDO LA ACCION SEA "UPDATE" # # #
+- name: Obtener el contenido del archivo de gitlab
   uri:
     url: https://gitlab.com/api/v4/projects/{{ gitlab_project_id }}/repository/files/{{ file_name }}/raw?ref=master
     body_format: json
@@ -41,10 +55,14 @@
   register: response
   delegate_to: localhost
   when: commit_action == "update"
+
+# # # GRABANDO EL CONTENIDO DE LOS ARCHIVOS EN GITLAB CUANDO LA ACCION SEA "UPDATE" # # #
 - name: Grabando el contenido del archivo de gitlab
   set_fact:
     file_content_in_gitlab: "{{ response.content }}"
   when: commit_action == "update"
+
+# # # CREANDO EL ACTION DICT CUANDO ESTE "CREATE" O EN "UPDATE" NO HAYA CONTENIDO # # #
 - name: Creando el action dict
   set_fact:
     action_dict:
@@ -52,6 +70,8 @@
       file_path: "{{ git_prefijo }}{{ nombre_equipo }}{{ extension }}"
       content: "{{ git_prefijo }}{{ file_content }}{{ extension }}"
   when: commit_action == "create" or (commit_action == "update" and file_content_in_gitlab != file_content)
+
+# # # CREANDO EL DICT VACIO CUANDO LA ACCION SEA "UPDATE" Y EXISTA CONTENIDO # # #
 - name: Creando empty dict
   set_fact:
     action_dict: {}

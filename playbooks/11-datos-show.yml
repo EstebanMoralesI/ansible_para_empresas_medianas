@@ -2,9 +2,7 @@
 - name: DATOS GENERALES
   hosts: all
   gather_facts: no
-
   tasks:
-
     - name: Ejecutando el comando "show ip ospf neighbor"
       include_role:
         name: visualizar
@@ -17,7 +15,13 @@
       vars: 
         comando_visualizar: "show running-config | section ospf"
 
-- name: DATOS GENERALES
+    - name: Ejecutando el comando "show running-config"
+      include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show running-config"
+
+- name: Ejecutando el comando "show etherchannel summary"
   hosts: equipos-etherchannel
   gather_facts: no
 
