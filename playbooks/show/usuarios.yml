@@ -1,0 +1,12 @@
+---
+- name: SHOW USUARIOS 
+  hosts: all
+  gather_facts: no 
+  tasks:
+    - name: Ejecutar comando show run | include username
+      ios_command:
+        commands: show run | include username
+      register: usuarios    
+    - name: Visualizar usuarios 
+      debug:
+        var: usuarios.stdout_lines

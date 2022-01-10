@@ -4,10 +4,17 @@
   gather_facts: no
 
   tasks:
-    - name: Crear Vlans en cada equipo
-      ios_config:
-        lines:
-          - name "{{ item.vlan_name }}"
-          - no shutdown
-        parents: "vlan {{ item.vlan_id }}"
-      loop: "{{ vlans }}"
+    # - name: Crear Vlans en cada equipo
+    #   ios_config:
+    #     lines:
+    #       - name "{{ item.vlan_name }}"
+    #       - no shutdown
+    #     parents: "vlan {{ item.vlan_id }}"
+    #   loop: "{{ vlans }}"
+    
+    - name: Add interfaces to VLAN
+      ios_vlan:
+        vlan_id: "{{ item.vlan_id }}"
+        interfaces:
+        - "{{ item.vlan_interface }}"
+      loop: "{{ vlans_parametros }}"

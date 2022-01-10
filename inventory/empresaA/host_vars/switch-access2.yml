@@ -39,3 +39,10 @@ etherchannel_capa2_parametros:
     etherchannel_range: g0/1,g1/1
   - etherchannel_numero: 6 
     etherchannel_range: g2/1,g3/1
+
+# VLANS
+vlans_parametros:
+  - vlan_interface: g3/0
+    vlan_id: 30
+  - vlan_interface: g3/2
+    vlan_id: 40
