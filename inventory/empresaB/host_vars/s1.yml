@@ -1,22 +1,33 @@
 ---
 # PARAMETROS GLOBALES
-loopback: 4.4.4.4
-router_id: 4.4.4.4
-
-# OSPF
-ospf_parametros:
-  - ospf_network: 192.168.10.204
-    ospf_wildcard: 0.0.0.3
-    ospf_area: 0
-  - ospf_network: 192.168.10.0
-    ospf_wildcard: 0.0.0.63
-    ospf_area: 0
+loopback: 2.2.2.2
+router_id: 2.2.2.2
 
 # PUERTOS
 puertos_parametros:
-  - puerto_id: g3/3
-    puerto_ip: 192.168.10.1
-    puerto_mascara: 255.255.255.192
-  - puerto_id: g0/2
-    puerto_ip: 192.168.10.206
+  - puerto_id: g0/1
+    puerto_ip: 172.16.30.2
     puerto_mascara: 255.255.255.252
+
+# ETHERCHANNEL
+etherchannel_capa2_parametros:
+  - etherchannel_numero: 1 
+    etherchannel_range: g1/1,g1/2
+
+# OSPF
+ospf_parametros:
+  - ospf_network: 172.16.30.0 
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 10.10.10.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.20.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.40.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+
+
+

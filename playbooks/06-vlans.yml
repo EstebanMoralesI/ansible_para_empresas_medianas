@@ -18,3 +18,14 @@
         interfaces:
         - "{{ item.vlan_interface }}"
       loop: "{{ vlans_parametros }}"
+
+- name: Configurando INTER-VLANS
+  hosts: equipos-inter-vlan
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface {{ item.inter_vlan_id }}.{{ item.inter_vlan_numero }}  
+          - encapsulation dot1q {{ item.inter_vlan_numero }}
+          - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }}   
+      loop: "{{ inter_vlan_parametros }}" 

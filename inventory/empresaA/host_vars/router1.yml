@@ -20,3 +20,55 @@ puertos_parametros:
   - puerto_id: g0/2
     puerto_ip: 172.16.0.205
     puerto_mascara: 255.255.255.252
+
+# INTER-VLAN
+
+inter_vlan_parametros:
+  - inter_vlan_id: g0/1
+    inter_vlan_numero: 10
+    inter_vlan_ip: 172.16.0.1
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/1
+    inter_vlan_numero: 20
+    inter_vlan_ip: 172.16.0.33
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/1
+    inter_vlan_numero: 30
+    inter_vlan_ip: 172.16.0.65
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/1
+    inter_vlan_numero: 40
+    inter_vlan_ip: 172.16.0.97
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/1
+    inter_vlan_numero: 50
+    inter_vlan_ip: 172.16.0.129
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/1
+    inter_vlan_numero: 60
+    inter_vlan_ip: 172.16.0.161
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/2
+    inter_vlan_numero: 10
+    inter_vlan_ip: 172.16.0.1
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/2
+    inter_vlan_numero: 20
+    inter_vlan_ip: 172.16.0.33
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/2
+    inter_vlan_numero: 30
+    inter_vlan_ip: 172.16.0.65
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/2
+    inter_vlan_numero: 40
+    inter_vlan_ip: 172.16.0.97
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/2
+    inter_vlan_numero: 50
+    inter_vlan_ip: 172.16.0.129
+    inter_vlan_mascara: 255.255.255.224
+  - inter_vlan_id: g0/2
+    inter_vlan_numero: 60
+    inter_vlan_ip: 172.16.0.161
+    inter_vlan_mascara: 255.255.255.224

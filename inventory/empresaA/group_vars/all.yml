@@ -72,6 +72,7 @@ ips:
 ##################################
 # # # En el parámetro "vlan_name" introducir el nombre la vlan # # #
 # # # En el parámetro "vlan_id" introducir el id de la vlan # # #
+#vlan_nativa: 99
 vlans:
   - vlan_name: VLAN10
     vlan_id: 10

@@ -57,3 +57,7 @@ switch-core2
 switch-access1
 switch-access2
 switch-access3
+
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's # # #
+[equipos-inter-vlan]
+router1

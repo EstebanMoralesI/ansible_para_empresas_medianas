@@ -1,17 +1,16 @@
-[router]
-r1
-r2
-r3
+#####################################
+# LISTE TODOS LOS EQUIPOS DE LA RED #
+#####################################
+[equipos]
+r1 
+s1
+s2
 
+# # # LISTE AQUI EL/LOS ROUTER/S # # #
+[router]
+r1 
+
+# # # LISTE AQUI EL/LOS SWITCH/ES # # #
 [switch]
 s1
 s2
-s3
-
-[equipos-ospf]
-r1
-r2
-r3
-s1
-s2
-s3

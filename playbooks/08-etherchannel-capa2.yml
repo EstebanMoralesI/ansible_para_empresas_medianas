@@ -1,6 +1,7 @@
 ---
 - name: Configurar ETHERCHANNEL
   hosts: equipos-etherchannel-capa2
+ # hosts: switch-core1, switch-core2
   gather_facts: no
 
   tasks:
@@ -9,8 +10,9 @@
       ios_config:
         lines:
           - interface port-channel {{ item.etherchannel_numero }}  
-        #  - switchport mode trunk 
-        #  - ip address {{ item.etherchannel_ip }} {{ item.etherchannel_mascara }}  
+          - switchport trunk encapsulation dot1q
+          - switchport mode trunk  
+         # - switchport trunk native vlan {{ vlan_nativa }}   
       loop: "{{ etherchannel_capa2_parametros }}" 
      
     - name: Configuracion de interfaces fisicas
@@ -19,6 +21,7 @@
           - interface range {{ item.etherchannel_range }}
           - shutdown
           - channel-group {{ item.etherchannel_numero }} mode active
+        #  - switchport trunk native vlan {{ vlan_nativa }}
           - no shutdown
       loop: "{{ etherchannel_capa2_parametros }}"
 
