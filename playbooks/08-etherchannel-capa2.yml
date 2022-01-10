@@ -22,7 +22,3 @@
           - no shutdown
       loop: "{{ etherchannel_capa2_parametros }}"
 
-    - include_role:
-        name: visualizar
-      vars: 
-        comando_visualizar: "show etherchannel summary"

@@ -1,0 +1,10 @@
+---
+- name: DATOS GENERALES
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Ejecutando el comando "show running-config"
+      include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show running-config"

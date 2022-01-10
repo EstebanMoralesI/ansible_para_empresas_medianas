@@ -49,9 +49,6 @@ switch-access3
 router1
 switch-core1
 switch-core2
-switch-access1
-switch-access2
-switch-access3
 
 # # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's # # #
 [equipos-vlan]
