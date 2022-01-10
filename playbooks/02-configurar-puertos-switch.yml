@@ -17,4 +17,6 @@
           - no switchport                
       loop: "{{ puertos_parametros }}"
 
- 
+    # # # LLAMADO A ROL CONFIGURAR PUERTOS # # #
+    - include_role:
+        name: configurar-puertos   

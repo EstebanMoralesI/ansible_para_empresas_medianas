@@ -6,7 +6,7 @@ router_id: 3.3.3.3
 # PUERTOS
 puertos_parametros:
   - puerto_id: g0/2
-    puerto_ip: 172.16.30.5
+    puerto_ip: 172.16.30.6
     puerto_mascara: 255.255.255.252
 
 # ETHERCHANNEL

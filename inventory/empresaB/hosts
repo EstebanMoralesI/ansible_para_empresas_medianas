@@ -14,3 +14,19 @@ r1
 [switch]
 s1
 s2
+
+# # # LISTE AQUI EL/LOS SWITCH/ES CAPA 3 # # #
+[switch-capa3]
+s1
+s2
+
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL # # #
+[equipos-etherchannel-capa2]
+s1
+s2
+
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
+[equipos-ospf]
+r1
+s1
+s2
