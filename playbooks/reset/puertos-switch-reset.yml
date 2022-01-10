@@ -1,0 +1,12 @@
+---
+  - name: RESETEAR PUERTOS SWITCH
+    hosts: switch
+    gather_facts: no
+    tasks:     
+      - ios_config:
+          lines:
+            - interface {{ item.puerto_id }}          
+            - no ip address
+            - switchport 
+            - shutdown      
+        loop: "{{ puertos_parametros }}"

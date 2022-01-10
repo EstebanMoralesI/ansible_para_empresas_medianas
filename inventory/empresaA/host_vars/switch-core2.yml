@@ -26,20 +26,28 @@ puertos_parametros:
   - puerto_id: g0/2
     puerto_ip: 172.16.0.206
     puerto_mascara: 255.255.255.252
-  - puerto_id: g2/0
-    puerto_ip: 172.16.0.221
-    puerto_mascara: 255.255.255.252
-  - puerto_id: g2/1
-    puerto_ip: 172.16.0.225
-    puerto_mascara: 255.255.255.252
-  - puerto_id: g2/2
-    puerto_ip: 172.16.0.229
-    puerto_mascara: 255.255.255.252
+  # - puerto_id: g2/0
+  #   puerto_ip: 172.16.0.221
+  #   puerto_mascara: 255.255.255.252
+  # - puerto_id: g2/1
+  #   puerto_ip: 172.16.0.225
+  #   puerto_mascara: 255.255.255.252
+  # - puerto_id: g2/2
+  #   puerto_ip: 172.16.0.229
+  #   puerto_mascara: 255.255.255.252
 
 # ETHERCHANNEL
 
-etherchannel_parametros:
+etherchannel_capa3_parametros:
   - etherchannel_numero: 1
     etherchannel_ip: 172.16.0.234  
     etherchannel_mascara: 255.255.255.252
     etherchannel_range: g1/3,g2/3
+
+etherchannel_capa2_parametros:
+  - etherchannel_numero: 5 
+    etherchannel_range: g2/0,g3/0
+  - etherchannel_numero: 6 
+    etherchannel_range: g2/1,g3/1
+  - etherchannel_numero: 7 
+    etherchannel_range: g2/2,g3/2

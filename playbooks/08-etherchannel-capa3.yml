@@ -1,6 +1,6 @@
 ---
 - name: Configurar ETHERCHANNEL
-  hosts: equipos-etherchannel 
+  hosts: equipos-etherchannel-capa3
   gather_facts: no
 
   tasks:
@@ -11,7 +11,7 @@
           - interface port-channel {{ item.etherchannel_numero }}
           - no switchport   
           - ip address {{ item.etherchannel_ip }} {{ item.etherchannel_mascara }}  
-      loop: "{{ etherchannel_parametros }}" 
+      loop: "{{ etherchannel_capa3_parametros }}" 
           
       
      
@@ -24,7 +24,7 @@
           - no ip address
           - channel-group {{ item.etherchannel_numero }} mode active
           - no shutdown
-      loop: "{{ etherchannel_parametros }}"
+      loop: "{{ etherchannel_capa3_parametros }}"
 
     - include_role:
         name: visualizar

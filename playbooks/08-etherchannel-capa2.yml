@@ -1,0 +1,28 @@
+---
+- name: Configurar ETHERCHANNEL
+  hosts: equipos-etherchannel-capa2
+  gather_facts: no
+
+  tasks:
+     
+    - name: Preparando Etherchannel
+      ios_config:
+        lines:
+          - interface port-channel {{ item.etherchannel_numero }}  
+        #  - switchport mode trunk 
+        #  - ip address {{ item.etherchannel_ip }} {{ item.etherchannel_mascara }}  
+      loop: "{{ etherchannel_capa2_parametros }}" 
+     
+    - name: Configuracion de interfaces fisicas
+      ios_config:
+        lines:
+          - interface range {{ item.etherchannel_range }}
+          - shutdown
+          - channel-group {{ item.etherchannel_numero }} mode active
+          - no shutdown
+      loop: "{{ etherchannel_capa2_parametros }}"
+
+    - include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show etherchannel summary"

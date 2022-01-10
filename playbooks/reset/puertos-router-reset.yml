@@ -1,0 +1,11 @@
+---
+- name: RESETEAR PUERTOS ROUTER
+  hosts: router
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface {{ item.puerto_id }}          
+          - no ip address 
+          - shutdown      
+      loop: "{{ puertos_parametros }}"

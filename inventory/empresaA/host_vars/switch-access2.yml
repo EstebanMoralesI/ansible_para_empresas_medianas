@@ -4,31 +4,38 @@ loopback: 5.5.5.5
 router_id: 5.5.5.5
 
 # OSPF
-ospf_parametros:
-  - ospf_network: 172.16.0.212
-    ospf_wildcard: 0.0.0.3
-    ospf_area: 0
-  - ospf_network: 172.16.0.224
-    ospf_wildcard: 0.0.0.3
-    ospf_area: 0
-  - ospf_network: 172.16.0.64
-    ospf_wildcard: 0.0.0.31
-    ospf_area: 0
-  - ospf_network: 172.16.0.96
-    ospf_wildcard: 0.0.0.31
-    ospf_area: 0
+# ospf_parametros:
+#   - ospf_network: 172.16.0.212
+#     ospf_wildcard: 0.0.0.3
+#     ospf_area: 0
+#   - ospf_network: 172.16.0.224
+#     ospf_wildcard: 0.0.0.3
+#     ospf_area: 0
+#   - ospf_network: 172.16.0.64
+#     ospf_wildcard: 0.0.0.31
+#     ospf_area: 0
+#   - ospf_network: 172.16.0.96
+#     ospf_wildcard: 0.0.0.31
+#     ospf_area: 0
 
 # PUERTOS
-puertos_parametros:
-  - puerto_id: g1/1
-    puerto_ip: 172.16.0.214
-    puerto_mascara: 255.255.255.252
-  - puerto_id: g2/1
-    puerto_ip: 172.16.0.226
-    puerto_mascara: 255.255.255.252
-  - puerto_id: g3/0
-    puerto_ip: 172.16.0.65
-    puerto_mascara: 255.255.255.224
-  - puerto_id: g3/1
-    puerto_ip: 172.16.0.97
-    puerto_mascara: 255.255.255.224
+# puertos_parametros:
+#   - puerto_id: g1/1
+#     puerto_ip: 172.16.0.214
+#     puerto_mascara: 255.255.255.252
+#   - puerto_id: g2/1
+#     puerto_ip: 172.16.0.226
+#     puerto_mascara: 255.255.255.252
+#   - puerto_id: g3/0
+#     puerto_ip: 172.16.0.65
+#     puerto_mascara: 255.255.255.224
+#   - puerto_id: g3/1
+#     puerto_ip: 172.16.0.97
+#     puerto_mascara: 255.255.255.224
+
+# ETHERCHANNEL
+etherchannel_capa2_parametros:
+  - etherchannel_numero: 3 
+    etherchannel_range: g0/1,g1/1
+  - etherchannel_numero: 6 
+    etherchannel_range: g2/1,g3/1

@@ -1,0 +1,9 @@
+---
+- name: RESETEAR USUARIOS
+  hosts: all
+  gather_facts: no
+  tasks:    
+    - ios_user:
+        aggregate:
+        - name: esteban
+        purge: yeS

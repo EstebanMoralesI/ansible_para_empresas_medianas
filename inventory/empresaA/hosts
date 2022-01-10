@@ -32,15 +32,17 @@ switch-access1
 switch-access2
 switch-access3
 
-# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL CAPA 3 # # #
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL # # #
 [equipos-etherchannel-capa3]
 switch-core1
 switch-core2
 
-# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL CAPA 2 # # #
 [equipos-etherchannel-capa2]
 switch-core1
 switch-core2
+switch-access1
+switch-access2
+switch-access3
 
 # # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
 [equipos-ospf]

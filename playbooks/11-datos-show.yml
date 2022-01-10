@@ -22,7 +22,7 @@
         comando_visualizar: "show running-config"
 
 - name: Ejecutando el comando "show etherchannel summary"
-  hosts: equipos-etherchannel
+  hosts: equipos-etherchannel-capa3
   gather_facts: no
 
   tasks:
