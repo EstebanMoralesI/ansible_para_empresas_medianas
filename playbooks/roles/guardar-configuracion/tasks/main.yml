@@ -1,0 +1,10 @@
+#######################################
+# GUARDAR LA CONFIGURACION DEL EQUIPO #
+#######################################
+
+# # # EJECUTANDO EL COMANDO SOLICITADO # # #
+- name: Ejecutando el comando "wr"
+  ios_command:
+    commands:
+      - wr          
+  

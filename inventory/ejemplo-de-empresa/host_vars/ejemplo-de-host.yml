@@ -17,67 +17,14 @@
 ############################
 
 # puertos_parametros:
-# #Puerto 1
+# Puerto 1
 #   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
 #     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
 #     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
-# #Puerto n
+# Puerto n
 #   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
 #     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
 #     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
-
-##########
-# VLAN's #
-##########
-
-# vlans_parametros:
-# #Vlan 1
-#   - vlan_name: # Nombre de la Vlan ej. "VLAN10" #
-#     vlan_id: # Numero de la Vlan ej. "10" #
-# #Vlan n
-#   - vlan_name: # Nombre de la Vlan ej. "VLAN10" #
-#     vlan_id: # Numero de la Vlan ej. "10" #
-
-#######################
-# MODO TRUNK Y ACCESS #
-#######################
-
-# # # # MODO TRUNK # # #
-# trunk_parametros:
-# # Troncal 1
-#   - trunk_puerto: # Nombre del puerto del equipo ej. "g0/1" #
-# # Troncal n
-#   - trunk_puerto: # Nombre del puerto del equipo ej. "g0/1" #
-
-# # # # MODO ACCESS # # #
-# access_parametros:
-# # Access 1
-#   - access_puerto: # Nombre del puerto del equipo ej. "g0/1" #
-#     access_vlan: # Numero de la Vlan ej. "10" #
-# # Access n
-#   - access_puerto: # Nombre del puerto del equipo ej. "g0/1" #
-#     access_vlan: # Numero de la Vlan ej. "10" #
-
-
-
-
-
-
-################# 
-# INTER - VLANS #
-#################
-
-# vlans_parametros:
-#   - vlan_interface: g3/1
-#     vlan_id: 10
-#   - vlan_interface: g3/2
-#     vlan_id: 20
-#   - vlan_interface: g3/3
-#     vlan_id: 40
-
-
-
-
 
 ################
 # ETHERCHANNEL #
@@ -105,6 +52,17 @@
 #     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
 #     ospf_area: # numero de area del OSPF ej. "0" #
 
+######### 
+# VLANS #
+#########
+
+# vlans_parametros:
+#   - vlan_interface: g3/1
+#     vlan_id: 10
+#   - vlan_interface: g3/2
+#     vlan_id: 20
+#   - vlan_interface: g3/3
+#     vlan_id: 40
 
 ########
 # HSRP #

@@ -1,6 +1,10 @@
 ---
-  - name: RESETEAR PUERTOS SWITCH
-    hosts: switch
+########################################################################
+# RESETEO DE PUERTOS DE UN SWITCH DE ACUERDO A PARAMETROS EN INVENTORY #
+#             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                  #
+########################################################################
+  - name: RESETEAR PUERTOS SWITCH CAPA 3
+    hosts: switch-capa3
     gather_facts: no
     tasks:     
       - ios_config:

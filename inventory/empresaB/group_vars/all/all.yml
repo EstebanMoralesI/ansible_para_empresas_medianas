@@ -27,14 +27,11 @@ gitlab_access_token: glpat-R6vWoLKRt4LEM-tgPPpY
 # NOMBRE DE LA EMPRESA
 nombre_empresa: empresaB
 
-# PARAMETROS DE OSPF NETWORK Y AREA
-# ospf_network: 10.10.0.0 
-# ospf_wildcard: 0.0.0.255
-# ospf_area: 0
-
-# PARAMETROS DE TODOS LOS EQUIPOS CON SUS RESPECTIVAS IP'S
-# En el parámetro "ips_name" introducir el nombre del equipo
-# En el parámetro "ips_id" introducir la ip del equipo
+############################################################################
+# PARAMETROS DE TODOS LOS EQUIPOS CON SUS RESPECTIVAS IP'S (CONECCION SSH) #
+############################################################################
+# # # En el parámetro "ips_name" introducir el nombre del equipo # # #
+# # # En el parámetro "ips_id" introducir la ip del equipo # # #
 ips:
   - ips_name: r1
     ips_id: 192.168.122.81
@@ -43,8 +40,17 @@ ips:
   - ips_name: s2
     ips_id: 192.168.122.85
 
-vlan_nativa: 99
 
+# PARAMETROS DE USUARIOS Y PASSWORDS
+# En el parámetro "username" introducir el nombre del usuario
+# En el parámetro "password" introducir el password del usuario
+users:
+  - username: user1
+    password: password-user1
+
+  - username: user2
+    password: password-user2
+    
 # PARAMETROS DE SERVIDORES NTP
 # En el parámetro "ntp_servers" introducir todas las ip's necesarias
 ntp_servers:
@@ -57,3 +63,5 @@ ntp_servers:
 dns_servers:
     - 192.168.3.1
     - 192.168.3.2
+
+

@@ -1,63 +1,124 @@
 ---
-# PARAMETROS GLOBALES
+#######################
+# PARAMETROS GLOBALES #
+#######################
+
+# # # OJO - SE NECESITA CREAR UN ARCHIVO CON EL NOMBRE DE CADA HOST (EQUIPO DE RED) # # #
+# # # OJO - ESTOS ARCHIVOS TIENEN QUE SER CON EXTENSION YAML ".yml"                 # # #
+# # # OJO - SIGA LAS INSTRUCCIONES DE LOS PARAMETROS QUE REQUIERA SU RED            # # #
+
+# # # LOOPBACK # # #
+
 loopback: 3.3.3.3
 router_id: 3.3.3.3
 
-# PUERTOS
+############################
+# CONFIGURACION DE PUERTOS #
+############################
+
 puertos_parametros:
+# Puerto g0/2
   - puerto_id: g0/2
     puerto_ip: 172.16.30.6
     puerto_mascara: 255.255.255.252
 
-# ETHERCHANNEL
-etherchannel_capa2_parametros:
-  - etherchannel_numero: 1 
-    etherchannel_range: g1/1,g1/2
+##########
+# VLAN's #
+##########
 
-# OSPF
-ospf_parametros:
-  - ospf_network: 172.16.30.4 
-    ospf_wildcard: 0.0.0.3
-    ospf_area: 0
-  - ospf_network: 10.10.10.0
-    ospf_wildcard: 0.0.0.255
-    ospf_area: 0
-  - ospf_network: 192.168.20.0
-    ospf_wildcard: 0.0.0.255
-    ospf_area: 0
-  - ospf_network: 192.168.40.0
-    ospf_wildcard: 0.0.0.255
-    ospf_area: 0
-
-# VLANS
 vlans_parametros:
-  - vlan_interface: g3/1
+  - vlan_name: VLAN10
     vlan_id: 10
-  - vlan_interface: g3/2
+  
+  - vlan_name: VLAN20
     vlan_id: 20
-  - vlan_interface: g3/3
+   
+  - vlan_name: VLAN40
     vlan_id: 40
+
+#######################
+# MODO TRUNK Y ACCESS #
+#######################
+
+# # # MODO TRUNK # # #
+trunk_parametros:
+  - trunk_puerto: g1/3
+
+# # # MODO ACCESS # # #
+access_parametros:
+  - access_puerto: g3/1
+    access_vlan: 10
+  - access_puerto: g3/2
+    access_vlan: 20
+  - access_puerto: g3/3
+    access_vlan: 40
+
+################
+# ETHERCHANNEL #
+################
+
+# etherchannel_capa2_parametros:
+# Etherchannel 1
+#   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
+#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
+# Etherchannel n
+#   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
+#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
+
+########
+# OSPF #
+########
+
+# ospf_parametros:
+# Network 1 #
+#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
+#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
+#     ospf_area: # numero de area del OSPF ej. "0" #
+# Network n #
+#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
+#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
+#     ospf_area: # numero de area del OSPF ej. "0" #
+
+######### 
+# VLANS #
+#########
+
+# vlans_parametros:
+#   - vlan_interface: g3/1
+#     vlan_id: 10
+#   - vlan_interface: g3/2
+#     vlan_id: 20
+#   - vlan_interface: g3/3
+#     vlan_id: 40
 
 ########
 # HSRP #
 ########
-# # # HSRP SWITCH "ACTIVO" # # #
 
+# # # HSRP ROUTER # # #
+# # # HSRP ROUTER ACTIVO # # #
+# # # HSRP ROUTER STANDBY # # #
+
+# # # HSRP "SWITCH CAPA 3"
+# # # HSRP SWITCH "ACTIVO" # # #
 # hsrp_parametros_activo: 
+# Vlan 1
 #   - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
 #     hsrp_numero: # Numero de standby ej. "1" #
 #     hsrp_ip: # Ip principal ej "10.10.10.1" #
 #     hsrp_prioridad: # Valor de la prioridad ej. "200" #
-
-# HSRP SWITCH "STANDBY"
-
-hsrp_parametros_standby:
-  - hsrp_vlan: 10
-    hsrp_numero: 1
-    hsrp_ip: 10.10.10.1
-  - hsrp_vlan: 20
-    hsrp_numero: 1
-    hsrp_ip: 192.168.20.1
-  - hsrp_vlan: 40
-    hsrp_numero: 1
-    hsrp_ip: 192.168.40.1
+# Vlan n
+#   - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
+#     hsrp_numero: # Numero de standby ej. "1" #
+#     hsrp_ip: # Ip principal ej "10.10.10.1" #
+#     hsrp_prioridad: # Valor de la prioridad ej. "200" #
+# # # HSRP SWITCH "STANDBY" # # #
+#hsrp_parametros_standby:
+# Vlan 1 
+  # - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
+  #   hsrp_numero: # Numero de standby ej. "1" #
+  #   hsrp_ip: # Ip principal ej "10.10.10.1" #
+# Vlan n
+  # - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
+  #   hsrp_numero: # Numero de standby ej. "1" #
+  #   hsrp_ip: # Ip principal ej "10.10.10.1" #

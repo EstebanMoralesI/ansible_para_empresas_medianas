@@ -1,6 +1,7 @@
 ---
 ##############################################################################
 # CONFIGURACION DE PUERTOS DE UN SWITCH DE ACUERDO A PARAMETROS EN INVENTORY #
+#             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                        #
 ##############################################################################
 
 - name: Configurar PUERTOS SWITCH
@@ -19,4 +20,8 @@
 
     # # # LLAMADO A ROL CONFIGURAR PUERTOS # # #
     - include_role:
-        name: configurar-puertos   
+        name: configurar-puertos 
+        
+    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
+    - include_role:
+        name: guardar-configuracion  
