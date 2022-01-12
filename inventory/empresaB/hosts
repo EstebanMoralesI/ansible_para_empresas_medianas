@@ -30,3 +30,15 @@ s2
 r1
 s1
 s2
+
+# # # LISTE AQUI LOS EQUIPOS QUE INCLUYEN VLANS # # #
+[equipos-vlan]
+s1
+s2
+
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE HSRP # # #
+[equipo-hsrp-activo]
+s1
+[equipo-hsrp-standby]
+s2
+

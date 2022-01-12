@@ -1,0 +1,43 @@
+---
+- name: Configurar HSRP ACTIVO
+  hosts: equipo-hsrp-activo
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+        # interface g0/0.10
+        # encapsulation dot1q 10
+        # ip add 192.168.10.2 255.255.255.192
+        # standby 1 ip 192.168.10.1
+        # standby 1 priority 200
+        # standby 1 preempt
+          - interface {{ item.hsrp_int }}{{ item.hsrp_numero }} 
+          - encapsulation dot1q {{ item.hsrp_numero }}
+          - ip address {{ item.hsrp_ip }}
+          - priority {{ item.hsrp_prioridad }}
+          - preempt        
+      loop: "{{ hsrp_parametros_activo }}"
+
+- name: Configurar HSRP STANDBY
+  hosts: equipo-hsrp-standby
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+        # interface g0/0.10
+        # encapsulation dot1q 10
+        # ip add 192.168.10.2 255.255.255.192
+        # standby 1 ip 192.168.10.1
+          - interface {{ item.hsrp_int }}{{ item.hsrp_numero }} 
+          - encapsulation dot1q {{ item.hsrp_numero }}
+          - ip address {{ item.hsrp_ip }}       
+      loop: "{{ hsrp_parametros_standby }}"
+    
+- name: Ejecutando el comando "show standby"
+  hosts: equipo-hsrp-activo, equipo-hsrp-standby
+  gather_facts: no
+  tasks:
+    - include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show standby"

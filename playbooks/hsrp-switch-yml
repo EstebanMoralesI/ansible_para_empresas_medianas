@@ -1,0 +1,37 @@
+---
+- name: Configurar HSRP ACTIVO
+  hosts: equipo-hsrp-activo
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+        # interface vlan 10
+        # standby 1 ip 10.10.10.1
+        # standby 1 priority 200
+        # standby 1 preempt
+          - interface vlan {{ item.hsrp_vlan }} 
+          - standby {{ item.hsrp_numero }} ip {{ item.hsrp_ip }}
+          - standby {{ item.hsrp_numero }} priority {{ item.hsrp_prioridad }}
+          - standby {{ item.hsrp_numero}} preempt        
+      loop: "{{ hsrp_parametros_activo }}"
+
+- name: Configurar HSRP STANDBY
+  hosts: equipo-hsrp-standby
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+        # interface vlan 10
+        # standby 1 ip 10.10.10.1
+          - interface vlan {{ item.hsrp_vlan }} 
+          - standby {{ item.hsrp_numero }} ip {{ item.hsrp_ip }}       
+      loop: "{{ hsrp_parametros_standby }}"
+    
+- name: Ejecutando el comando "show standby"
+  hosts: equipo-hsrp-activo, equipo-hsrp-standby
+  gather_facts: no
+  tasks:
+    - include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show standby"

@@ -28,3 +28,18 @@ ospf_parametros:
   - ospf_network: 192.168.40.0
     ospf_wildcard: 0.0.0.255
     ospf_area: 0
+
+# VLANS
+vlans_parametros:
+  - vlan_interface: g3/1
+    vlan_id: 10
+  - vlan_interface: g3/2
+    vlan_id: 20
+  - vlan_interface: g3/3
+    vlan_id: 30
+
+# HSRP
+hsrp_parametros_standby:
+  - hsrp_vlan: 10
+  - hsrp_numero: 1
+  - hsrp_ip: 10.10.10.1
