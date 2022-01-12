@@ -38,12 +38,19 @@ vlans_parametros:
   - vlan_interface: g2/3
     vlan_id: 40
 
-# HSRP
+# HSRP SWITCH "ACTIVO"
 hsrp_parametros_activo:
   - hsrp_vlan: 10
-  - hsrp_numero: 1
-  - hsrp_ip: 10.10.10.1
-  - hsrp_prioridad: 200
+    hsrp_numero: 1
+    hsrp_ip: 10.10.10.1
+    hsrp_prioridad: 150
+  - hsrp_vlan: 20
+    hsrp_numero: 1
+    hsrp_ip: 192.168.20.1
+    hsrp_prioridad: 150
+  - hsrp_vlan: 40
+    hsrp_numero: 1
+    hsrp_ip: 192.168.40.1
+    hsrp_prioridad: 150
 
- 
 

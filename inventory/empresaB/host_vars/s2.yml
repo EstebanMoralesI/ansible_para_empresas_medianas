@@ -36,10 +36,28 @@ vlans_parametros:
   - vlan_interface: g3/2
     vlan_id: 20
   - vlan_interface: g3/3
-    vlan_id: 30
+    vlan_id: 40
 
-# HSRP
+########
+# HSRP #
+########
+# # # HSRP SWITCH "ACTIVO" # # #
+
+# hsrp_parametros_activo: 
+#   - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
+#     hsrp_numero: # Numero de standby ej. "1" #
+#     hsrp_ip: # Ip principal ej "10.10.10.1" #
+#     hsrp_prioridad: # Valor de la prioridad ej. "200" #
+
+# HSRP SWITCH "STANDBY"
+
 hsrp_parametros_standby:
   - hsrp_vlan: 10
-  - hsrp_numero: 1
-  - hsrp_ip: 10.10.10.1
+    hsrp_numero: 1
+    hsrp_ip: 10.10.10.1
+  - hsrp_vlan: 20
+    hsrp_numero: 1
+    hsrp_ip: 192.168.20.1
+  - hsrp_vlan: 40
+    hsrp_numero: 1
+    hsrp_ip: 192.168.40.1
