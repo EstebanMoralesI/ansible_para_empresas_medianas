@@ -9,8 +9,8 @@
 
 # # # LOOPBACK # # #
 
-loopback: # Numero de Loopback ej. 1.1.1.1 #
-router_id: # Numero de router_id ej. 1.1.1.1 #
+loopback: 1.1.1.1
+
 
 ############################
 # CONFIGURACION DE PUERTOS #
@@ -26,6 +26,38 @@ puertos_parametros:
      puerto_ip: 172.16.30.5 
      puerto_mascara: 255.255.255.252 
 
+################# 
+# INTER - VLANS #
+#################
+
+# # # INTER-VLAN ROUTER # # #
+inter_vlans_router_parametros:
+  - inter_vlan_id: g0/2
+    inter_vlan_numero: 10
+    inter_vlan_ip: 10.10.10.1
+    inter_vlan_mascara: 255.255.255.0
+  - inter_vlan_id: g0/2
+    inter_vlan_numero: 20
+    inter_vlan_ip: 192.168.20.1
+    inter_vlan_mascara: 255.255.255.0
+  - inter_vlan_id: g0/2
+    inter_vlan_numero: 40
+    inter_vlan_ip: 192.168.40.1
+    inter_vlan_mascara: 255.255.255.0
+
+########
+# OSPF #
+########
+
+router_id: 1.1.1.1
+ospf_parametros:
+  - ospf_network: 172.16.30.0
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 172.16.30.4 
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+
 ################
 # ETHERCHANNEL #
 ################
@@ -38,19 +70,7 @@ puertos_parametros:
 #   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
 #     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
 
-########
-# OSPF #
-########
 
-# ospf_parametros:
-# Network 1 #
-#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
-#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
-#     ospf_area: # numero de area del OSPF ej. "0" #
-# Network n #
-#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
-#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
-#     ospf_area: # numero de area del OSPF ej. "0" #
 
 ######### 
 # VLANS #

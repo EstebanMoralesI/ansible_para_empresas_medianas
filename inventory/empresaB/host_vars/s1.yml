@@ -10,7 +10,7 @@
 # # # LOOPBACK # # #
 
 loopback: 2.2.2.2
-router_id: 2.2.2.2
+
 
 ############################
 # CONFIGURACION DE PUERTOS #
@@ -58,13 +58,41 @@ access_parametros:
 # INTER - VLANS #
 #################
 
-# vlans_parametros:
-#   - vlan_interface: g3/1
-#     vlan_id: 10
-#   - vlan_interface: g3/2
-#     vlan_id: 20
-#   - vlan_interface: g3/3
-#     vlan_id: 40
+# # # INTER-VLAN SWITCH # # #
+# inter-vlans_switch_parametros:
+#   - inter_vlan_id: g0/2
+#     inter_vlan_numero: 10
+#     inter_vlan_ip: 10.10.10.1
+#     inter_vlan_mascara: 255.255.255.0
+#   - inter_vlan_id: g0/2
+#     inter_vlan_numero: 20
+#     inter_vlan_ip: 192.168.20.1
+#     inter_vlan_mascara: 255.255.255.0
+#   - inter_vlan_id: g0/2
+#     inter_vlan_numero: 40
+#     inter_vlan_ip: 192.168.40.1
+#     inter_vlan_mascara: 255.255.255.0
+
+
+########
+# OSPF #
+########
+
+router_id: 2.2.2.2
+ospf_parametros:
+  - ospf_network: 10.10.10.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.20.0 
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.40.0 
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 172.16.30.0 
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+
 
 ################
 # ETHERCHANNEL #

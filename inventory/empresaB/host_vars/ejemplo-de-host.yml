@@ -60,6 +60,22 @@
 
 
 
+########
+# OSPF #
+########
+
+# ospf_parametros:
+# #Network 1 #
+#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
+#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
+#     ospf_area: # numero de area del OSPF ej. "0" #
+# #Network n #
+#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
+#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
+#     ospf_area: # numero de area del OSPF ej. "0" #
+
+
+
 
 
 

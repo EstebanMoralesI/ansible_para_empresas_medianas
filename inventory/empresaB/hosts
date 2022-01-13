@@ -31,11 +31,16 @@ s2
 [equipos-vlan-acceso]
 s1
 s2
-[equipo-inter-vlan-router]
+[equipo-inter-vlans-router]
 r1
-[equipo-inter-vlan-swtich]
+[equipo-inter-vlans-switch]
 s1
 
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
+[equipos-ospf]
+r1
+s1
+s2
 
 # # # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL # # #
 # [equipos-etherchannel-capa3]
@@ -46,10 +51,7 @@ s1
 # # switch-access-1
 # # switch-access-n
 
-# # # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
-# [equipos-ospf]
-# # equipo-1
-# # equipo-n
+
 
 
 

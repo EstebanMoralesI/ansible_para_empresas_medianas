@@ -4,68 +4,70 @@
 #        !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO           #
 ############################################################
 
-- name: Crear Vlans en cada equipo
-  hosts: equipos-vlan
-  gather_facts: no
-  tasks:
-    - ios_config:
-        lines:
-          - name {{ item.vlan_name }}
-          - no shutdown
-        parents: vlan {{ item.vlan_id }}
-      loop: "{{ vlans_parametros }}"
-    - include_role:
-        name: visualizar
-      vars: 
-        comando_visualizar: "show vlan brief"
-
-- name: Modo Troncal
-  hosts: equipos-vlan-troncal
-  gather_facts: no
-  tasks:
-    - ios_config:
-        lines:
-          - interface {{ item.trunk_puerto }}
-          - switchport trunk encapsulation dot1q 
-          - switchport mode trunk
-          - switchport nonegotiate
-          - no shutdown
-      loop: "{{ trunk_parametros }}"
-    - include_role:
-        name: visualizar
-      vars: 
-        comando_visualizar: "show interfaces trunk"
-
-- name: Modo Acceso
-  hosts: equipos-vlan-acceso
-  gather_facts: no
-  tasks:
-    - ios_config:
-        lines:
-          - interface {{ item.access_puerto }} 
-          - switchport mode access 
-          - switchport access vlan {{ item.access_vlan }}
-          - no shutdown
-      loop: "{{ access_parametros }}"
-
-# - name: Configurando INTER-VLANS
-#   hosts: equipos-inter-vlan
+# - name: Crear Vlans en cada equipo
+#   hosts: equipos-vlan
 #   gather_facts: no
 #   tasks:
 #     - ios_config:
 #         lines:
-#           - interface {{ item.inter_vlan_id }}.{{ item.inter_vlan_numero }}  
-#           - encapsulation dot1q {{ item.inter_vlan_numero }}
-#           - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }}   
-#       loop: "{{ inter_vlan_parametros }}"
+#           - name {{ item.vlan_name }}
+#           - no shutdown
+#         parents: vlan {{ item.vlan_id }}
+#       loop: "{{ vlans_parametros }}"
+#     - include_role:
+#         name: visualizar
+#       vars: 
+#         comando_visualizar: "show vlan brief"
 
+# - name: Modo Troncal
+#   hosts: equipos-vlan-troncal
+#   gather_facts: no
+#   tasks:
+#     - ios_config:
+#         lines:
+#           - interface {{ item.trunk_puerto }}
+#           - switchport trunk encapsulation dot1q 
+#           - switchport mode trunk
+#           - switchport nonegotiate
+#           - no shutdown
+#       loop: "{{ trunk_parametros }}"
+#     - include_role:
+#         name: visualizar
+#       vars: 
+#         comando_visualizar: "show interfaces trunk"
 
-- name: Guardando la CONFIGURACION
-  hosts: equipos-vlan
+# - name: Modo Acceso
+#   hosts: equipos-vlan-acceso
+#   gather_facts: no
+#   tasks:
+#     - ios_config:
+#         lines:
+#           - interface {{ item.access_puerto }} 
+#           - switchport mode access 
+#           - switchport access vlan {{ item.access_vlan }}
+#           - no shutdown
+#       loop: "{{ access_parametros }}"
+
+- name: INTER-VLANS ROUTER
+  hosts: equipo-inter-vlans-router
   gather_facts: no
   tasks:
-    - include_role:
-        name: guardar-configuracion
+    - name: Configurando INTER-VLANS en ROUTER
+      ios_config:
+        lines:
+          - interface {{ item.inter_vlan_id }}.{{ item.inter_vlan_numero }}  
+          - encapsulation dot1q {{ item.inter_vlan_numero }}
+          - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }} 
+          - no shutdown  
+      loop: "{{ inter_vlans_router_parametros }}"
+
+
+# - name: Guardando la CONFIGURACION
+#   hosts: equipos-vlan
+#   gather_facts: no
+#   tasks:
+#     - include_role:
+#         name: guardar-configuracion
 
 
     
