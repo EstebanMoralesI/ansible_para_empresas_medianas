@@ -32,15 +32,15 @@ puertos_parametros:
 
 # # # INTER-VLAN ROUTER # # #
 inter_vlans_router_parametros:
-  - inter_vlan_id: g0/2
+  - inter_vlan_puerto: g0/2
     inter_vlan_numero: 10
     inter_vlan_ip: 10.10.10.1
     inter_vlan_mascara: 255.255.255.0
-  - inter_vlan_id: g0/2
+  - inter_vlan_puerto: g0/2
     inter_vlan_numero: 20
     inter_vlan_ip: 192.168.20.1
     inter_vlan_mascara: 255.255.255.0
-  - inter_vlan_id: g0/2
+  - inter_vlan_puerto: g0/2
     inter_vlan_numero: 40
     inter_vlan_ip: 192.168.40.1
     inter_vlan_mascara: 255.255.255.0
