@@ -1,0 +1,59 @@
+#####################################
+# LISTE TODOS LOS EQUIPOS DE LA RED #
+#####################################
+[equipos]
+# # # Ingrese todos los equipos como router's o switch's sin espacio ej. "router1" # # #
+# equipo-1
+# equipo-n
+
+# # # LISTE AQUI EL/LOS ROUTER/S # # #
+[router]
+# router-1
+# router-n
+
+# # # LISTE AQUI EL/LOS SWITCH/ES # # #
+[switch]
+# switch-1
+# switch-n
+
+# # # LISTE AQUI EL/LOS SWITCH/ES CAPA 3 # # #
+[switch-capa3]
+# switch-core-1
+# switch-core-n
+
+# # # LISTE AQUI EL/LOS SWITCH/ES CAPA 2 # # #
+[switch-capa2]
+# switch-access-1
+# switch-access-n
+
+
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL # # #
+[equipos-etherchannel-capa3]
+# switch-core-1
+# switch-core-n
+
+[equipos-etherchannel-capa2]
+# switch-access-1
+# switch-access-n
+
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
+[equipos-ospf]
+# equipo-1
+# equipo-n
+
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's # # #
+[equipos-vlan]
+# equipo-1
+# equipo-n
+
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's # # #
+[equipos-inter-vlan]
+# equipo-1
+# equipo-n
+
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE HSRP # # #
+[equipo-hsrp-activo]
+# equipo-1
+[equipo-hsrp-standby]
+# equipo-1
+# equipo-n
