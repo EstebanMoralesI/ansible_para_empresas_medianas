@@ -44,6 +44,8 @@ ips:
   - ips_name: r1
     ips_id: 192.168.122.81
   - ips_name: sw1
-    ips_id: 192.168.122.84
+    ips_id: 192.168.122.83
   - ips_name: sw2
+    ips_id: 192.168.122.84
+  - ips_name: sw3
     ips_id: 192.168.122.85
