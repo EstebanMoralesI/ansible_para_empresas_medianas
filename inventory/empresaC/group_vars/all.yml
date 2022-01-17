@@ -26,7 +26,7 @@ ansible_password: cisco
 ansible_become_pass: cisco
 
 # # # En el parámetro "gitlab_project_id" introducir el id del proyecto de su entorno en gitlab # # #
-# # # empresa-a-backup # # #
+# # # empresa-c-backup # # #
 gitlab_project_id: 32900543
 
 # # # En el parámetro "gitlab_access_token" introducir el token del proyecto de su entorno en gitlab # # #
@@ -58,5 +58,3 @@ ips:
     ips_id: 192.168.122.86
   - ips_name: s2
     ips_id: 192.168.122.87
- 
-

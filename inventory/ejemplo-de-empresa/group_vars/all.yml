@@ -1,0 +1,47 @@
+---
+###################################
+# PARAMETROS GENERALES DE ENTORNO #
+###################################
+
+##!!!############################################!!!##
+# !!!PRECAUCIÓN!!! NO MODIFICAR ESTOS PARAMETROS !!! #
+##!!!############################################!!!##
+ansible_connection: network_cli
+ansible_network_os: ios
+ansible_become: yes
+ansible_become_method: enable
+
+##################################
+# PARAMETROS QUE SE DEBEN LLENAR #
+##################################
+
+# # # NOMBRE DE LA EMPRESA introducir un nombre de una sola palabra # # #
+nombre_empresa: # Nombre de la empresa ej. "empresaA" #
+ansible_user: # Usuario de la coneccion SSH ej. "esteban" #
+ansible_password: # Password para la conexion SSH ej. "c1$c0" #
+gitlab_project_id:  # Project ID de GITLAB ej. "32027565" #
+gitlab_access_token: # Token generado para el Project ID de GITLAB ej. "glpat-R6vWoLKRt4LEM-tgPPpY" #
+
+######################################
+# PARAMETROS DE USUARIOS Y PASSWORDS #
+######################################
+
+# users:
+# # Usuario 1
+#   - username: # Nombre de usuario ej. "user1" #
+#     password: # Password del usuario ej. "password-user1" #
+# # Usuario n
+#   - username: # Nombre de usuario ej. "user1" #
+#     password: # Password del usuario ej. "password-user1" #
+
+############################################################################
+# PARAMETROS DE TODOS LOS EQUIPOS CON SUS RESPECTIVAS IP'S (CONECCION SSH) #
+############################################################################
+
+# ips:
+# # Equipo 1
+#   - ips_name: # Nombre del equipo ej. "router1" #
+#     ips_id: # Ip del equipo ej. "192.168.122.81" #
+# # Equipo n
+#   - ips_name: # Nombre del equipo ej. "router1" #
+#     ips_id: # Ip del equipo ej. "192.168.122.81" #
