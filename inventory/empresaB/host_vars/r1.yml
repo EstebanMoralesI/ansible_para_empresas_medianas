@@ -18,71 +18,19 @@ router_id: 1.1.1.1
 
 puertos_parametros:
 
-  - puerto_id: g0/1 
+  - puerto_id: g0/3 
     puerto_ip: 172.16.30.1 
     puerto_mascara: 255.255.255.252 
-
-  - puerto_id: g0/2 
-    puerto_ip: 172.16.30.5 
-    puerto_mascara: 255.255.255.252 
-
-################
-# ETHERCHANNEL #
-################
-
-# etherchannel_capa2_parametros:
-# #Etherchannel 1
-#   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
-#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
-# #Etherchannel n
-#   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
-#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
 
 ########
 # OSPF #
 ########
 
-# ospf_parametros:
-# Network 1 #
-#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
-#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
-#     ospf_area: # numero de area del OSPF ej. "0" #
-# Network n #
-#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
-#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
-#     ospf_area: # numero de area del OSPF ej. "0" #
+ospf_parametros:
 
-######### 
-# VLANS #
-#########
-
-# vlans_parametros:
-# # Vlan 1
-#   - vlan_id: # Numero de la vlan ej "10" #
-#     vlan_name: # nombre de la vlan ej "Ventas" #
-# # Vlan n 
-#   - vlan_id: # Numero de la vlan ej "10" #
-#     vlan_name: # nombre de la vlan ej "Ventas" #
-
-#######################
-# MODO TRUNK Y ACCESS #
-#######################
-
-# # # # MODO TRUNK # # #
-# trunk_parametros:
-# # Trunk 1
-#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "po1" #
-# # Trunk n
-#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "po1" #
-
-# # # MODO ACCESS # # #
-# access_parametros:
-# # Access 1
-#   - access_puerto: # Puerto para asignar access ej. "g0/1" #
-#     access_vlan: # Numero de la vlan a asignar al puerto access ej. "10" #
-# # Access n
-#   - access_puerto: # Puerto para asignar access ej. "g0/1" #
-#     access_vlan: # Numero de la vlan a asignar al puerto access ej. "10" #
+  - ospf_network: 172.16.30.0 
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
 
 ################# 
 # INTER - VLANS #
@@ -99,34 +47,19 @@ puertos_parametros:
 #     inter_vlan_ip: # ip de la gateway de la vlan ej "192.168.10.0" #
 #     inter_vlan_mascara: # mascara de la gateway de la vlan ej "255.255.255.0" #
 
-########
-# HSRP #
-########
-
-# # # HSRP ROUTER # # #
-# # # HSRP ROUTER ACTIVO # # #
-# # # HSRP ROUTER STANDBY # # #
-
-# # # HSRP "SWITCH CAPA 3"
-# # # HSRP SWITCH "ACTIVO" # # #
-# hsrp_parametros_activo: 
-# Vlan 1
-#   - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
-#     hsrp_numero: # Numero de standby ej. "1" #
-#     hsrp_ip: # Ip principal ej "10.10.10.1" #
-#     hsrp_prioridad: # Valor de la prioridad ej. "200" #
-# Vlan n
-#   - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
-#     hsrp_numero: # Numero de standby ej. "1" #
-#     hsrp_ip: # Ip principal ej "10.10.10.1" #
-#     hsrp_prioridad: # Valor de la prioridad ej. "200" #
-# # # HSRP SWITCH "STANDBY" # # #
-#hsrp_parametros_standby:
-# Vlan 1 
-  # - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
-  #   hsrp_numero: # Numero de standby ej. "1" #
-  #   hsrp_ip: # Ip principal ej "10.10.10.1" #
-# Vlan n
-  # - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
-  #   hsrp_numero: # Numero de standby ej. "1" #
-  #   hsrp_ip: # Ip principal ej "10.10.10.1" #
+inter_vlans_router_parametros:
+# Inter vlan 1 "g0/1.10"
+  - inter_vlan_puerto: g0/3  
+    inter_vlan_numero: 10 
+    inter_vlan_ip: 10.10.10.1 
+    inter_vlan_mascara: 255.255.255.0 
+# Inter vlan 2 "g0/1.20"
+  - inter_vlan_puerto: g0/3 
+    inter_vlan_numero: 20 
+    inter_vlan_ip: 192.168.20.1 
+    inter_vlan_mascara: 255.255.255.0 
+# Inter vlan 3 "g0/1.30"
+  - inter_vlan_puerto: g0/3 
+    inter_vlan_numero: 30 
+    inter_vlan_ip: 192.168.30.1 
+    inter_vlan_mascara: 255.255.255.0 

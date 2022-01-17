@@ -15,9 +15,8 @@ etherchannel_capa2_parametros:
 
   - etherchannel_numero: 1 
     etherchannel_range: g1/0,g2/0
-  - etherchannel_numero: 2 
-    etherchannel_range: g0/1,g0/2
-
+  - etherchannel_numero: 3 
+    etherchannel_range: g1/1,g1/2
 
 ######### 
 # VLANS #
@@ -40,14 +39,14 @@ vlans_parametros:
 trunk_parametros:
 
   - trunk_puerto: port-channel 1
-  - trunk_puerto: port-channel 2
+  - trunk_puerto: port-channel 3
 
 # # # MODO ACCESS # # #
 access_parametros:
 
-  - access_puerto: g2/1
+  - access_puerto: g3/1
     access_vlan: 10
-  - access_puerto: g2/2
+  - access_puerto: g3/2
     access_vlan: 20
-  - access_puerto: g2/3
+  - access_puerto: g3/3
     access_vlan: 30

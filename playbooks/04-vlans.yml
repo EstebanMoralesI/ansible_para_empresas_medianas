@@ -40,25 +40,25 @@
           - no shutdown
       loop: "{{ access_parametros }}"
 
-# - name: INTER-VLANS ROUTER
-#   hosts: equipo-inter-vlans-router
-#   gather_facts: no
-#   tasks:
-#     - name: Configurando INTER-VLANS en ROUTER
-#       ios_config:
-#         lines:
-#           - interface {{ item.inter_vlan_puerto }}
-#           - no shutdown 
-#       loop: "{{ inter_vlans_router_parametros }}"
+- name: INTER-VLANS ROUTER
+  hosts: equipo-inter-vlans-router
+  gather_facts: no
+  tasks:
+    - name: Configurando INTER-VLANS en ROUTER
+      ios_config:
+        lines:
+          - interface {{ item.inter_vlan_puerto }}
+          - no shutdown 
+      loop: "{{ inter_vlans_router_parametros }}"
 
-#     - name: Configurando INTER-VLANS en ROUTER
-#       ios_config:
-#         lines:
-#           - interface {{ item.inter_vlan_puerto }}.{{ item.inter_vlan_numero }}  
-#           - encapsulation dot1q {{ item.inter_vlan_numero }}
-#           - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }} 
-#           - no shutdown  
-#       loop: "{{ inter_vlans_router_parametros }}"
+    - name: Configurando INTER-VLANS en ROUTER
+      ios_config:
+        lines:
+          - interface {{ item.inter_vlan_puerto }}.{{ item.inter_vlan_numero }}  
+          - encapsulation dot1q {{ item.inter_vlan_numero }}
+          - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }} 
+          - no shutdown  
+      loop: "{{ inter_vlans_router_parametros }}"
 
 
 # - name: INTER-VLANS SWITCH

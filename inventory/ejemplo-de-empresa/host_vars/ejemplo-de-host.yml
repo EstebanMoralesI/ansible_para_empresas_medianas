@@ -83,9 +83,9 @@
 # # # # MODO TRUNK # # #
 # trunk_parametros:
 # # Trunk 1
-#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "po1" #
+#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "port-channel 1" #
 # # Trunk n
-#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "po1" #
+#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "port-channel 1" #
 
 # # # MODO ACCESS # # #
 # access_parametros:
@@ -110,6 +110,19 @@
 #   - inter_vlan_numero: # numero de vlan ej. "10" #    
 #     inter_vlan_ip: # ip de la gateway de la vlan ej "192.168.10.0" #
 #     inter_vlan_mascara: # mascara de la gateway de la vlan ej "255.255.255.0" #
+
+# # # INTER-VLAN ROUTER # # #
+# inter_vlans_router_parametros:
+# # Inter vlan 1 ej. "g0/1.10"
+#   - inter_vlan_puerto: # Puerto del router para inter-vlan ej. "g0/1" # 
+#     inter_vlan_numero: # Numero de la vlan ej. "10" #
+#     inter_vlan_ip: # Ip del gateway de la vlan ej. "192.168.10.1" #
+#     inter_vlan_mascara: # Mascara del gateway de la vlan ej. "255.255.255.0" #
+# # Inter vlan n ej. "g0/1.20"
+#   - inter_vlan_puerto: # Puerto del router para inter-vlan ej. "g0/1" # 
+#     inter_vlan_numero: # Numero de la vlan ej. "20" #
+#     inter_vlan_ip: # Ip del gateway de la vlan ej. "192.168.10.1" #
+#     inter_vlan_mascara: # Mascara del gateway de la vlan ej. "255.255.255.0" #
 
 ########
 # HSRP #

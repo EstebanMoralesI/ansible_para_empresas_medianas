@@ -5,6 +5,7 @@
 r1
 sw1
 sw2
+sw3
 
 # # # LISTE AQUI EL/LOS ROUTER/S # # #
 [router]
@@ -14,6 +15,7 @@ r1
 [switch]
 sw1
 sw2
+sw3
 
 # # # LISTE AQUI EL/LOS SWITCH/ES CAPA 3 # # #
 [switch-capa3]
@@ -32,23 +34,24 @@ sw2
 # equipo n
 
 [equipos-etherchannel-capa2]
-# equipo 1
-# equipo n
+sw1
+sw2
+sw3
 
 # # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
 [equipos-ospf]
-# equipo-1
-# equipo-n
+r1
+sw1
 
 # # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's # # #
 [equipos-vlan]
-# equipo-1
-# equipo-n
+sw1
+sw2
+sw3
 
 # # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's ROUTER # # #
 [equipo-inter-vlans-router]
-# equipo-1
-# equipo-n
+r1
 
 # # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's SWITCH # # #
 [equipo-inter-vlans-switch]
