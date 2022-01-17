@@ -17,11 +17,11 @@
 ############################
 
 # puertos_parametros:
-# Puerto 1
+# #Puerto 1
 #   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
 #     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
 #     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
-# Puerto n
+# #Puerto n
 #   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
 #     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
 #     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
@@ -38,16 +38,28 @@
 #   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
 #     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
 
+# etherchannel_capa3_parametros:
+# # Etherchannel 1
+#   - etherchannel_numero: # Numero de etherchannel ej. "1" #
+#     etherchannel_ip: # IP del Portchannel ej. "192.168.10.3" #
+#     etherchannel_mascara: # Mascara de la IP del Portchannel ej. "255.255.255.252" #
+#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
+# # Etherchannel n
+#   - etherchannel_numero: # Numero de etherchannel ej. "1" #
+#     etherchannel_ip: # IP del Portchannel ej. "192.168.10.3" #
+#     etherchannel_mascara: # Mascara de la IP del Portchannel ej. "255.255.255.252" #
+#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
+
 ########
 # OSPF #
 ########
 
 # ospf_parametros:
-# Network 1 #
+# # Network 1 
 #   - ospf_network: # network a declarar ej. "192.168.0.0" # 
 #     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
 #     ospf_area: # numero de area del OSPF ej. "0" #
-# Network n #
+# # Network n 
 #   - ospf_network: # network a declarar ej. "192.168.0.0" # 
 #     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
 #     ospf_area: # numero de area del OSPF ej. "0" #
@@ -130,20 +142,3 @@
   # - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
   #   hsrp_numero: # Numero de standby ej. "1" #
   #   hsrp_ip: # Ip principal ej "10.10.10.1" #
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,11 +17,11 @@
 ############################
 
 # puertos_parametros:
-# Puerto 1
+# #Puerto 1
 #   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
 #     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
 #     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
-# Puerto n
+# #Puerto n
 #   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
 #     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
 #     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
@@ -36,6 +36,18 @@
 #     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
 # #Etherchannel n
 #   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
+#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
+
+# etherchannel_capa3_parametros:
+# # Etherchannel 1
+#   - etherchannel_numero: # Numero de etherchannel ej. "1" #
+#     etherchannel_ip: # IP del Portchannel ej. "192.168.10.3" #
+#     etherchannel_mascara: # Mascara de la IP del Portchannel ej. "255.255.255.252" #
+#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
+# # Etherchannel n
+#   - etherchannel_numero: # Numero de etherchannel ej. "1" #
+#     etherchannel_ip: # IP del Portchannel ej. "192.168.10.3" #
+#     etherchannel_mascara: # Mascara de la IP del Portchannel ej. "255.255.255.252" #
 #     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
 
 ########

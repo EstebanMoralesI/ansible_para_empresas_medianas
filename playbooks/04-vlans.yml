@@ -61,27 +61,27 @@
 #       loop: "{{ inter_vlans_router_parametros }}"
 
 
-- name: INTER-VLANS SWITCH
-  hosts: equipo-inter-vlans-switch
-  gather_facts: no
-  tasks:
-    - name: Configurando el puerto del switch
-      ios_config:
-        lines:
-          - ip routing
-          - interface {{ item.inter_vlan_puerto }}  
-          - switchport trunk encapsulation dot1q
-          - switchport mode trunk
-          - no shutdown  
-      loop: "{{ inter_vlans_switch_parametros }}"
+# - name: INTER-VLANS SWITCH
+#   hosts: equipo-inter-vlans-switch
+#   gather_facts: no
+#   tasks:
+#     - name: Configurando el puerto del switch
+#       ios_config:
+#         lines:
+#           - ip routing
+#           - interface {{ item.inter_vlan_puerto }}  
+#           - switchport trunk encapsulation dot1q
+#           - switchport mode trunk
+#           - no shutdown  
+#       loop: "{{ inter_vlans_switch_parametros }}"
 
-    - name: Configurando la ip de la INTER-VLAN 
-      ios_config:
-        lines:
-          - interface vlan {{ item.inter_vlan_numero }}  
-          - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }}
-          - no shutdown
-      loop: "{{ inter_vlans_switch_parametros }}"
+#     - name: Configurando la ip de la INTER-VLAN 
+#       ios_config:
+#         lines:
+#           - interface vlan {{ item.inter_vlan_numero }}  
+#           - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }}
+#           - no shutdown
+#       loop: "{{ inter_vlans_switch_parametros }}"
 
 - name: Guardando la CONFIGURACION
   hosts: equipos-vlan

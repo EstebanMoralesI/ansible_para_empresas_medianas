@@ -9,22 +9,22 @@
 
 # # # LOOPBACK # # #
 
-# loopback: # Numero de Loopback ej. 1.1.1.1 #
-# router_id: # Numero de router_id ej. 1.1.1.1 #
+loopback: 1.1.1.1
+router_id: 1.1.1.1
 
 ############################
 # CONFIGURACION DE PUERTOS #
 ############################
 
-# puertos_parametros:
-# Puerto 1
-#   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
-#     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
-#     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
-# Puerto n
-#   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
-#     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
-#     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
+puertos_parametros:
+
+  - puerto_id: g0/1 
+    puerto_ip: 172.16.30.1 
+    puerto_mascara: 255.255.255.252 
+
+  - puerto_id: g0/2 
+    puerto_ip: 172.16.30.5 
+    puerto_mascara: 255.255.255.252 
 
 ################
 # ETHERCHANNEL #
