@@ -7,6 +7,11 @@
 # # # OJO - ESTOS ARCHIVOS TIENEN QUE SER CON EXTENSION YAML ".yml"                 # # #
 # # # OJO - SIGA LAS INSTRUCCIONES DE LOS PARAMETROS QUE REQUIERA SU RED            # # #
 
+# # # LOOPBACK # # #
+
+loopback: 4.4.4.4
+router_id: 4.4.4.4
+
 ################
 # ETHERCHANNEL #
 ################
@@ -17,6 +22,22 @@ etherchannel_capa2_parametros:
     etherchannel_range: g1/0,g2/0
   - etherchannel_numero: 3 
     etherchannel_range: g1/1,g1/2
+
+########
+# OSPF #
+########
+
+ospf_parametros:
+
+  - ospf_network: 10.10.10.0 
+    ospf_wildcard: 0.0.0.255 
+    ospf_area: 0
+  - ospf_network: 192.168.20.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.30.0 
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
 
 ######### 
 # VLANS #

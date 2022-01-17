@@ -27,13 +27,11 @@ puertos_parametros:
 ################
 
 etherchannel_capa2_parametros:
-#Etherchannel 2
+
   - etherchannel_numero: 2
     etherchannel_range: g0/1,g0/2
-#Etherchannel 3
   - etherchannel_numero: 3
     etherchannel_range: g1/1,g1/2
-
 
 ########
 # OSPF #

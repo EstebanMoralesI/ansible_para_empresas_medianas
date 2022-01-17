@@ -19,8 +19,7 @@ sw3
 
 # # # LISTE AQUI EL/LOS SWITCH/ES CAPA 3 # # #
 [switch-capa3]
-# switch-core-1
-# switch-core-n
+sw1
 
 # # # LISTE AQUI EL/LOS SWITCH/ES CAPA 2 # # #
 [switch-capa2]
@@ -38,14 +37,30 @@ sw1
 sw2
 sw3
 
-# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
-[equipos-ospf]
+# # # LISTE AQUI LOS ROUTER QUE PARTICIPAN DE OSPF # # #
+[equipos-ospf-router]
 r1
+
+# # # LISTE AQUI LOS SWITCH QUE PARTICIPAN DE OSPF # # #
+[equipos-ospf-switch]
 sw1
+sw2
+sw3
 
 # # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's # # #
 [equipos-vlan]
 sw1
+sw2
+sw3
+
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's TRUNK # # #
+[equipos-vlan-trunk]
+sw1
+sw2
+sw3
+
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's ACCESS # # #
+[equipos-vlan-access]
 sw2
 sw3
 
