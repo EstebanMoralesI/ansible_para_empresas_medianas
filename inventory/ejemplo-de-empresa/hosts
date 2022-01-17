@@ -29,12 +29,12 @@
 
 # # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL # # #
 [equipos-etherchannel-capa3]
-# switch-core-1
-# switch-core-n
+# equipo 1
+# equipo n
 
 [equipos-etherchannel-capa2]
-# switch-access-1
-# switch-access-n
+# equipo 1
+# equipo n
 
 # # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
 [equipos-ospf]
@@ -46,8 +46,13 @@
 # equipo-1
 # equipo-n
 
-# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's # # #
-[equipos-inter-vlan]
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's ROUTER # # #
+[equipo-inter-vlans-router]
+# equipo-1
+# equipo-n
+
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's SWITCH # # #
+[equipo-inter-vlans-switch]
 # equipo-1
 # equipo-n
 

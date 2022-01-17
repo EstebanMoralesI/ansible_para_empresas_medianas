@@ -1,0 +1,38 @@
+---
+######### 
+# VLANS #
+#########
+
+vlans_parametros:
+# Vlan 1
+  - vlan_name: Ventas
+    vlan_id: 10 
+# Vlan 2 
+  - vlan_name: Administrativos 
+    vlan_id: 20 
+
+#######################
+# MODO TRUNK Y ACCESS #
+#######################
+
+# # # MODO TRUNK # # #
+trunk_parametros:
+# Trunk 1
+  - trunk_puerto: g0/1
+
+################# 
+# INTER - VLANS #
+#################
+
+# # # INTER-VLAN SWITCH # # #
+inter_vlans_switch_parametros:
+# Inter vlan 1
+  - inter_vlan_puerto: g0/1
+    inter_vlan_numero: 10     
+    inter_vlan_ip: 10.10.10.1 
+    inter_vlan_mascara: 255.255.255.0 
+# Inter vlan 2
+  - inter_vlan_puerto: g0/1
+    inter_vlan_numero: 20     
+    inter_vlan_ip: 192.168.20.1 
+    inter_vlan_mascara: 255.255.255.0 

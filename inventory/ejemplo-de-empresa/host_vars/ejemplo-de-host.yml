@@ -31,10 +31,10 @@
 ################
 
 # etherchannel_capa2_parametros:
-# Etherchannel 1
+# #Etherchannel 1
 #   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
 #     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
-# Etherchannel n
+# #Etherchannel n
 #   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
 #     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
 
@@ -57,12 +57,47 @@
 #########
 
 # vlans_parametros:
-#   - vlan_interface: g3/1
-#     vlan_id: 10
-#   - vlan_interface: g3/2
-#     vlan_id: 20
-#   - vlan_interface: g3/3
-#     vlan_id: 40
+# # Vlan 1
+#   - vlan_id: # Numero de la vlan ej "10" #
+#     vlan_name: # nombre de la vlan ej "Ventas" #
+# # Vlan n 
+#   - vlan_id: # Numero de la vlan ej "10" #
+#     vlan_name: # nombre de la vlan ej "Ventas" #
+
+#######################
+# MODO TRUNK Y ACCESS #
+#######################
+
+# # # # MODO TRUNK # # #
+# trunk_parametros:
+# # Trunk 1
+#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "po1" #
+# # Trunk n
+#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "po1" #
+
+# # # MODO ACCESS # # #
+# access_parametros:
+# # Access 1
+#   - access_puerto: # Puerto para asignar access ej. "g0/1" #
+#     access_vlan: # Numero de la vlan a asignar al puerto access ej. "10" #
+# # Access n
+#   - access_puerto: # Puerto para asignar access ej. "g0/1" #
+#     access_vlan: # Numero de la vlan a asignar al puerto access ej. "10" #
+
+################# 
+# INTER - VLANS #
+#################
+
+# # # INTER-VLAN SWITCH # # #
+# inter_vlans_switch_parametros:
+# # Inter vlan 1
+#   - inter_vlan_numero: # numero de vlan ej. "10" #    
+#     inter_vlan_ip: # ip de la gateway de la vlan ej "192.168.10.0" #
+#     inter_vlan_mascara: # mascara de la gateway de la vlan ej "255.255.255.0" #
+# # Inter vlan n
+#   - inter_vlan_numero: # numero de vlan ej. "10" #    
+#     inter_vlan_ip: # ip de la gateway de la vlan ej "192.168.10.0" #
+#     inter_vlan_mascara: # mascara de la gateway de la vlan ej "255.255.255.0" #
 
 ########
 # HSRP #

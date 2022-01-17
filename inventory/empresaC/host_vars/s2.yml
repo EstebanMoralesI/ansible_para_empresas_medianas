@@ -1,0 +1,30 @@
+---
+######### 
+# VLANS #
+#########
+
+vlans_parametros:
+# Vlan 1
+  - vlan_name: Ventas 
+    vlan_id: 10 
+# Vlan 2 
+  - vlan_name: Administrativos 
+    vlan_id: 20 
+
+#######################
+# MODO TRUNK Y ACCESS #
+#######################
+
+# # # MODO TRUNK # # #
+trunk_parametros:
+# Trunk 1
+  - trunk_puerto: g0/1
+
+# # # MODO ACCESS # # #
+access_parametros:
+# Access 1
+  - access_puerto: g2/1 
+    access_vlan: 10 
+# Access n
+  - access_puerto: g3/1
+    access_vlan: 20 
