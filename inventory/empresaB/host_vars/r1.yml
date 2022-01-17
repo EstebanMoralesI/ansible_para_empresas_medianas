@@ -9,80 +9,95 @@
 
 # # # LOOPBACK # # #
 
-loopback: 1.1.1.1
-
+# loopback: # Numero de Loopback ej. 1.1.1.1 #
+# router_id: # Numero de router_id ej. 1.1.1.1 #
 
 ############################
 # CONFIGURACION DE PUERTOS #
 ############################
 
-puertos_parametros:
-# Puerto g0/1
-   - puerto_id: g0/1 
-     puerto_ip: 172.16.30.1
-     puerto_mascara: 255.255.255.252
-# Puerto g0/2
-   - puerto_id: g0/2 
-     puerto_ip: 172.16.30.5 
-     puerto_mascara: 255.255.255.252 
-
-################# 
-# INTER - VLANS #
-#################
-
-# # # INTER-VLAN ROUTER # # #
-inter_vlans_router_parametros:
-  - inter_vlan_puerto: g0/2
-    inter_vlan_numero: 10
-    inter_vlan_ip: 10.10.10.1
-    inter_vlan_mascara: 255.255.255.0
-  - inter_vlan_puerto: g0/2
-    inter_vlan_numero: 20
-    inter_vlan_ip: 192.168.20.1
-    inter_vlan_mascara: 255.255.255.0
-  - inter_vlan_puerto: g0/2
-    inter_vlan_numero: 40
-    inter_vlan_ip: 192.168.40.1
-    inter_vlan_mascara: 255.255.255.0
-
-########
-# OSPF #
-########
-
-router_id: 1.1.1.1
-ospf_parametros:
-  - ospf_network: 172.16.30.0
-    ospf_wildcard: 0.0.0.3
-    ospf_area: 0
-  - ospf_network: 172.16.30.4 
-    ospf_wildcard: 0.0.0.3
-    ospf_area: 0
+# puertos_parametros:
+# Puerto 1
+#   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
+#     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
+#     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
+# Puerto n
+#   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
+#     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
+#     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
 
 ################
 # ETHERCHANNEL #
 ################
 
 # etherchannel_capa2_parametros:
-# Etherchannel 1
+# #Etherchannel 1
 #   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
 #     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
-# Etherchannel n
+# #Etherchannel n
 #   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
 #     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
 
+########
+# OSPF #
+########
 
+# ospf_parametros:
+# Network 1 #
+#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
+#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
+#     ospf_area: # numero de area del OSPF ej. "0" #
+# Network n #
+#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
+#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
+#     ospf_area: # numero de area del OSPF ej. "0" #
 
 ######### 
 # VLANS #
 #########
 
 # vlans_parametros:
-#   - vlan_interface: g3/1
-#     vlan_id: 10
-#   - vlan_interface: g3/2
-#     vlan_id: 20
-#   - vlan_interface: g3/3
-#     vlan_id: 40
+# # Vlan 1
+#   - vlan_id: # Numero de la vlan ej "10" #
+#     vlan_name: # nombre de la vlan ej "Ventas" #
+# # Vlan n 
+#   - vlan_id: # Numero de la vlan ej "10" #
+#     vlan_name: # nombre de la vlan ej "Ventas" #
+
+#######################
+# MODO TRUNK Y ACCESS #
+#######################
+
+# # # # MODO TRUNK # # #
+# trunk_parametros:
+# # Trunk 1
+#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "po1" #
+# # Trunk n
+#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "po1" #
+
+# # # MODO ACCESS # # #
+# access_parametros:
+# # Access 1
+#   - access_puerto: # Puerto para asignar access ej. "g0/1" #
+#     access_vlan: # Numero de la vlan a asignar al puerto access ej. "10" #
+# # Access n
+#   - access_puerto: # Puerto para asignar access ej. "g0/1" #
+#     access_vlan: # Numero de la vlan a asignar al puerto access ej. "10" #
+
+################# 
+# INTER - VLANS #
+#################
+
+# # # INTER-VLAN SWITCH # # #
+# inter_vlans_switch_parametros:
+# # Inter vlan 1
+#   - inter_vlan_numero: # numero de vlan ej. "10" #    
+#     inter_vlan_ip: # ip de la gateway de la vlan ej "192.168.10.0" #
+#     inter_vlan_mascara: # mascara de la gateway de la vlan ej "255.255.255.0" #
+# # Inter vlan n
+#   - inter_vlan_numero: # numero de vlan ej. "10" #    
+#     inter_vlan_ip: # ip de la gateway de la vlan ej "192.168.10.0" #
+#     inter_vlan_mascara: # mascara de la gateway de la vlan ej "255.255.255.0" #
 
 ########
 # HSRP #

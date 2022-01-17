@@ -2,10 +2,9 @@
 # LISTE TODOS LOS EQUIPOS DE LA RED #
 #####################################
 [equipos]
-# # # Ingrese todos los equipos como router's o switch's sin espacio ej. "router1" # # #
-r1 
-s1 
-s2
+r1
+sw1
+sw2
 
 # # # LISTE AQUI EL/LOS ROUTER/S # # #
 [router]
@@ -13,56 +12,52 @@ r1
 
 # # # LISTE AQUI EL/LOS SWITCH/ES # # #
 [switch]
-s1
-s2
+sw1
+sw2
 
 # # # LISTE AQUI EL/LOS SWITCH/ES CAPA 3 # # #
 [switch-capa3]
-s1
-s2
+# switch-core-1
+# switch-core-n
 
-# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's # # #
-[equipos-vlan]
-s1
-s2
-[equipos-vlan-troncal]
-s1
-s2
-[equipos-vlan-acceso]
-s1
-s2
-[equipo-inter-vlans-router]
-r1
-[equipo-inter-vlans-switch]
-s1
+# # # LISTE AQUI EL/LOS SWITCH/ES CAPA 2 # # #
+[switch-capa2]
+# switch-access-1
+# switch-access-n
+
+
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL # # #
+[equipos-etherchannel-capa3]
+# equipo 1
+# equipo n
+
+[equipos-etherchannel-capa2]
+# equipo 1
+# equipo n
 
 # # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE OSPF # # #
 [equipos-ospf]
-r1
-s1
-s2
+# equipo-1
+# equipo-n
 
-# # # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL # # #
-# [equipos-etherchannel-capa3]
-# # switch-core-1
-# # switch-core-n
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's # # #
+[equipos-vlan]
+# equipo-1
+# equipo-n
 
-# [equipos-etherchannel-capa2]
-# # switch-access-1
-# # switch-access-n
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's ROUTER # # #
+[equipo-inter-vlans-router]
+# equipo-1
+# equipo-n
 
+# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's SWITCH # # #
+[equipo-inter-vlans-switch]
+# equipo-1
+# equipo-n
 
-
-
-
-# # # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's # # #
-# [equipos-inter-vlan]
-# # equipo-1
-# # equipo-n
-
-# # # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE HSRP # # #
-# [equipo-hsrp-activo]
-# # equipo-1
-# [equipo-hsrp-standby]
-# # equipo-1
-# # equipo-n
+# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE HSRP # # #
+[equipo-hsrp-activo]
+# equipo-1
+[equipo-hsrp-standby]
+# equipo-1
+# equipo-n
