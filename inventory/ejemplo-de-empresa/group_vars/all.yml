@@ -15,7 +15,6 @@ ansible_become_method: enable
 # PARAMETROS QUE SE DEBEN LLENAR #
 ##################################
 
-# # # NOMBRE DE LA EMPRESA introducir un nombre de una sola palabra # # #
 nombre_empresa: # Nombre de la empresa ej. "empresaA" #
 ansible_user: # Usuario de la coneccion SSH ej. "esteban" #
 ansible_password: # Password para la conexion SSH ej. "c1$c0" #

@@ -15,29 +15,17 @@ ansible_become_method: enable
 # PARAMETROS QUE SE DEBEN LLENAR #
 ##################################
 
-# # # NOMBRE DE LA EMPRESA introducir un nombre de una sola palabra # # #
 nombre_empresa: empresaC
-
-# # # En el parámetro "ansible_user" introducir el usuario principal de la red # # #
 ansible_user: esteban
-# # # En el parámetro "ansible_password" introducir el password principal de la red # # #
 ansible_password: cisco
-# # # En el parámetro "ansible_become_pass" introducir el password del nodo principal # # #
-ansible_become_pass: cisco
-
-# # # En el parámetro "gitlab_project_id" introducir el id del proyecto de su entorno en gitlab # # #
 # # # empresa-c-backup # # #
 gitlab_project_id: 32900543
-
-# # # En el parámetro "gitlab_access_token" introducir el token del proyecto de su entorno en gitlab # # #
 gitlab_access_token: glpat-ib8y-xxCXFy-6q4BCnf8
 
 ######################################
 # PARAMETROS DE USUARIOS Y PASSWORDS #
 ######################################
-# # # En el parámetro "username" introducir el nombre del usuario # # #
-# # # En el parámetro "password" introducir el password del usuario # # #
-# # # Agregar los usuarios que considere necesarios # # #
+
 users:
   - username: user1
     password: password-user1
@@ -51,8 +39,7 @@ users:
 ############################################################################
 # PARAMETROS DE TODOS LOS EQUIPOS CON SUS RESPECTIVAS IP'S (CONECCION SSH) #
 ############################################################################
-# # # En el parámetro "ips_name" introducir el nombre del equipo # # #
-# # # En el parámetro "ips_id" introducir la ip del equipo # # #
+
 ips:
   - ips_name: s1
     ips_id: 192.168.122.86
