@@ -15,12 +15,12 @@ ansible_become_method: enable
 # PARAMETROS QUE SE DEBEN LLENAR #
 ##################################
 
-nombre_empresa: empresaC
+nombre_empresa: empresaA
 ansible_user: esteban
 ansible_password: cisco
-# # # empresa-c-backup # # #
-gitlab_project_id: 32900543
-gitlab_access_token: glpat-ib8y-xxCXFy-6q4BCnf8
+# # # empresa-a-backup # # #
+gitlab_project_id: 32086553
+gitlab_access_token: glpat-zHF8e9sLgXgSy9mgYF8x
 
 ######################################
 # PARAMETROS DE USUARIOS Y PASSWORDS #
