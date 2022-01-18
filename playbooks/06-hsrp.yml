@@ -10,6 +10,7 @@
           - standby {{ item.hsrp_numero }} ip {{ item.hsrp_ip_gateway }}
           - standby {{ item.hsrp_numero }} priority {{ item.hsrp_prioridad }}
           - standby {{ item.hsrp_numero }} preempt 
+          - no shutdown
       loop: "{{ hsrp_switch_activo }}"
 
 - name: Configurar SWITCH HSRP STANDBY
@@ -20,7 +21,8 @@
         lines:
           - interface vlan {{ item.hsrp_vlan }}
           - ip address {{ item.hsrp_ip_equipo }} {{ item.hsrp_mascara }}
-          - standby {{ item.hsrp_numero }} ip {{ item.hsrp_ip_gateway }}      
+          - standby {{ item.hsrp_numero }} ip {{ item.hsrp_ip_gateway }} 
+          - no shutdown     
       loop: "{{ hsrp_switch_standby }}"
     
 - name: Ejecutando el comando "show standby"

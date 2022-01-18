@@ -18,7 +18,7 @@ puertos_parametros:
 
 etherchannel_capa3_parametros:
   - etherchannel_numero: 1
-    etherchannel_ip: 192.168.30.1
+    etherchannel_ip: 10.10.30.1
     etherchannel_mascara: 255.255.255.252
     etherchannel_range: g3/2,g3/3 
 
@@ -96,31 +96,31 @@ hsrp_switch_activo:
     hsrp_ip_gateway: 192.168.10.1 
     hsrp_prioridad: 200
   - hsrp_vlan: 20
-    hsrp_numero: 1
+    hsrp_numero: 2
     hsrp_ip_equipo: 192.168.20.2
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.20.1 
     hsrp_prioridad: 200
   - hsrp_vlan: 30
-    hsrp_numero: 1
+    hsrp_numero: 3
     hsrp_ip_equipo: 192.168.30.2
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.30.1 
     hsrp_prioridad: 200
   - hsrp_vlan: 40
-    hsrp_numero: 1
+    hsrp_numero: 4
     hsrp_ip_equipo: 192.168.40.2
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.40.1 
     hsrp_prioridad: 200
   - hsrp_vlan: 50
-    hsrp_numero: 1
+    hsrp_numero: 5
     hsrp_ip_equipo: 192.168.50.2
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.50.1 
     hsrp_prioridad: 200
   - hsrp_vlan: 60
-    hsrp_numero: 1
+    hsrp_numero: 6
     hsrp_ip_equipo: 192.168.60.2
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.60.1 

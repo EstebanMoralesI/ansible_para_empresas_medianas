@@ -95,27 +95,27 @@ hsrp_switch_standby:
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.10.1 
   - hsrp_vlan: 20
-    hsrp_numero: 1
+    hsrp_numero: 2
     hsrp_ip_equipo: 192.168.20.3
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.20.1 
   - hsrp_vlan: 30
-    hsrp_numero: 1
+    hsrp_numero: 3
     hsrp_ip_equipo: 192.168.30.3
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.30.1 
   - hsrp_vlan: 40
-    hsrp_numero: 1
+    hsrp_numero: 4
     hsrp_ip_equipo: 192.168.40.3
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.40.1 
   - hsrp_vlan: 50
-    hsrp_numero: 1
+    hsrp_numero: 5
     hsrp_ip_equipo: 192.168.50.3
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.50.1 
   - hsrp_vlan: 60
-    hsrp_numero: 1
+    hsrp_numero: 6
     hsrp_ip_equipo: 192.168.60.3
     hsrp_mascara: 255.255.255.0
     hsrp_ip_gateway: 192.168.60.1 
