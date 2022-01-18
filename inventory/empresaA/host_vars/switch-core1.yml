@@ -3,177 +3,125 @@
 # PARAMETROS GLOBALES #
 #######################
 
-# # # OJO - SE NECESITA CREAR UN ARCHIVO CON EL NOMBRE DE CADA HOST (EQUIPO DE RED) # # #
-# # # OJO - ESTOS ARCHIVOS TIENEN QUE SER CON EXTENSION YAML ".yml"                 # # #
-# # # OJO - SIGA LAS INSTRUCCIONES DE LOS PARAMETROS QUE REQUIERA SU RED            # # #
-
 ############################
 # CONFIGURACION DE PUERTOS #
 ############################
 
-# puertos_parametros:
-# #Puerto 1
-#   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
-#     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
-#     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
-# #Puerto n
-#   - puerto_id: # Nombre del puerto del equipo ej. "g0/1" #
-#     puerto_ip: # Ip del puerto ej. "172.16.30.6" #
-#     puerto_mascara: # Mascara del puerto ej. "255.255.255.252"
+puertos_parametros:
+  - puerto_id: g0/1
+    puerto_ip: 10.10.10.2
+    puerto_mascara: 255.255.255.252
 
 ################
 # ETHERCHANNEL #
 ################
 
-# etherchannel_capa2_parametros:
-# #Etherchannel 1
-#   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
-#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
-# #Etherchannel n
-#   - etherchannel_numero: # Numero de etherchannel ej. "1" # 
-#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
-
-# etherchannel_capa3_parametros:
-# # Etherchannel 1
-#   - etherchannel_numero: # Numero de etherchannel ej. "1" #
-#     etherchannel_ip: # IP del Portchannel ej. "192.168.10.3" #
-#     etherchannel_mascara: # Mascara de la IP del Portchannel ej. "255.255.255.252" #
-#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
-# # Etherchannel n
-#   - etherchannel_numero: # Numero de etherchannel ej. "1" #
-#     etherchannel_ip: # IP del Portchannel ej. "192.168.10.3" #
-#     etherchannel_mascara: # Mascara de la IP del Portchannel ej. "255.255.255.252" #
-#     etherchannel_range: # Puertos involucrados en el etherchannel ej. "g1/1,g1/2" #
+etherchannel_capa3_parametros:
+  - etherchannel_numero: 1
+    etherchannel_ip: 192.168.30.1
+    etherchannel_mascara: 255.255.255.252
+    etherchannel_range: g3/2,g3/3 
 
 ########
 # OSPF #
 ########
 
-# loopback: # Numero de Loopback ej. 1.1.1.1 #
-# router_id: # Numero de router_id ej. 1.1.1.1 #
-# ospf_parametros:
-# # Network 1 
-#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
-#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
-#     ospf_area: # numero de area del OSPF ej. "0" #
-# # Network n 
-#   - ospf_network: # network a declarar ej. "192.168.0.0" # 
-#     ospf_wildcard: # wildcard de la network declarada ej. "0.0.0.255" #
-#     ospf_area: # numero de area del OSPF ej. "0" #
+loopback: 2.2.2.2
+router_id: 2.2.2.2
+ospf_parametros: 
+  - ospf_network: 10.10.10.0
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 10.10.30.0
+    ospf_wildcard: 0.0.0.3
+    ospf_area: 0
+  - ospf_network: 192.168.10.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.20.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.30.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.40.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.50.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+  - ospf_network: 192.168.60.0
+    ospf_wildcard: 0.0.0.255
+    ospf_area: 0
+
 
 ######### 
 # VLANS #
 #########
 
-# vlans_parametros:
-# # Vlan 1
-#   - vlan_id: # Numero de la vlan ej "10" #
-#     vlan_name: # nombre de la vlan ej "Ventas" #
-# # Vlan n 
-#   - vlan_id: # Numero de la vlan ej "10" #
-#     vlan_name: # nombre de la vlan ej "Ventas" #
+vlans_parametros:
+  - vlan_id: 10
+    vlan_name: Redes
+  - vlan_id: 20
+    vlan_name: Financiero
+  - vlan_id: 30
+    vlan_name: Marketing
+  - vlan_id: 40
+    vlan_name: Comercial
+  - vlan_id: 50
+    vlan_name: Gestion
+  - vlan_id: 60
+    vlan_name: Operaciones
 
 #######################
 # MODO TRUNK Y ACCESS #
 #######################
 
-# # # # MODO TRUNK # # #
-# trunk_parametros:
-# # Trunk 1
-#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "port-channel 1" #
-# # Trunk n
-#   - trunk_puerto: # Puerto para asignar trunk ej. "g0/1" o "port-channel 1" #
-
-# # # MODO ACCESS # # #
-# access_parametros:
-# # Access 1
-#   - access_puerto: # Puerto para asignar access ej. "g0/1" #
-#     access_vlan: # Numero de la vlan a asignar al puerto access ej. "10" #
-# # Access n
-#   - access_puerto: # Puerto para asignar access ej. "g0/1" #
-#     access_vlan: # Numero de la vlan a asignar al puerto access ej. "10" #
-
-################# 
-# INTER - VLANS #
-#################
-
-# # # INTER-VLAN SWITCH # # #
-# inter_vlans_switch_parametros:
-# # Inter vlan 1
-#   - inter_vlan_numero: # numero de vlan ej. "10" #    
-#     inter_vlan_ip: # ip de la gateway de la vlan ej "192.168.10.0" #
-#     inter_vlan_mascara: # mascara de la gateway de la vlan ej "255.255.255.0" #
-# # Inter vlan n
-#   - inter_vlan_numero: # numero de vlan ej. "10" #    
-#     inter_vlan_ip: # ip de la gateway de la vlan ej "192.168.10.0" #
-#     inter_vlan_mascara: # mascara de la gateway de la vlan ej "255.255.255.0" #
-
-# # # INTER-VLAN ROUTER # # #
-# inter_vlans_router_parametros:
-# # Inter vlan 1 ej. "g0/1.10"
-#   - inter_vlan_puerto: # Puerto del router para inter-vlan ej. "g0/1" # 
-#     inter_vlan_numero: # Numero de la vlan ej. "10" #
-#     inter_vlan_ip: # Ip del gateway de la vlan ej. "192.168.10.1" #
-#     inter_vlan_mascara: # Mascara del gateway de la vlan ej. "255.255.255.0" #
-# # Inter vlan n ej. "g0/1.20"
-#   - inter_vlan_puerto: # Puerto del router para inter-vlan ej. "g0/1" # 
-#     inter_vlan_numero: # Numero de la vlan ej. "20" #
-#     inter_vlan_ip: # Ip del gateway de la vlan ej. "192.168.10.1" #
-#     inter_vlan_mascara: # Mascara del gateway de la vlan ej. "255.255.255.0" #
+# # # MODO TRUNK # # #
+trunk_parametros:
+  - trunk_puerto: g1/0
+  - trunk_puerto: g1/1
+  - trunk_puerto: g1/2
 
 ########
 # HSRP #
 ########
 
 # # # HSRP SWITCH "ACTIVO" # # #
-# hsrp_switch_activo: 
-# # Equipo HSRP Activo
-#   - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
-#     hsrp_numero: # Numero de standby ej. "1" #
-#     hsrp_ip_equipo: # Ip principal del equipo ej "10.10.10.2" #
-#     hsrp_mascara: # Mascara del equipo principal ej "255.255.255.0" #
-#     hsrp_ip_gateway: # Ip del Gateway ej "10.10.10.1" #
-#     hsrp_prioridad: # Valor de la prioridad ej. "200" #
-
-# # # HSRP SWITCH "STANDBY" # # #
-# hsrp_switch_standby:
-# # Equipo HSRP standby 1
-#   - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
-#     hsrp_numero: # Numero de standby ej. "1" #
-#     hsrp_ip_equipo: # Ip principal del equipo ej "10.10.10.2" #
-#     hsrp_mascara: # Mascara del equipo principal ej "255.255.255.0" #
-#     hsrp_ip_gateway: # Ip del Gateway ej "10.10.10.1" #
-# # Equipo HSRP standby n
-#   - hsrp_vlan: # Numero de Vlan al cual se va a aplicar ej. "10" #
-#     hsrp_numero: # Numero de standby ej. "1" #
-#     hsrp_ip_equipo: # Ip principal del equipo ej "10.10.10.2" #
-#     hsrp_mascara: # Mascara del equipo principal ej "255.255.255.0" #
-#     hsrp_ip_gateway: # Ip del Gateway ej "10.10.10.1" #
-
-# # # HSRP ROUTER "ACTIVO" # # #
-# hsrp_router_activo: 
-# # Equipo HSRP Activo
-#   - hsrp_puerto: # Puerto del router al cual se va a aplicar ej. "g0/0" #
-#     hsrp_numero: # Numero de standby ej. "1" #
-#     hsrp_numero_vlan: # Numero de la vlan ej. "10" #
-#     hsrp_ip_equipo: # Ip principal del equipo ej "10.10.10.2" #
-#     hsrp_mascara: # Mascara del equipo principal ej "255.255.255.0" #
-#     hsrp_ip_gateway: # Ip del Gateway ej "10.10.10.1" #
-#     hsrp_prioridad: # Valor de la prioridad ej. "200" #
-
-# # # HSRP ROUTER "STANDBY" # # #
-# hsrp_router_standby:
-# # Equipo HSRP standby 1
-#   - hsrp_puerto: # Puerto del router al cual se va a aplicar ej. "g0/0" #
-#     hsrp_numero: # Numero de standby ej. "1" #
-#     hsrp_numero_vlan: # Numero de la vlan ej. "10" #
-#     hsrp_ip_equipo: # Ip principal del equipo ej "10.10.10.2" #
-#     hsrp_mascara: # Mascara del equipo principal ej "255.255.255.0" #
-#     hsrp_ip_gateway: # Ip del Gateway ej "10.10.10.1" #
-# # Equipo HSRP standby n
-#   - hsrp_puerto: # Puerto del router al cual se va a aplicar ej. "g0/0" #
-#     hsrp_numero: # Numero de standby ej. "1" #
-#     hsrp_numero_vlan: # Numero de la vlan ej. "10" #
-#     hsrp_ip_equipo: # Ip principal del equipo ej "10.10.10.2" #
-#     hsrp_mascara: # Mascara del equipo principal ej "255.255.255.0" #
-#     hsrp_ip_gateway: # Ip del Gateway ej "10.10.10.1" #
+hsrp_switch_activo: 
+  - hsrp_vlan: 10
+    hsrp_numero: 1
+    hsrp_ip_equipo: 192.168.10.2
+    hsrp_mascara: 255.255.255.0
+    hsrp_ip_gateway: 192.168.10.1 
+    hsrp_prioridad: 200
+  - hsrp_vlan: 20
+    hsrp_numero: 1
+    hsrp_ip_equipo: 192.168.20.2
+    hsrp_mascara: 255.255.255.0
+    hsrp_ip_gateway: 192.168.20.1 
+    hsrp_prioridad: 200
+  - hsrp_vlan: 30
+    hsrp_numero: 1
+    hsrp_ip_equipo: 192.168.30.2
+    hsrp_mascara: 255.255.255.0
+    hsrp_ip_gateway: 192.168.30.1 
+    hsrp_prioridad: 200
+  - hsrp_vlan: 40
+    hsrp_numero: 1
+    hsrp_ip_equipo: 192.168.40.2
+    hsrp_mascara: 255.255.255.0
+    hsrp_ip_gateway: 192.168.40.1 
+    hsrp_prioridad: 200
+  - hsrp_vlan: 50
+    hsrp_numero: 1
+    hsrp_ip_equipo: 192.168.50.2
+    hsrp_mascara: 255.255.255.0
+    hsrp_ip_gateway: 192.168.50.1 
+    hsrp_prioridad: 200
+  - hsrp_vlan: 60
+    hsrp_numero: 1
+    hsrp_ip_equipo: 192.168.60.2
+    hsrp_mascara: 255.255.255.0
+    hsrp_ip_gateway: 192.168.60.1 
+    hsrp_prioridad: 200
