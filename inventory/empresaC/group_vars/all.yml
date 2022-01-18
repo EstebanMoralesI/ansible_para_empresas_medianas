@@ -15,12 +15,12 @@ ansible_become_method: enable
 # PARAMETROS QUE SE DEBEN LLENAR #
 ##################################
 
-nombre_empresa: empresaC
+nombre_empresa: empresaA
 ansible_user: esteban
 ansible_password: cisco
-# # # empresa-c-backup # # #
-gitlab_project_id: 32900543
-gitlab_access_token: glpat-ib8y-xxCXFy-6q4BCnf8
+# # # empresa-a-backup # # #
+gitlab_project_id: 32086553
+gitlab_access_token: glpat-zHF8e9sLgXgSy9mgYF8x
 
 ######################################
 # PARAMETROS DE USUARIOS Y PASSWORDS #
@@ -41,7 +41,37 @@ users:
 ############################################################################
 
 ips:
-  - ips_name: s1
-    ips_id: 192.168.122.86
-  - ips_name: s2
-    ips_id: 192.168.122.87
+  - ips_name: router1
+    ips_id: 192.168.122.91
+  - ips_name: switch-core1
+    ips_id: 192.168.122.92
+  - ips_name: switch-core2
+    ips_id: 192.168.122.93
+  - ips_name: switch-access1
+    ips_id: 192.168.122.94
+  - ips_name: switch-access2
+    ips_id: 192.168.122.95
+  - ips_name: switch-access3
+    ips_id: 192.168.122.96
+
+
+
+
+
+
+
+
+
+
+# # PARAMETROS DE SERVIDORES NTP
+# # En el parámetro "ntp_servers" introducir todas las ip's necesarias
+# ntp_servers:
+#     - 192.168.2.1
+#     - 192.168.2.2
+#     - 192.168.2.3
+
+# # DATOS DE SERVIDORES DNS
+# # En el parámetro "dns_servers" introducir todas las ip's necesarias
+# dns_servers:
+#     - 192.168.3.1
+#     - 192.168.3.2
