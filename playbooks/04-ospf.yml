@@ -12,7 +12,7 @@
   gather_facts: no
 
   tasks:
-    - name: Cofigurar loopback
+    - name: Configurar loopback
       ios_config:
         lines:
           - ip address {{ loopback }} 255.255.255.255

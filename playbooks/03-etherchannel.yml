@@ -46,7 +46,7 @@
       ios_config:
         lines:
           - interface range {{ item.etherchannel_range }}
-          - shutdown
+         # - shutdown
           - no switchport 
           - no ip address
           - channel-group {{ item.etherchannel_numero }} mode active

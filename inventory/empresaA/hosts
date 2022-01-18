@@ -54,3 +54,15 @@ switch-access3
 
 # # # LISTE AQUI EL/LOS SWITCH/S QUE NECESITAN CONFIGURACION DE INTER-VLAN  # # #
 [equipo-inter-vlans-switch]
+
+###################
+# # # 06-HSRP # # #
+###################
+# # # LISTE AQUI EL SWITCH ACTIVO DE HSRP # # #
+[equipo-hsrp-activo-switch]
+# # # LISTE AQUI EL/LOS SWITCH/S STANDBY DE HSRP # # #
+[equipos-hsrp-standby-switch]
+# # # LISTE AQUI EL ROUTER ACTIVO DE HSRP # # #
+[equipo-hsrp-activo-router]
+# # # LISTE AQUI EL/LOS ROUTER/S STANDBY DE HSRP # # #
+[equipos-hsrp-standby-router]
