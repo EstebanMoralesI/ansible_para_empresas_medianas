@@ -4,36 +4,32 @@
 #             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                        # 
 ##############################################################################
 
-- name: Configurar PUERTOS ROUTER
+- name: Configuracion PUERTOS ROUTER
   hosts: router-puertos
   gather_facts: no
   tasks:
     # # # LLAMADO A ROL CONFIGURAR PUERTOS # # #
     - include_role:
-        name: configurar-puertos
-        
+        name: configurar-puertos  
     # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
     - include_role:
         name: guardar-configuracion
 
-- name: Configurar PUERTOS SWITCH
+- name: Configuracion PUERTOS SWITCH
   hosts: switch-puertos
   gather_facts: no
   tasks:
-  
     # # # CONFIGURANDO LOS PUERTOS A "NO SWITCHPORT" # # # 
-    - name: Configurar PUERTOS a NO SWITCHPORT
+    - name: Configuracion PUERTOS a NO SWITCHPORT
       ios_config:
         lines:
           - ip routing
           - interface {{ item.puerto_id }}          
           - no switchport                
       loop: "{{ puertos_parametros }}"
-
     # # # LLAMADO A ROL CONFIGURAR PUERTOS # # #
     - include_role:
-        name: configurar-puertos 
-        
+        name: configurar-puertos   
     # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
     - include_role:
         name: guardar-configuracion  

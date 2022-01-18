@@ -1,6 +1,7 @@
 ---
 ########################################################################################
 # VERIFICACION DE CONEXION POR MEDIO DEL MODULO PING A TODOS LOS EQUIPOS DEL INVENTORY #
+#                      !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                         #
 ########################################################################################
 
 - name: Verificar conexión total a todos los equipos

@@ -1,8 +1,14 @@
 ---
-- name: Configurar SWITCH HSRP ACTIVO
+############################################################
+# CREACION DE VLANS DE ACUERDO A PARAMETROS EN CADA EQUIPO #
+#        !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO           #
+############################################################
+
+- name: Configurando SWITCH HSRP ACTIVO
   hosts: equipo-hsrp-activo-switch
   gather_facts: no
   tasks:
+    # # # CONFIGURAR HSRP ACTIVO EN EL SWITCH # # # 
     - ios_config:
         lines:
           - interface vlan {{ item.hsrp_vlan }}
@@ -13,10 +19,11 @@
           - no shutdown
       loop: "{{ hsrp_switch_activo }}"
 
-- name: Configurar SWITCH HSRP STANDBY
+- name: Configurando SWITCH HSRP STANDBY
   hosts: equipos-hsrp-standby-switch
   gather_facts: no
   tasks:
+    # # # CONFIGURAR HSRP STANDBY EN EL SWITCH # # # 
     - ios_config:
         lines:
           - interface vlan {{ item.hsrp_vlan }}
@@ -29,15 +36,17 @@
   hosts: equipo-hsrp-activo-switch, equipos-hsrp-standby-switch
   gather_facts: no
   tasks:
+    # # # LLAMADO A ROL VISUALIZAR # # #
     - include_role:
         name: visualizar
       vars: 
         comando_visualizar: "show standby"
         
-- name: Configurar ROUTER HSRP ACTIVO
+- name: Configurando ROUTER HSRP ACTIVO
   hosts: equipo-hsrp-activo-router
   gather_facts: no
   tasks:
+    # # # CONFIGURAR HSRP ACTIVO EN EL ROUTER # # # 
     - ios_config:
         lines:
           - interface {{ item.hsrp_puerto }}.{{ item.hsrp_numero_vlan }} 
@@ -48,10 +57,11 @@
           - standby {{ item.hsrp_numero}} preempt        
       loop: "{{ hsrp_router_activo }}"
 
-- name: Configurar ROUTER HSRP STANDBY
+- name: Configurando ROUTER HSRP STANDBY
   hosts: equipos-hsrp-standby-router
   gather_facts: no
   tasks:
+    # # # CONFIGURAR HSRP STANDBY EN EL SWITCH # # # 
     - ios_config:
         lines:
           - interface {{ item.hsrp_puerto }}.{{ item.hsrp_numero_vlan }} 
@@ -64,6 +74,7 @@
   hosts: equipo-hsrp-activo-router, equipos-hsrp-standby-router
   gather_facts: no
   tasks:
+    # # # LLAMADO A ROL VISUALIZAR # # #
     - include_role:
         name: visualizar
       vars: 

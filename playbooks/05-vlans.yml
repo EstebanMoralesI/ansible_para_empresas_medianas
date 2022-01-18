@@ -8,6 +8,7 @@
   hosts: equipos-vlan
   gather_facts: no
   tasks:
+    # # # CREANDO LAS VLANS EN LOS EQUIPOS # # # 
     - ios_config:
         lines:
           - name {{ item.vlan_name }}
@@ -19,6 +20,7 @@
   hosts: equipos-vlan-trunk
   gather_facts: no
   tasks:
+    # # # ASIGNANDO EL MODO TRONCAL EN LAS INTERFACES DE LOS EQUIPOS # # # 
     - ios_config:
         lines:
           - interface {{ item.trunk_puerto }}
@@ -32,6 +34,7 @@
   hosts: equipos-vlan-access
   gather_facts: no
   tasks:
+    # # # ASIGNANDO EL MODO ACCESS EN LAS INTERFACES DE LOS EQUIPOS # # #
     - ios_config:
         lines:
           - interface {{ item.access_puerto }} 
@@ -44,13 +47,14 @@
   hosts: equipo-inter-vlans-router
   gather_facts: no
   tasks:
+    # # # ENCENDIDO DEL SUB-PUERTO DEL ROUTER # # #
     - name: Encendiendo el puerto INTER-VLANS en ROUTER
       ios_config:
         lines:
           - interface {{ item.inter_vlan_puerto }}
           - no shutdown 
       loop: "{{ inter_vlans_router_parametros }}"
-
+    # # # CONFIGURANDO EL INTER-VLAN EN EL SUB-PUERTO DEL ROUTER # # #
     - name: Configurando INTER-VLANS en ROUTER
       ios_config:
         lines:
@@ -60,12 +64,12 @@
           - no shutdown  
       loop: "{{ inter_vlans_router_parametros }}"
 
-
 - name: INTER-VLANS SWITCH
   hosts: equipo-inter-vlans-switch
   gather_facts: no
   tasks:
-    - name: Configurando el puerto del switch
+    # # # CONFIGURANDO EL MODO TRUNK EN LA SVI DEL SWITCH # # #
+    - name: Configuracion el puerto del switch
       ios_config:
         lines:
           - ip routing
@@ -74,8 +78,8 @@
           - switchport mode trunk
           - no shutdown  
       loop: "{{ inter_vlans_switch_parametros }}"
-
-    - name: Configurando la ip de la INTER-VLAN 
+    # # # CONFIGURANDO LA IP EN LA SVI DEL SWITCH # # #
+    - name: Configuracion la ip de la INTER-VLAN 
       ios_config:
         lines:
           - interface vlan {{ item.inter_vlan_numero }}  
@@ -87,23 +91,9 @@
   hosts: equipos-vlan
   gather_facts: no
   tasks:
+    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
     - include_role:
         name: guardar-configuracion
-    # - name: "show interfaces trunk"
-    #   include_role:
-    #     name: visualizar
-    #   vars: 
-    #     comando_visualizar: "show interfaces trunk"
-    # - name: show vlan brief 
-    #   include_role:
-    #     name: visualizar
-    #   vars: 
-    #     comando_visualizar: "show vlan brief"
-    # - name: show ip interface brief
-    #   include_role:
-    #     name: visualizar
-    #   vars: 
-    #     comando_visualizar: "show ip interface brief"
 
 
 
