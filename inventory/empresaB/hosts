@@ -1,81 +1,59 @@
-#####################################
-# LISTE TODOS LOS EQUIPOS DE LA RED #
-#####################################
+#####################
+# EQUIPOS DE LA RED #
+#####################
+# # # LISTE AQUI TODOS LOS EQUIPOS DE LA RED # # #
 [equipos]
 r1
 sw1
 sw2
 sw3
+#################################
+# # # 02-configurar-puertos # # #
+#################################
+# # # LISTE AQUI EL/LOS ROUTER/S QUE NECESITAN CONFIGURACION DE PUERTOS # # #
+[router-puertos]
 
-# # # LISTE AQUI EL/LOS ROUTER/S # # #
-[router]
-r1
+# # # LISTE AQUi EL/LOS SWITCH/S QUE NECESITAN CONFIGURACION DE PUERTOS # # #
+[switch-puertos]
 
-# # # LISTE AQUI EL/LOS SWITCH/ES # # #
-[switch]
-sw1
-sw2
-sw3
-
-# # # LISTE AQUI EL/LOS SWITCH/ES CAPA 3 # # #
-[switch-capa3]
-sw1
-
-# # # LISTE AQUI EL/LOS SWITCH/ES CAPA 2 # # #
-[switch-capa2]
-# switch-access-1
-# switch-access-n
-
-
-# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE ETHERCHANNEL # # #
-[equipos-etherchannel-capa3]
-# equipo 1
-# equipo n
-
+###########################
+# # # 03-etherchannel # # #
+###########################
+# # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE ETHERCHANNEL CAPA 2 # # #
 [equipos-etherchannel-capa2]
-sw1
 sw2
 sw3
+# # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE ETHERCHANNEL CAPA 3 # # #
+[equipos-etherchannel-capa3]
 
-# # # LISTE AQUI LOS ROUTER QUE PARTICIPAN DE OSPF # # #
+###################
+# # # 04-ospf # # #
+###################
+# # # LISTE AQUI EL/LOS ROUTER/S QUE NECESITAN CONFIGURACION DE OSPF # # #
 [equipos-ospf-router]
-r1
 
-# # # LISTE AQUI LOS SWITCH QUE PARTICIPAN DE OSPF # # #
+# # # LISTE AQUI EL/LOS SWITCH/S QUE NECESITAN CONFIGURACION DE OSPF # # #
 [equipos-ospf-switch]
-sw1
-sw2
-sw3
 
-# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's # # #
+####################
+# # # 05-vlans # # #
+####################
+# # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE VLANS # # #
 [equipos-vlan]
 sw1
 sw2
 sw3
-
-# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's TRUNK # # #
+# # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE TRUNK # # #
 [equipos-vlan-trunk]
 sw1
 sw2
 sw3
-
-# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN VLAN's ACCESS # # #
+# # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE de ACCESS # # #
 [equipos-vlan-access]
 sw2
 sw3
-
-# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's ROUTER # # #
+# # # LISTE AQUI EL/LOS ROUTER/S QUE NECESITAN CONFIGURACION DE INTER-VLAN  # # #
 [equipo-inter-vlans-router]
 r1
-
-# # # LISTE AQUI LOS EQUIPOS QUE UTILIZAN INTER-VLAN's SWITCH # # #
+# # # LISTE AQUI EL/LOS SWITCH/S QUE NECESITAN CONFIGURACION DE INTER-VLAN  # # #
 [equipo-inter-vlans-switch]
-# equipo-1
-# equipo-n
-
-# # # LISTE AQUI LOS EQUIPOS QUE PARTICIPAN DE HSRP # # #
-[equipo-hsrp-activo]
-# equipo-1
-[equipo-hsrp-standby]
-# equipo-1
-# equipo-n

@@ -3,15 +3,6 @@
 # PARAMETROS GLOBALES #
 #######################
 
-# # # OJO - SE NECESITA CREAR UN ARCHIVO CON EL NOMBRE DE CADA HOST (EQUIPO DE RED) # # #
-# # # OJO - ESTOS ARCHIVOS TIENEN QUE SER CON EXTENSION YAML ".yml"                 # # #
-# # # OJO - SIGA LAS INSTRUCCIONES DE LOS PARAMETROS QUE REQUIERA SU RED            # # #
-
-# # # LOOPBACK # # #
-
-loopback: 3.3.3.3 
-router_id: 3.3.3.3
-
 ################
 # ETHERCHANNEL #
 ################
@@ -20,24 +11,6 @@ etherchannel_capa2_parametros:
 
   - etherchannel_numero: 1 
     etherchannel_range: g1/0,g2/0
-  - etherchannel_numero: 2 
-    etherchannel_range: g0/1,g0/2
-
-########
-# OSPF #
-########
-
-ospf_parametros:
-
-  - ospf_network: 10.10.10.0 
-    ospf_wildcard: 0.0.0.255 
-    ospf_area: 0
-  - ospf_network: 192.168.20.0
-    ospf_wildcard: 0.0.0.255
-    ospf_area: 0
-  - ospf_network: 192.168.30.0 
-    ospf_wildcard: 0.0.0.255
-    ospf_area: 0
 
 ######### 
 # VLANS #
@@ -59,8 +32,7 @@ vlans_parametros:
 # # # MODO TRUNK # # #
 trunk_parametros:
 
-  - trunk_puerto: port-channel 1
-  - trunk_puerto: port-channel 2
+  - trunk_puerto: g0/1
 
 # # # MODO ACCESS # # #
 access_parametros:

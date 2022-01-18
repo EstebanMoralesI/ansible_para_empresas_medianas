@@ -1,11 +1,23 @@
 ---
 ##############################################################################
-# CONFIGURACION DE PUERTOS DE UN SWITCH DE ACUERDO A PARAMETROS EN INVENTORY #
-#             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                        #
+# CONFIGURACION DE PUERTOS DE UN ROUTER DE ACUERDO A PARAMETROS EN INVENTORY #
+#             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                        # 
 ##############################################################################
 
+- name: Configurar PUERTOS ROUTER
+  hosts: router-puertos
+  gather_facts: no
+  tasks:
+    # # # LLAMADO A ROL CONFIGURAR PUERTOS # # #
+    - include_role:
+        name: configurar-puertos
+        
+    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
+    - include_role:
+        name: guardar-configuracion
+
 - name: Configurar PUERTOS SWITCH
-  hosts: switch-capa3
+  hosts: switch-puertos
   gather_facts: no
   tasks:
   

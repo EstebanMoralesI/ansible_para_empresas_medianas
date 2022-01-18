@@ -3,55 +3,6 @@
 # PARAMETROS GLOBALES #
 #######################
 
-# # # OJO - SE NECESITA CREAR UN ARCHIVO CON EL NOMBRE DE CADA HOST (EQUIPO DE RED) # # #
-# # # OJO - ESTOS ARCHIVOS TIENEN QUE SER CON EXTENSION YAML ".yml"                 # # #
-# # # OJO - SIGA LAS INSTRUCCIONES DE LOS PARAMETROS QUE REQUIERA SU RED            # # #
-
-# # # LOOPBACK # # #
-
-loopback: 2.2.2.2
-router_id: 2.2.2.2
-
-############################
-# CONFIGURACION DE PUERTOS #
-############################
-
-puertos_parametros:
-#Puerto 1
-  - puerto_id: g0/3
-    puerto_ip: 172.16.30.2
-    puerto_mascara: 255.255.255.252
-
-################
-# ETHERCHANNEL #
-################
-
-etherchannel_capa2_parametros:
-
-  - etherchannel_numero: 2
-    etherchannel_range: g0/1,g0/2
-  - etherchannel_numero: 3
-    etherchannel_range: g1/1,g1/2
-
-########
-# OSPF #
-########
-
-ospf_parametros:
-
-  - ospf_network: 172.16.30.0 
-    ospf_wildcard: 0.0.0.3
-    ospf_area: 0
-  - ospf_network: 10.10.10.0 
-    ospf_wildcard: 0.0.0.255 
-    ospf_area: 0
-  - ospf_network: 192.168.20.0
-    ospf_wildcard: 0.0.0.255
-    ospf_area: 0
-  - ospf_network: 192.168.30.0 
-    ospf_wildcard: 0.0.0.255
-    ospf_area: 0
-
 ######### 
 # VLANS #
 #########
@@ -71,5 +22,7 @@ vlans_parametros:
 
 # # # MODO TRUNK # # #
 trunk_parametros:
-  - trunk_puerto: port-channel 2
-  - trunk_puerto: port-channel 3
+
+  - trunk_puerto: g0/3
+  - trunk_puerto: g0/1
+  - trunk_puerto: g1/1
