@@ -8,7 +8,7 @@ sw1
 sw2
 sw3
 #################################
-# # # 02-configurar-puertos # # #
+# # # 01-configurar-puertos # # #
 #################################
 # # # LISTE AQUI EL/LOS ROUTER/S QUE NECESITAN CONFIGURACION DE PUERTOS # # #
 [router-puertos]
@@ -17,7 +17,7 @@ sw3
 [switch-puertos]
 
 ###########################
-# # # 03-etherchannel # # #
+# # # 02-etherchannel # # #
 ###########################
 # # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE ETHERCHANNEL CAPA 2 # # #
 [equipos-etherchannel-capa2]
@@ -27,7 +27,7 @@ sw3
 [equipos-etherchannel-capa3]
 
 ###################
-# # # 04-ospf # # #
+# # # 03-ospf # # #
 ###################
 # # # LISTE AQUI EL/LOS ROUTER/S QUE NECESITAN CONFIGURACION DE OSPF # # #
 [equipos-ospf-router]
@@ -36,7 +36,7 @@ sw3
 [equipos-ospf-switch]
 
 ####################
-# # # 05-vlans # # #
+# # # 04-vlans # # #
 ####################
 # # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE VLANS # # #
 [equipos-vlan]

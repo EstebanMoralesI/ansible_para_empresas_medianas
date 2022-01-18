@@ -11,7 +11,7 @@ switch-access2
 switch-access3
 
 #################################
-# # # 02-configurar-puertos # # #
+# # # 01-configurar-puertos # # #
 #################################
 # # # LISTE AQUI EL/LOS ROUTER/S QUE NECESITAN CONFIGURACION DE PUERTOS # # #
 [router-puertos]
@@ -23,7 +23,7 @@ switch-core1
 switch-core2
 
 ###########################
-# # # 03-etherchannel # # #
+# # # 02-etherchannel # # #
 ###########################
 # # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE ETHERCHANNEL CAPA 2 # # #
 [equipos-etherchannel-capa2]
@@ -34,7 +34,7 @@ switch-core1
 switch-core2
 
 ###################
-# # # 04-ospf # # #
+# # # 03-ospf # # #
 ###################
 # # # LISTE AQUI EL/LOS ROUTER/S QUE NECESITAN CONFIGURACION DE OSPF # # #
 [equipos-ospf-router]
@@ -46,7 +46,7 @@ switch-core1
 switch-core2
 
 ####################
-# # # 05-vlans # # #
+# # # 04-vlans # # #
 ####################
 # # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE VLANS # # #
 [equipos-vlan]
@@ -77,7 +77,7 @@ switch-access3
 [equipo-inter-vlans-switch]
 
 ###################
-# # # 06-HSRP # # #
+# # # 05-HSRP # # #
 ###################
 # # # LISTE AQUI EL SWITCH ACTIVO DE HSRP # # #
 [equipo-hsrp-activo-switch]
