@@ -1,8 +1,8 @@
 ---
-##############################################################################
-# CONFIGURACION DE PUERTOS DE UN ROUTER DE ACUERDO A PARAMETROS EN INVENTORY #
-#             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                        # 
-##############################################################################
+############################################################################
+#        CONFIGURACION DE OSPF EN EQUIPOS DE ACUERDO A PARAMETROS EN       # 
+#        INVENTORY      !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO            # 
+############################################################################
 
 - name: Configuracion IP ROUTING
   hosts: equipos-ospf-switch

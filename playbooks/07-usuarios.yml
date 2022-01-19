@@ -1,4 +1,9 @@
 ---
+############################################################################
+#     CONFIGURACION DE USUARIOS EN EQUIPOS DE ACUERDO A PARAMETROS EN      # 
+#     INVENTORY         !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO            # 
+############################################################################
+
 - name: Creando usuarios en los equipos
   hosts: all
   gather_facts: no 

@@ -1,6 +1,7 @@
-#####################################################################################
-# ROL DE CONFIGURACION DE PUERTOS DE UN ROUTER DE ACUERDO A PARAMETROS EN INVENTORY #
-#####################################################################################
+############################################################################
+#  ROL DE CONFIGURACION DE PUERTOS EN EQUIPOS DE ACUERDO A PARAMETROS EN   # 
+#  INVENTORY              !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO          # 
+############################################################################
 
 # # # CONFIGURACION DE PUERTOS # # #
 - name: Configurar PUERTOS

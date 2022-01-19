@@ -1,6 +1,8 @@
 ---
-# This playbook creates an access-list named VTY_ACCESS and apply it to VTY lines
-# It will also save configurations to startup
+############################################################################
+#    CONFIGURACION DE ACCESS-LIST EN EQUIPOS DE ACUERDO A PARAMETROS EN    # 
+#       INVENTORY       !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO            # 
+############################################################################
 - hosts: ios
   gather_facts: no
   tasks:

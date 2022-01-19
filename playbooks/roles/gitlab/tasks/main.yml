@@ -1,6 +1,7 @@
-################################################
-# ROL DE PREPARACION DEL CONTENIDO PARA GITLAB #
-################################################
+############################################################################
+#              ROL DE PREPARACION DEL CONTENIDO PARA GITLAB                # 
+#                !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                   # 
+############################################################################
 
 # # # LECTURA DEL CONTENIDO DE LOS ARCHIVOS EN EL INVENTORY # # #
 - name: Lectura del contenido de los archivos txt

@@ -1,8 +1,8 @@
 ---
-############################################################
-# CREACION DE VLANS DE ACUERDO A PARAMETROS EN CADA EQUIPO #
-#        !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO           #
-############################################################
+############################################################################
+#       CONFIGURACION DE HSRP EN EQUIPOS DE ACUERDO A PARAMETROS EN        # 
+#       INVENTORY       !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO            # 
+############################################################################
 
 - name: Configurando SWITCH HSRP ACTIVO
   hosts: equipo-hsrp-activo-switch

@@ -1,5 +1,8 @@
 ---
-# # # BACKUP GENERAL # # #
+############################################################################
+#     BACKUP GENERAL DE EQUIPOS EN GIT-LAB Y EN CARPETA REPOSITORIOS       # 
+#                !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                   # 
+############################################################################
 - name: Backup Local
   hosts: all 
   gather_facts: no
@@ -127,6 +130,12 @@
   tasks:
     - include_role:
         name: push_gitlab
+
+
+
+
+
+
 
 # # BACKUP DETALLE DE EQUIPOS #
 # - name: Backup GITLAB "detalle de equipos"

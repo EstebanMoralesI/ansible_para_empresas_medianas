@@ -1,11 +1,9 @@
 ---
-###################################
-# PARAMETROS GENERALES DE ENTORNO #
-###################################
+###############################################
+#      PARAMETROS GENERALES DE ENTORNO        #
+# PRECAUCIÓN!!! NO MODIFICAR ESTOS PARAMETROS #
+###############################################
 
-##!!!############################################!!!##
-# !!!PRECAUCIÓN!!! NO MODIFICAR ESTOS PARAMETROS !!! #
-##!!!############################################!!!##
 ansible_connection: network_cli
 ansible_network_os: ios
 ansible_become: yes

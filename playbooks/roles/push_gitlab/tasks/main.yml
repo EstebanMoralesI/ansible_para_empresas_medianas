@@ -1,6 +1,7 @@
-########################
-# ROL DE PUSH A GITLAB #
-########################
+############################################################################
+#                          ROL DE PUSH A GITLAB                            # 
+#                !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                   # 
+############################################################################
 
 # # # CREANDO EL ACTION LIST CUANDO LOS ITEMS ESTEN VACIOS # # #
 - name: Creando action list

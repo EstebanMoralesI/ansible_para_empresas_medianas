@@ -1,8 +1,8 @@
 ---
-##############################################################################
-# CONFIGURACION DE PUERTOS DE UN ROUTER DE ACUERDO A PARAMETROS EN INVENTORY #
-#             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                        # 
-##############################################################################
+############################################################################
+#    CONFIGURACION DE ETHERCHANNEL EN EQUIPOS DE ACUERDO A PARAMETROS EN   # 
+#    INVENTORY          !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO            # 
+############################################################################
 
 - name: Configuracion ETHERCHANNEL CAPA 2
   hosts: equipos-etherchannel-capa2 
@@ -16,7 +16,7 @@
           - switchport trunk encapsulation dot1q
           - switchport mode trunk    
       loop: "{{ etherchannel_capa2_parametros }}" 
-    # # # CONFIGURANDO LAS INTERFACES PARA EL PORT-CHANNEL EN EL EQUIPO # # # 
+    # # # CONFIGURANDO LAS INTERFACES PARA EL PORT-CHANNEL EN EL EQUIPO #  # 
     - name: Configuracion de interfaces fisicas
       ios_config:
         lines:
@@ -51,7 +51,7 @@
           - no switchport   
           - ip address {{ item.etherchannel_ip }} {{ item.etherchannel_mascara }}  
       loop: "{{ etherchannel_capa3_parametros }}"        
-    # # # CONFIGURANDO LAS INTERFACES PARA EL PORT-CHANNEL EN EL EQUIPO # # #
+    # # # CONFIGURANDO LAS INTERFACES PARA EL PORT-CHANNEL EN EL EQUIPO #  #
     - name: Configuracion de interfaces fisicas
       ios_config:
         lines:

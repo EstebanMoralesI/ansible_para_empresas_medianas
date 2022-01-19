@@ -1,6 +1,7 @@
-##########################################
-# ROL DE BACKUPS DE COMANDOS ESPECIFICOS #
-##########################################
+############################################################################
+#                 ROL DE BACKUPS DE COMANDOS ESPECIFICOS                   # 
+#                !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                   # 
+############################################################################
 
 # # # EJECUTANDO EL COMANDO SOLICITADO # # #
 - name: Ejecutando los comandos solicitados

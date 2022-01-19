@@ -1,4 +1,9 @@
 ---
+############################################################################
+#   CONFIGURACION DEL BANNER MOTD EN EQUIPOS DE ACUERDO A PARAMETROS EN    # 
+#   INVENTORY           !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO            # 
+############################################################################
+
 - name: Configuración del login del banner
   hosts: all
   gather_facts: no

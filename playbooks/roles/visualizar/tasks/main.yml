@@ -1,6 +1,7 @@
-#########################################
-# ROL DE VISUALIZACION DE COMANDOS SHOW #
-#########################################
+############################################################################
+#                  ROL DE VISUALIZACION DE COMANDOS SHOW                   # 
+#                 !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                  # 
+############################################################################
 
 # # # EJECUTANDO EL COMANDO "SHOW" SOLICITADO # # #
 - name: Ejecutando el comando 
