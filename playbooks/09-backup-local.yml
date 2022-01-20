@@ -1,0 +1,71 @@
+---
+#####################################################################
+#     BACKUP GENERAL LOCAL DE EQUIPOS EN CARPETA REPOSITORIOS       # 
+#             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO               # 
+#####################################################################
+
+- name: Backup Local
+  hosts: all 
+  gather_facts: no
+  tasks:
+
+    # # # CREACIÓN DEL REPOSITORIO # # #
+
+    # CREACIÓN DEL DIRECTORIO "backup-show-arp" # 
+    - include_role:
+        name: crear_repositorios
+      vars: 
+        repositorio_nombre_carpeta: backup-show_arp
+  
+    # CREACIÓN DEL DIRECTORIO "backup-show-ip_int_br" #
+    - include_role:
+        name: crear_repositorios
+      vars: 
+        repositorio_nombre_carpeta: backup-show_ip_int_br
+
+    # CREACIÓN DEL DIRECTORIO "backup-show-run" #
+    - include_role:
+        name: crear_repositorios
+      vars: 
+        repositorio_nombre_carpeta: backup-show_run
+
+    # CREACIÓN DEL DIRECTORIO "detalle-de-equipos" # 
+    - include_role:
+        name: crear_repositorios
+      vars: 
+        repositorio_nombre_carpeta: detalle-de-equipos
+
+    # # # GENERACIÓN DE BACKUPS EN DIRECTORIOS # # #
+
+    # BACKUP "show arp" #
+    - include_role:
+        name: backups 
+      vars:
+        comando_backup: "show arp" 
+        backup_nombre_archivo: "arp" 
+        backup_nombre_carpeta: backup-show_arp           
+
+    # BACKUP "show ip interface brief" #
+    - include_role:
+        name: backups 
+      vars:
+        comando_backup: "show ip interface brief" 
+        backup_nombre_archivo: "ip-int-br" 
+        backup_nombre_carpeta: backup-show_ip_int_br     
+  
+    # BACKUP "show run" #
+    - include_role:
+        name: backups 
+      vars:
+        comando_backup: "show run" 
+        backup_nombre_archivo: "run" 
+        backup_nombre_carpeta: backup-show_run  
+
+    # BACKUP "detalle de equipos" #
+    - name: Obteniendo los parametros de los equipos de red
+      ios_facts:
+        gather_subset: all  
+    - name: Grabando los parametros de los equipos de red
+      template:
+        src: ./template/detalle-de-equipos.j2
+        dest: ./playbooks/repositorio/{{ nombre_empresa }}/detalle-de-equipos/detalle-de-equipos.csv
