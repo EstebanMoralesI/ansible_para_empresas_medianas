@@ -3,11 +3,12 @@
 #         BACKUP GENERAL LOCAL DE EQUIPOS EN CARPETA REPOSITORIOS          # 
 #                   PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                   # 
 ############################################################################
+
 - name: Directorios de Repositorios 
-  hosts: localhost
+  hosts: all
   gather_facts: no
   tasks:
-
+    
     # # # CREACIÓN DEL REPOSITORIO # # #
 
     # CREACIÓN DEL DIRECTORIO "backup-show-_arp" # 
@@ -67,7 +68,7 @@
         name: backups 
       vars:
         comando_backup: "show ip interface brief" 
-        backup_nombre_archivo: "01-ip_int_br" 
+        backup_nombre_archivo: "ip_int_br" 
         backup_nombre_carpeta: backup-show_ip_int_br     
   
     # BACKUP "show run" #
