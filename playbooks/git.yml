@@ -1,29 +1,4 @@
 ---
-###########################################
-#            BACKUP A GIT-LAB             # 
-# !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO # 
-###########################################
-
-# BACKUP DE EQUIPOS."CFG" #
-- name: BACKUP DE EQUIPOS "cfg"
-  hosts: all 
-  gather_facts: no
-  tasks:   
-    - include_role:
-        name: gitlab
-      vars: 
-        git_prefijo: ""
-        git_ruta: "cfg"
-        mensaje_commit: "backup equipos .CFG" 
-        nombre_equipo: "{{ inventory_hostname }}"
-        extension: ".cfg"
-- name: Push GITLAB "show run"
-  hosts: localhost
-  gather_facts: no
-  tasks:
-    - include_role:
-        name: push_gitlab
-# BACKUP DE DETALLE DE EQUIPOS #
 - name: Push GITLAB "detalle-de-equipos.csv"
   hosts: localhost
   gather_facts: no
@@ -112,3 +87,5 @@
         status_code: 201
         body_format: json
       delegate_to: localhost
+ 
+

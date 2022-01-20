@@ -1,9 +1,0 @@
----
-- name: Ejecutando el comando "show interfaces trunk"
-  hosts: equipos-vlan
-  gather_facts: no
-  tasks:
-    - include_role:
-        name: visualizar
-      vars: 
-        comando_visualizar: "show interfaces trunk"
