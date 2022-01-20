@@ -31,16 +31,6 @@
           - standby {{ item.hsrp_numero }} ip {{ item.hsrp_ip_gateway }} 
           - no shutdown     
       loop: "{{ hsrp_switch_standby }}"
-    
-- name: Ejecutando el comando "show standby"
-  hosts: equipo-hsrp-activo-switch, equipos-hsrp-standby-switch
-  gather_facts: no
-  tasks:
-    # # # LLAMADO A ROL VISUALIZAR # # #
-    - include_role:
-        name: visualizar
-      vars: 
-        comando_visualizar: "show standby"
         
 - name: Configurando ROUTER HSRP ACTIVO
   hosts: equipo-hsrp-activo-router
@@ -69,13 +59,3 @@
           - ip address {{ item.hsrp_ip_equipo }} {{ item.hsrp_mascara }}
           - standby {{ item.hsrp_numero}} ip {{ item.hsrp_ip_gateway }}      
       loop: "{{ hsrp_router_standby }}"
-    
-- name: Ejecutando el comando "show standby"
-  hosts: equipo-hsrp-activo-router, equipos-hsrp-standby-router
-  gather_facts: no
-  tasks:
-    # # # LLAMADO A ROL VISUALIZAR # # #
-    - include_role:
-        name: visualizar
-      vars: 
-        comando_visualizar: "show standby"

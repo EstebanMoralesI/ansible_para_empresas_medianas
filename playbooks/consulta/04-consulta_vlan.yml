@@ -1,26 +1,22 @@
 ---
-- name: SHOW OSPF 
-  hosts: equipos-ospf
-  gather_facts: no
-  tasks:
-    - name: Ejecutando el comando "show ip ospf neighbor"
-      include_role:
-        name: visualizar
-      vars: 
-        comando_visualizar: "show ip ospf neighbor"
-    - name: Ejecutando el comando "show running-config | section ospf"
-      include_role:
-        name: visualizar
-      vars: 
-        comando_visualizar: "show running-config | section ospf"
+############################################################################
+#            CONSULTA DE VLAN A TODOS LOS EQUIPOS DEL INVENTORY            #
+#                    PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                  #
+############################################################################
 
-
-
-- name: Ejecutando el comando "show interfaces trunk"
+- name: Comandos Show para VLAN y TRUNK 
   hosts: equipos-vlan
   gather_facts: no
   tasks:
-    - include_role:
+    - name: Ejecutando el comando "show vlan brief"
+      # # # LLAMADO A ROL VISUALIZAR # # #
+      include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show vlan brief"
+    - name: Ejecutando el comando "show interfaces trunk"
+      # # # LLAMADO A ROL VISUALIZAR # # #
+      include_role:
         name: visualizar
       vars: 
         comando_visualizar: "show interfaces trunk"
