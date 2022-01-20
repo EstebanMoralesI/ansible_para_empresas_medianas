@@ -1,0 +1,15 @@
+---
+- name: SHOW OSPF 
+  hosts: equipos-ospf
+  gather_facts: no
+  tasks:
+    - name: Ejecutando el comando "show ip ospf neighbor"
+      include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show ip ospf neighbor"
+    - name: Ejecutando el comando "show running-config | section ospf"
+      include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show running-config | section ospf"

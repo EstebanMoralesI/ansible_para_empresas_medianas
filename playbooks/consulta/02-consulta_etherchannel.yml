@@ -1,0 +1,9 @@
+---
+- name: Ejecutando el comando "show etherchannel summary"
+  hosts: equipos-etherchannel-capa3, equipos-etherchannel-capa2
+  gather_facts: no
+  tasks:
+    - include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show etherchannel summary"
