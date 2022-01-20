@@ -1,13 +1,13 @@
 Building configuration...
 
-Current configuration : 7021 bytes
+Current configuration : 6055 bytes
 !
-! Last configuration change at 13:49:31 UTC Thu Jan 20 2022 by esteban
+! Last configuration change at 20:04:00 UTC Thu Jan 20 2022
 !
 version 15.2
 service timestamps debug datetime msec
 service timestamps log datetime msec
-service password-encryption
+no service password-encryption
 service compress-config
 !
 hostname switch-core1
@@ -17,10 +17,7 @@ boot-end-marker
 !
 !
 !
-username esteban privilege 15 password 7 0822455D0A16
-username user1 password 7 06441F205F5D1E1617135F1E1F01387A66
-username user2 password 7 1455020A1F173D24362C7E203116154441
-username user3 password 7 13470713181F1325392065262627015454
+username esteban privilege 15 password 0 cisco
 no aaa new-model
 !
 !
@@ -143,42 +140,6 @@ interface GigabitEthernet3/3
 !
 interface Vlan1
  ip address 192.168.122.92 255.255.255.0
-!
-interface Vlan10
- ip address 192.168.10.2 255.255.255.0
- standby 1 ip 192.168.10.1
- standby 1 priority 200
- standby 1 preempt
-!
-interface Vlan20
- ip address 192.168.20.2 255.255.255.0
- standby 2 ip 192.168.20.1
- standby 2 priority 200
- standby 2 preempt
-!
-interface Vlan30
- ip address 192.168.30.2 255.255.255.0
- standby 3 ip 192.168.30.1
- standby 3 priority 200
- standby 3 preempt
-!
-interface Vlan40
- ip address 192.168.40.2 255.255.255.0
- standby 4 ip 192.168.40.1
- standby 4 priority 200
- standby 4 preempt
-!
-interface Vlan50
- ip address 192.168.50.2 255.255.255.0
- standby 5 ip 192.168.50.1
- standby 5 priority 200
- standby 5 preempt
-!
-interface Vlan60
- ip address 192.168.60.2 255.255.255.0
- standby 6 ip 192.168.60.1
- standby 6 priority 200
- standby 6 preempt
 !
 router ospf 1
  router-id 2.2.2.2
