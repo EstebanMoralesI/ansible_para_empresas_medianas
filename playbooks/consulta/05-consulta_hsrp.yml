@@ -17,3 +17,8 @@
         name: visualizar
       vars: 
         comando_visualizar: "show standby"
+    # # # LLAMADO A ROL VISUALIZAR # # #
+    - include_role:
+        name: visualizar
+      vars: 
+        comando_visualizar: "show standby brief"

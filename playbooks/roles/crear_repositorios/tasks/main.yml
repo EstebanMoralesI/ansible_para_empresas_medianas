@@ -5,12 +5,12 @@
 
 # # # COMPROBACION DE EXISTENCIA DE DIRECTORIO # # #
 - stat:
-    path: ./playbooks/repositorio/{{ nombre_empresa }}/{{ repositorio_nombre_carpeta }}
+    path: ./repositorio/{{ nombre_empresa }}/{{ repositorio_nombre_carpeta }}
   register: output
 
 # # # CREACION DE DIRECTORIO # # #
 - name: Crear directorio 
   file: 
-    path: ./playbooks/repositorio/{{ nombre_empresa }}/{{ repositorio_nombre_carpeta }}/
+    path: ./repositorio/{{ nombre_empresa }}/{{ repositorio_nombre_carpeta }}/
     state: directory
   when: output.stat.exists == false

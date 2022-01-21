@@ -5,7 +5,7 @@
 ############################################################################
 
 - name: Directorios de Repositorios 
-  hosts: all
+  hosts: localhost 
   gather_facts: no
   tasks:
     

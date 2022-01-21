@@ -1,0 +1,29 @@
+---
+############################################################################
+#        RESETEO DE PUERTOS EN EQUIPOS DE ACUERDO A PARAMETROS EN          #
+#        INVENTORY         !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO         # 
+############################################################################
+
+- name: RESETEO DE PUERTOS ROUTER
+  hosts: router-puertos
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface {{ item.puerto_id }}          
+          - no ip address 
+          - shutdown      
+      loop: "{{ puertos_parametros }}"
+
+- name: RESETEO DE PUERTOS SWITCH
+  hosts: switch-puertos
+  gather_facts: no
+  tasks:
+    - name: Configuracion PUERTOS a NO SWITCHPORT
+      ios_config:
+        lines:
+          - interface {{ item.puerto_id }}  
+          - no ip address        
+          - switchport  
+          - shutdown              
+      loop: "{{ puertos_parametros }}"

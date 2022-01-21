@@ -11,10 +11,3 @@
       - ip address {{ item.puerto_ip }} {{ item.puerto_mascara }} 
       - no shutdown      
   loop: "{{ puertos_parametros }}"
-
-# # # LLAMADO A ROL VISUALIZACION DE RESULTADOS # # #
-- name: Ejecutando el comando "show ip interface brief"
-  include_role:
-    name: visualizar
-  vars: 
-    comando_visualizar: "show ip interface brief"

@@ -1,0 +1,87 @@
+---
+############################################################################
+#          RESETEO DE VLANS EN EQUIPOS DE ACUERDO A PARAMETROS EN          # 
+#          INVENTORY      !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO          # 
+############################################################################
+
+- name: RESETEAR INTER-VLANS ROUTER
+  hosts: equipo-inter-vlans-router
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - no interface {{ item.inter_vlan_puerto }}.{{ item.inter_vlan_numero }}  
+          # - no  address
+          # - shutdown  
+      loop: "{{ inter_vlans_router_parametros }}"
+    - ios_config:
+        lines:
+          - interface {{ item.inter_vlan_puerto }}
+          - shutdown 
+      loop: "{{ inter_vlans_router_parametros }}"
+    
+- name: RESETEAR INTER-VLANS SWITCH
+  hosts: equipo-inter-vlans-switch
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface vlan {{ item.inter_vlan_numero }}  
+          - no ip address 
+      loop: "{{ inter_vlans_switch_parametros }}"
+    - ios_config:
+        lines:
+          - interface {{ item.inter_vlan_puerto }}  
+          - no switchport nonegotiate
+          - no switchport mode
+          - no switchport trunk encapsulation 
+      loop: "{{ inter_vlans_switch_parametros }}"
+
+- name: RESETEAR VLANS 
+  hosts: equipos-vlan
+  gather_facts: no
+  tasks:  
+    - ios_config:
+        lines:
+          - no vlan "{{ item.vlan_id }}"     
+      loop: "{{ vlans_parametros }}"
+
+- name: RESETEAR MODO TRONCAL
+  hosts: equipos-vlan-trunk
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface {{ item.trunk_puerto }}
+          - no switchport nonegotiate
+          - no switchport mode
+          - no switchport trunk encapsulation         
+      loop: "{{ trunk_parametros }}"
+
+- name: RESETEAR Modo Acceso
+  hosts: equipos-vlan-access
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface {{ item.access_puerto }} 
+          - no switchport nonegotiate
+          - no switchport mode
+      loop: "{{ access_parametros }}"
+
+
+  
+
+
+
+
+
+
+
+    
+
+
+
+
+
+

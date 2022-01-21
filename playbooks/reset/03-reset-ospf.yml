@@ -1,0 +1,19 @@
+---
+############################################################################
+#           RESETEO DE OSPF EN EQUIPOS DE ACUERDO A PARAMETROS EN          # 
+#           INVENTORY     !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO          # 
+############################################################################
+
+- name: RESETEO DE OSPF
+  hosts: equipos-ospf-router, equipos-ospf-switch
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - no router ospf 1
+
+
+
+
+        
+
