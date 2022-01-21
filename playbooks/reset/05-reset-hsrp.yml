@@ -7,49 +7,39 @@
 - name:  RESETEO SWITCH HSRP ACTIVO
   hosts: equipo-hsrp-activo-switch
   gather_facts: no
-  tasks:
-    
+  tasks: 
     - ios_config:
         lines:
           - interface vlan {{ item.hsrp_vlan }}
           - no standby {{ item.hsrp_numero }} 
       loop: "{{ hsrp_switch_activo }}"
 
-- name: Configurando SWITCH HSRP STANDBY
+- name: RESETEO SWITCH HSRP STANDBY
   hosts: equipos-hsrp-standby-switch
   gather_facts: no
   tasks:
-     
     - ios_config:
         lines:
           - interface vlan {{ item.hsrp_vlan }}
           - no standby {{ item.hsrp_numero }}    
       loop: "{{ hsrp_switch_standby }}"
         
-- name: Configurando ROUTER HSRP ACTIVO
+- name: RESETEO ROUTER HSRP ACTIVO
   hosts: equipo-hsrp-activo-router
   gather_facts: no
   tasks:
-    # # # CONFIGURAR HSRP ACTIVO EN EL ROUTER # # # 
     - ios_config:
         lines:
           - interface {{ item.hsrp_puerto }}.{{ item.hsrp_numero_vlan }} 
-          - encapsulation dot1q {{ item.hsrp_numero_vlan }}
-          - ip address {{ item.hsrp_ip_equipo }} {{ item.hsrp_mascara }}
-          - standby {{ item.hsrp_numero}} ip {{ item.hsrp_ip_gateway }}
-          - standby {{ item.hsrp_numero}} priority {{ item.hsrp_prioridad }}
-          - standby {{ item.hsrp_numero}} preempt        
+          - no standby {{ item.hsrp_numero}}        
       loop: "{{ hsrp_router_activo }}"
 
-- name: Configurando ROUTER HSRP STANDBY
+- name: RESETEO ROUTER HSRP STANDBY
   hosts: equipos-hsrp-standby-router
   gather_facts: no
   tasks:
-    # # # CONFIGURAR HSRP STANDBY EN EL SWITCH # # # 
     - ios_config:
         lines:
           - interface {{ item.hsrp_puerto }}.{{ item.hsrp_numero_vlan }} 
-          - encapsulation dot1q {{ item.hsrp_numero_vlan }}
-          - ip address {{ item.hsrp_ip_equipo }} {{ item.hsrp_mascara }}
-          - standby {{ item.hsrp_numero}} ip {{ item.hsrp_ip_gateway }}      
+          - no standby {{ item.hsrp_numero}}       
       loop: "{{ hsrp_router_standby }}"

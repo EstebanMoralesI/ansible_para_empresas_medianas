@@ -1,6 +1,11 @@
 ---
-- name: RESETEAR PUERTOS ROUTER
-  hosts: router
+############################################################################
+#        RESETEO DE PUERTOS EN EQUIPOS DE ACUERDO A PARAMETROS EN          #
+#        INVENTORY         !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO         # 
+############################################################################
+
+- name: RESETEO DE PUERTOS ROUTER
+  hosts: router-puertos
   gather_facts: no
   tasks:
     - ios_config:
@@ -10,67 +15,106 @@
           - shutdown      
       loop: "{{ puertos_parametros }}"
 
-- name: RESETEAR PUERTOS SWITCH
-  hosts: switch
+- name: RESETEO DE PUERTOS SWITCH
+  hosts: switch-puertos
   gather_facts: no
-  tasks:     
-    - ios_config:
+  tasks:
+    - name: Configuracion PUERTOS a NO SWITCHPORT
+      ios_config:
         lines:
-          - interface {{ item.puerto_id }}          
-          - no ip address
-          - switchport 
-          - shutdown      
+          - interface {{ item.puerto_id }}  
+          - no ip address        
+          - switchport  
+          - shutdown              
       loop: "{{ puertos_parametros }}"
 
-- name: RESETEAR PARAMETROS DE ROUTER/SWITCH
-  hosts: all
-  gather_facts: no
-  tasks:    
-    - name: RESETEAR OSPF
-      ios_config:
-        lines:                    
-          - no router ospf 1  
-    - name: RESETEAR USUARIOS 
-      ios_user:
-        aggregate:
-        - name: esteban
-        purge: yes
-    - name: REMOVER BANNER
-      ios_banner:
-        banner: motd
-        state: absent
+############################################################################
+#       RESETEO DE ETHERCHANNEL EN EQUIPOS DE ACUERDO A PARAMETROS EN      # 
+#       INVENTORY       !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO            # 
+############################################################################
 
-- name: RESETEAR ETHERCHANNEL CAPA 3
-  hosts: equipos-etherchannel-capa3
+- name: RESETEO DE ETHERCHANNEL CAPA 2
+  hosts: equipos-etherchannel-capa2 
   gather_facts: no
-  tasks:  
+  tasks:      
+    - ios_config:
+        lines:
+          - no interface port-channel {{ item.etherchannel_numero }}    
+      loop: "{{ etherchannel_capa2_parametros }}" 
+    
     - ios_config:
         lines:
           - interface range {{ item.etherchannel_range }}
-          - no channel-group {{ item.etherchannel_numero }} mode active
-          - switchport
-          - shutdown
-      loop: "{{ etherchannel_capa3_parametros }}"
-    - ios_config:
-        lines:
-          - no interface port-channel {{ item.etherchannel_numero }}
-      loop: "{{ etherchannel_capa3_parametros }}" 
-
-- name: RESETEAR ETHERCHANNEL CAPA 2
-  hosts: equipos-etherchannel-capa2
-  gather_facts: no
-  tasks:  
-    - ios_config:
-        lines:
-          - interface range {{ item.etherchannel_range }}
-          - no channel-group {{ item.etherchannel_numero }} mode active
-        #  - switchport
+          - no channel-group {{ item.etherchannel_numero }} mode active 
+          - no switchport
           - shutdown
       loop: "{{ etherchannel_capa2_parametros }}"
+
+- name: RESETEO DE ETHERCHANNEL CAPA 3
+  hosts: equipos-etherchannel-capa3
+  gather_facts: no
+  tasks:
     - ios_config:
         lines:
           - no interface port-channel {{ item.etherchannel_numero }}
-      loop: "{{ etherchannel_capa2_parametros }}" 
+
+      loop: "{{ etherchannel_capa3_parametros }}"        
+    - ios_config:
+        lines:
+          - interface range {{ item.etherchannel_range }}
+          - no channel-group {{ item.etherchannel_numero }} mode active 
+          - no switchport
+          - shutdown
+      loop: "{{ etherchannel_capa3_parametros }}"
+
+############################################################################
+#           RESETEO DE OSPF EN EQUIPOS DE ACUERDO A PARAMETROS EN          # 
+#           INVENTORY     !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO          # 
+############################################################################
+
+- name: RESETEO DE OSPF
+  hosts: equipos-ospf-router, equipos-ospf-switch
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - no router ospf 1
+
+############################################################################
+#          RESETEO DE VLANS EN EQUIPOS DE ACUERDO A PARAMETROS EN          # 
+#          INVENTORY      !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO          # 
+############################################################################
+
+- name: RESETEAR INTER-VLANS ROUTER
+  hosts: equipo-inter-vlans-router
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - no interface {{ item.inter_vlan_puerto }}.{{ item.inter_vlan_numero }}  
+      loop: "{{ inter_vlans_router_parametros }}"
+    - ios_config:
+        lines:
+          - interface {{ item.inter_vlan_puerto }}
+          - shutdown 
+      loop: "{{ inter_vlans_router_parametros }}"
+    
+- name: RESETEAR INTER-VLANS SWITCH
+  hosts: equipo-inter-vlans-switch
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface vlan {{ item.inter_vlan_numero }}  
+          - no ip address 
+      loop: "{{ inter_vlans_switch_parametros }}"
+    - ios_config:
+        lines:
+          - interface {{ item.inter_vlan_puerto }}  
+          - no switchport nonegotiate
+          - no switchport mode
+          - no switchport trunk encapsulation 
+      loop: "{{ inter_vlans_switch_parametros }}"
 
 - name: RESETEAR VLANS 
   hosts: equipos-vlan
@@ -79,4 +123,99 @@
     - ios_config:
         lines:
           - no vlan "{{ item.vlan_id }}"     
-      loop: "{{ vlans }}"
+      loop: "{{ vlans_parametros }}"
+
+- name: RESETEAR MODO TRONCAL
+  hosts: equipos-vlan-trunk
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface {{ item.trunk_puerto }}
+          - no switchport nonegotiate
+          - no switchport mode
+          - no switchport trunk encapsulation         
+      loop: "{{ trunk_parametros }}"
+
+- name: RESETEAR Modo Acceso
+  hosts: equipos-vlan-access
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface {{ item.access_puerto }} 
+          - no switchport nonegotiate
+          - no switchport mode
+      loop: "{{ access_parametros }}"
+
+############################################################################
+#          RESETEO DE HSRP EN EQUIPOS DE ACUERDO A PARAMETROS EN           # 
+#          INVENTORY     !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO           # 
+############################################################################
+
+- name:  RESETEO SWITCH HSRP ACTIVO
+  hosts: equipo-hsrp-activo-switch
+  gather_facts: no
+  tasks: 
+    - ios_config:
+        lines:
+          - interface vlan {{ item.hsrp_vlan }}
+          - no standby {{ item.hsrp_numero }} 
+      loop: "{{ hsrp_switch_activo }}"
+
+- name: RESETEO SWITCH HSRP STANDBY
+  hosts: equipos-hsrp-standby-switch
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface vlan {{ item.hsrp_vlan }}
+          - no standby {{ item.hsrp_numero }}    
+      loop: "{{ hsrp_switch_standby }}"
+        
+- name: RESETEO ROUTER HSRP ACTIVO
+  hosts: equipo-hsrp-activo-router
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface {{ item.hsrp_puerto }}.{{ item.hsrp_numero_vlan }} 
+          - no standby {{ item.hsrp_numero}}        
+      loop: "{{ hsrp_router_activo }}"
+
+- name: RESETEO ROUTER HSRP STANDBY
+  hosts: equipos-hsrp-standby-router
+  gather_facts: no
+  tasks:
+    - ios_config:
+        lines:
+          - interface {{ item.hsrp_puerto }}.{{ item.hsrp_numero_vlan }} 
+          - no standby {{ item.hsrp_numero}}       
+      loop: "{{ hsrp_router_standby }}"
+
+############################################################################
+#        RESETEO DE USUARIOS EN EQUIPOS DE ACUERDO A PARAMETROS EN         # 
+#        INVENTORY         !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO         # 
+############################################################################
+
+- name: RESETEAR USUARIOS
+  hosts: all
+  gather_facts: no
+  tasks:    
+    - ios_user:
+        aggregate:
+        - name: "{{ ansible_user }}"
+        purge: yes
+
+############################################################################
+#      RESETEO DEL BANNER MOTD EN EQUIPOS DE ACUERDO A PARAMETROS EN       # 
+#      INVENTORY             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO       # 
+############################################################################
+
+- name: RESETEAR BANNER
+  hosts: all
+  gather_facts: no
+  tasks:    
+    - ios_banner:
+        banner: motd
+        state: absent

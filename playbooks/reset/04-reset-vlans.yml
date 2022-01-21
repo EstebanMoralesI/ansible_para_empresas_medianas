@@ -11,8 +11,6 @@
     - ios_config:
         lines:
           - no interface {{ item.inter_vlan_puerto }}.{{ item.inter_vlan_numero }}  
-          # - no  address
-          # - shutdown  
       loop: "{{ inter_vlans_router_parametros }}"
     - ios_config:
         lines:

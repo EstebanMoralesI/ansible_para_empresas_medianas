@@ -1,0 +1,28 @@
+#####################
+# EQUIPOS DE LA RED #
+#####################
+# # # LISTE AQUI TODOS LOS EQUIPOS DE LA RED # # #
+[equipos]
+s1
+s2
+
+####################
+# # # 04-vlans # # #
+####################
+# # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE VLANS # # #
+[equipos-vlan]
+s1
+s2
+
+# # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE TRUNK # # #
+[equipos-vlan-trunk]
+s1
+s2
+
+# # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE de ACCESS # # #
+[equipos-vlan-access]
+s2
+
+# # # LISTE AQUI EL/LOS SWITCH/S QUE NECESITAN CONFIGURACION DE INTER-VLAN  # # #
+[equipo-inter-vlans-switch]
+s1

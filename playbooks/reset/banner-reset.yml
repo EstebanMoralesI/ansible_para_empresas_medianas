@@ -1,8 +1,0 @@
----
-- name: RESETEAR BANNER
-  hosts: all
-  gather_facts: no
-  tasks:    
-    - ios_banner:
-        banner: motd
-        state: absent

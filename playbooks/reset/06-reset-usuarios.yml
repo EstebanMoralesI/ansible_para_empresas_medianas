@@ -1,0 +1,14 @@
+---
+############################################################################
+#        RESETEO DE USUARIOS EN EQUIPOS DE ACUERDO A PARAMETROS EN         # 
+#        INVENTORY         !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO         # 
+############################################################################
+
+- name: RESETEAR USUARIOS
+  hosts: all
+  gather_facts: no
+  tasks:    
+    - ios_user:
+        aggregate:
+        - name: "{{ ansible_user }}"
+        purge: yes
