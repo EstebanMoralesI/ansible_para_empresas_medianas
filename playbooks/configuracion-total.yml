@@ -12,8 +12,6 @@
     - include_role:
         name: configurar-puertos  
     # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
-    - include_role:
-        name: guardar-configuracion
 
 - name: Configuracion PUERTOS SWITCH
   hosts: switch-puertos
@@ -29,10 +27,7 @@
       loop: "{{ puertos_parametros }}"
     # # # LLAMADO A ROL CONFIGURAR PUERTOS # # #
     - include_role:
-        name: configurar-puertos   
-    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
-    - include_role:
-        name: guardar-configuracion  
+        name: configurar-puertos    
 
 ############################################################################
 #    CONFIGURACION DE ETHERCHANNEL EN EQUIPOS DE ACUERDO A PARAMETROS EN   # 
@@ -70,10 +65,6 @@
           - switchport mode trunk    
       loop: "{{ etherchannel_capa2_parametros }}" 
 
-    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
-    - include_role:
-        name: guardar-configuracion
-
 - name: Configuracion ETHERCHANNEL CAPA 3
   hosts: equipos-etherchannel-capa3
   gather_facts: no
@@ -96,9 +87,6 @@
           - channel-group {{ item.etherchannel_numero }} mode active
           - no shutdown
       loop: "{{ etherchannel_capa3_parametros }}"
-    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
-    - include_role:
-        name: guardar-configuracion
 
 ############################################################################
 #        CONFIGURACION DE OSPF EN EQUIPOS DE ACUERDO A PARAMETROS EN       # 
@@ -159,6 +147,7 @@
 - name: Modo Troncal
   hosts: equipos-vlan-trunk
   gather_facts: no
+  serial: 1
   tasks:
     # # # ASIGNANDO EL MODO TRONCAL EN LAS INTERFACES DE LOS EQUIPOS # # # 
     - ios_config:
@@ -226,14 +215,6 @@
           - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }}
           - no shutdown
       loop: "{{ inter_vlans_switch_parametros }}"
-
-- name: Guardando la CONFIGURACION
-  hosts: equipos-vlan
-  gather_facts: no
-  tasks:
-    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
-    - include_role:
-        name: guardar-configuracion
 
 ############################################################################
 #       CONFIGURACION DE HSRP EN EQUIPOS DE ACUERDO A PARAMETROS EN        # 
@@ -548,3 +529,11 @@
         status_code: 201
         body_format: json
       delegate_to: localhost
+
+- name: Configuracion PUERTOS ROUTER
+  hosts: all
+  gather_facts: no
+  tasks:
+    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
+    - include_role:
+        name: guardar-configuracion

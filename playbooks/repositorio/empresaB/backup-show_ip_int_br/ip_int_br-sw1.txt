@@ -15,4 +15,4 @@ GigabitEthernet3/0     unassigned      YES unset  down                  down
 GigabitEthernet3/1     unassigned      YES unset  down                  down    
 GigabitEthernet3/2     unassigned      YES unset  down                  down    
 GigabitEthernet3/3     unassigned      YES unset  down                  down    
-Vlan1                  192.168.122.83  YES manual up                    up
+Vlan1                  192.168.122.83  YES NVRAM  up                    up

@@ -2,7 +2,7 @@ Building configuration...
 
 Current configuration : 5674 bytes
 !
-! Last configuration change at 17:22:03 UTC Fri Jan 21 2022 by esteban
+! Last configuration change at 17:41:26 UTC Sat Jan 22 2022 by esteban
 !
 version 15.2
 service timestamps debug datetime msec
@@ -17,10 +17,10 @@ boot-end-marker
 !
 !
 !
-username esteban privilege 15 password 7 094F471A1A0A
-username user1 password 7 114B090404011C03162E66313B36277351
-username user2 password 7 13470713181F1325392065262627015554
-username user3 password 7 1455020A1F173D24362C7E203116154541
+username esteban privilege 15 password 7 05080F1C2243
+username user1 password 7 03464B0A151C36435C0D54100417195D46
+username user2 password 7 0046030717481C091D25015B1A1C174550
+username user3 password 7 0549160E325F59060B015A071809167969
 no aaa new-model
 !
 !

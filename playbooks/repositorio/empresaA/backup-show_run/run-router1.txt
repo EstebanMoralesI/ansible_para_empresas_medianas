@@ -1,9 +1,9 @@
 Building configuration...
 
   
-Current configuration : 5137 bytes
+Current configuration : 4936 bytes
 !
-! Last configuration change at 17:29:21 UTC Fri Jan 21 2022 by esteban
+! Last configuration change at 17:42:22 UTC Sat Jan 22 2022 by esteban
 !
 version 15.6
 service timestamps debug datetime msec
@@ -31,7 +31,6 @@ mmi snmp-timeout 180
 !
 !
 !
-no ip icmp rate-limit unreachable
 !
 !
 !
@@ -48,17 +47,15 @@ multilink bundle-name authenticated
 !
 !
 !
-username esteban privilege 15 password 7 060506324F41
+username esteban privilege 15 password 7 0822455D0A16
 username user1 password 7 1455020A1F173D24362C7E203116154741
 username user2 password 7 03464B0A151C36435C0D54100417195E46
-username user3 password 7 08635C4F1A0A1218000F4111392E367B71
+username user3 password 7 1455020A1F173D24362C7E203116154541
 !
 redundancy
 !
-no cdp log mismatch duplex
 no cdp run
 !
-ip tcp synwait-time 5
 ! 
 !
 !
@@ -163,13 +160,7 @@ banner motd ^C
 ^C
 !
 line con 0
- exec-timeout 0 0
- privilege level 15
- logging synchronous
 line aux 0
- exec-timeout 0 0
- privilege level 15
- logging synchronous
 line vty 0 4
  login local
  transport input all

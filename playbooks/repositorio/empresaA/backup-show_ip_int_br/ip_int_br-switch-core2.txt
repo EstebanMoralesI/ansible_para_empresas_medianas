@@ -15,9 +15,9 @@ GigabitEthernet3/0     unassigned      YES unset  down                  down
 GigabitEthernet3/1     unassigned      YES unset  down                  down    
 GigabitEthernet3/2     unassigned      YES manual up                    up      
 GigabitEthernet3/3     unassigned      YES manual up                    up      
-Loopback1              3.3.3.3         YES NVRAM  up                    up      
+Loopback1              3.3.3.3         YES manual up                    up      
 Port-channel1          10.10.30.2      YES manual up                    up      
-Vlan1                  192.168.122.93  YES NVRAM  up                    up      
+Vlan1                  192.168.122.93  YES manual up                    up      
 Vlan10                 192.168.10.3    YES manual up                    up      
 Vlan20                 192.168.20.3    YES manual up                    up      
 Vlan30                 192.168.30.3    YES manual up                    up      

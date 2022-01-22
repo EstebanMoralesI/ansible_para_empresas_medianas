@@ -4,8 +4,5 @@ Internet  10.10.10.5              0   0050.7966.6800  ARPA   GigabitEthernet0/3.
 Internet  192.168.20.1            -   0c98.a4db.bd03  ARPA   GigabitEthernet0/3.20
 Internet  192.168.30.1            -   0c98.a4db.bd03  ARPA   GigabitEthernet0/3.30
 Internet  192.168.30.5            0   0050.7966.6802  ARPA   GigabitEthernet0/3.30
-Internet  192.168.122.71        125   0200.4c4f.4f50  ARPA   GigabitEthernet0/0
+Internet  192.168.122.71          0   0200.4c4f.4f50  ARPA   GigabitEthernet0/0
 Internet  192.168.122.81          -   0c98.a4db.bd00  ARPA   GigabitEthernet0/0
-Internet  192.168.122.83        138   0c98.a415.8001  ARPA   GigabitEthernet0/0
-Internet  192.168.122.84        138   0c98.a47d.8001  ARPA   GigabitEthernet0/0
-Internet  192.168.122.85        130   0c98.a42d.8001  ARPA   GigabitEthernet0/0

@@ -16,4 +16,4 @@ GigabitEthernet3/1     unassigned      YES unset  up                    up
 GigabitEthernet3/2     unassigned      YES unset  up                    up      
 GigabitEthernet3/3     unassigned      YES unset  up                    up      
 Port-channel1          unassigned      YES unset  up                    up      
-Vlan1                  192.168.122.85  YES manual up                    up
+Vlan1                  192.168.122.85  YES NVRAM  up                    up
