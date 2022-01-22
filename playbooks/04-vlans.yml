@@ -19,6 +19,7 @@
 - name: Modo Troncal
   hosts: equipos-vlan-trunk
   gather_facts: no
+  serial: 1
   tasks:
     # # # ASIGNANDO EL MODO TRONCAL EN LAS INTERFACES DE LOS EQUIPOS # # # 
     - ios_config:
