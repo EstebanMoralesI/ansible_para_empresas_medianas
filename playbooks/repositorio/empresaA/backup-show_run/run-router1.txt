@@ -1,12 +1,14 @@
 Building configuration...
 
   
-Current configuration : 4714 bytes
+Current configuration : 5137 bytes
+!
+! Last configuration change at 17:29:21 UTC Fri Jan 21 2022 by esteban
 !
 version 15.6
 service timestamps debug datetime msec
 service timestamps log datetime msec
-no service password-encryption
+service password-encryption
 !
 hostname router1
 !
@@ -46,7 +48,10 @@ multilink bundle-name authenticated
 !
 !
 !
-username esteban privilege 15 password 0 cisco
+username esteban privilege 15 password 7 060506324F41
+username user1 password 7 1455020A1F173D24362C7E203116154741
+username user2 password 7 03464B0A151C36435C0D54100417195E46
+username user3 password 7 08635C4F1A0A1218000F4111392E367B71
 !
 redundancy
 !
@@ -66,6 +71,9 @@ ip tcp synwait-time 5
 !
 !
 !
+!
+interface Loopback1
+ ip address 1.1.1.1 255.255.255.255
 !
 interface GigabitEthernet0/0
  ip address 192.168.122.91 255.255.255.0
@@ -91,6 +99,11 @@ interface GigabitEthernet0/3
  duplex auto
  speed auto
  media-type rj45
+!
+router ospf 1
+ router-id 1.1.1.1
+ network 10.10.10.0 0.0.0.3 area 0
+ network 10.10.20.0 0.0.0.3 area 0
 !
 ip forward-protocol nd
 !

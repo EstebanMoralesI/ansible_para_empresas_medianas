@@ -1,6 +1,7 @@
-#####################
-# EQUIPOS DE LA RED #
-#####################
+############################################################################
+#                             EQUIPOS DE LA RED                            #
+#               ATENCION!!! LEA ATENTAMENTE LAS INSTRUCCIONES              #
+############################################################################
 # # # LISTE AQUI TODOS LOS EQUIPOS DE LA RED # # #
 [equipos]
 router1
@@ -10,9 +11,9 @@ switch-access1
 switch-access2
 switch-access3
 
-#################################
-# # # 01-configurar-puertos # # #
-#################################
+############################################################################
+#                         01-configurar-puertos                            #
+############################################################################
 # # # LISTE AQUI EL/LOS ROUTER/S QUE NECESITAN CONFIGURACION DE PUERTOS # # #
 [router-puertos]
 router1
@@ -22,9 +23,9 @@ router1
 switch-core1
 switch-core2
 
-###########################
-# # # 02-etherchannel # # #
-###########################
+############################################################################
+#                              02-etherchannel                             #
+############################################################################
 # # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE ETHERCHANNEL CAPA 2 # # #
 [equipos-etherchannel-capa2]
 
@@ -33,9 +34,9 @@ switch-core2
 switch-core1
 switch-core2
 
-###################
-# # # 03-ospf # # #
-###################
+############################################################################
+#                                  03-ospf                                 #
+############################################################################
 # # # LISTE AQUI EL/LOS ROUTER/S QUE NECESITAN CONFIGURACION DE OSPF # # #
 [equipos-ospf-router]
 router1
@@ -45,9 +46,9 @@ router1
 switch-core1
 switch-core2
 
-####################
-# # # 04-vlans # # #
-####################
+############################################################################
+#                                04-vlans                                  #
+############################################################################
 # # # LISTE AQUI EL/LOS EQUIPO/S QUE NECESITAN CONFIGURACION DE VLANS # # #
 [equipos-vlan]
 switch-core1
@@ -76,9 +77,9 @@ switch-access3
 # # # LISTE AQUI EL/LOS SWITCH/S QUE NECESITAN CONFIGURACION DE INTER-VLAN  # # #
 [equipo-inter-vlans-switch]
 
-###################
-# # # 05-HSRP # # #
-###################
+############################################################################
+#                               05-HSRP                                    # 
+############################################################################
 # # # LISTE AQUI EL SWITCH ACTIVO DE HSRP # # #
 [equipo-hsrp-activo-switch]
 switch-core1

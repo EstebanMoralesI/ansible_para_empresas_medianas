@@ -1,19 +1,16 @@
 ---
-###################################
-# PARAMETROS GENERALES DE ENTORNO #
-###################################
-
-##!!!############################################!!!##
-# !!!PRECAUCIÓN!!! NO MODIFICAR ESTOS PARAMETROS !!! #
-##!!!############################################!!!##
+############################################################################
+#                     PARAMETROS GENERALES DE ENTORNO                      #
+#                 PRECAUCIÓN!!! NO MODIFICAR ESTOS PARAMETROS              #
+############################################################################
 ansible_connection: network_cli
 ansible_network_os: ios
 ansible_become: yes
 ansible_become_method: enable
 
-##################################
-# PARAMETROS QUE SE DEBEN LLENAR #
-##################################
+############################################################################
+#                     PARAMETROS QUE SE DEBEN LLENAR                       #
+############################################################################
 
 nombre_empresa: empresaA
 ansible_user: esteban
@@ -22,9 +19,9 @@ ansible_password: cisco
 gitlab_project_id: 32086553
 gitlab_access_token: glpat-zHF8e9sLgXgSy9mgYF8x
 
-######################################
-# PARAMETROS DE USUARIOS Y PASSWORDS #
-######################################
+############################################################################
+#                    PARAMETROS DE USUARIOS Y PASSWORDS                    #
+############################################################################
 
 users:
   - username: user1
