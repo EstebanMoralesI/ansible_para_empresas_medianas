@@ -1,19 +1,17 @@
 ---
-###################################
-# PARAMETROS GENERALES DE ENTORNO #
-###################################
+############################################################################
+#                     PARAMETROS GENERALES DE ENTORNO                      #
+#                 PRECAUCIÓN!!! NO MODIFICAR ESTOS PARAMETROS              #
+############################################################################
 
-##!!!############################################!!!##
-# !!!PRECAUCIÓN!!! NO MODIFICAR ESTOS PARAMETROS !!! #
-##!!!############################################!!!##
 ansible_connection: network_cli
 ansible_network_os: ios
 ansible_become: yes
 ansible_become_method: enable
 
-##################################
-# PARAMETROS QUE SE DEBEN LLENAR #
-##################################
+############################################################################
+#                     PARAMETROS QUE SE DEBEN LLENAR                       #
+############################################################################
 
 nombre_empresa: # Nombre de la empresa ej. "empresaA" #
 ansible_user: # Usuario de la coneccion SSH ej. "esteban" #
@@ -21,9 +19,9 @@ ansible_password: # Password para la conexion SSH ej. "c1$c0" #
 gitlab_project_id:  # Project ID de GITLAB ej. "32027565" #
 gitlab_access_token: # Token generado para el Project ID de GITLAB ej. "glpat-R6vWoLKRt4LEM-tgPPpY" #
 
-######################################
-# PARAMETROS DE USUARIOS Y PASSWORDS #
-######################################
+############################################################################
+#                    PARAMETROS DE USUARIOS Y PASSWORDS                    #
+############################################################################
 
 # users:
 # # Usuario 1
