@@ -14,7 +14,6 @@
           - no ip address 
           - shutdown      
       loop: "{{ puertos_parametros }}"
-
 - name: RESETEO DE PUERTOS SWITCH
   hosts: switch-puertos
   gather_facts: no

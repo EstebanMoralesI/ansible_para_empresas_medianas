@@ -11,8 +11,7 @@
     - ios_config:
         lines:
           - no interface port-channel {{ item.etherchannel_numero }}    
-      loop: "{{ etherchannel_capa2_parametros }}" 
-    
+      loop: "{{ etherchannel_capa2_parametros }}"  
     - ios_config:
         lines:
           - interface range {{ item.etherchannel_range }}
@@ -20,7 +19,6 @@
           - no switchport
           - shutdown
       loop: "{{ etherchannel_capa2_parametros }}"
-
 - name: RESETEO DE ETHERCHANNEL CAPA 3
   hosts: equipos-etherchannel-capa3
   gather_facts: no

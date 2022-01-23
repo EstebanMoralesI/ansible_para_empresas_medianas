@@ -5,7 +5,7 @@
 ############################################################################
 
 # BACKUP DE EQUIPOS."CFG" #
-- name: BACKUP DE EQUIPOS "cfg"
+- name: Back-up de equipos "cfg"
   hosts: all 
   gather_facts: no
   tasks:   
@@ -13,18 +13,18 @@
         name: gitlab
       vars: 
         git_prefijo: ""
-        git_ruta: "07-backup_show_run-cfg"
+        git_ruta: "07-show_run-cfg"
         mensaje_commit: "backup equipos .CFG" 
         nombre_equipo: "{{ inventory_hostname }}"
         extension: ".cfg"
-- name: Push GITLAB ".CFG"
+- name: Push Git-Lab ".cfg"
   hosts: localhost
   gather_facts: no
   tasks:
     - include_role:
         name: push_gitlab
 # BACKUP DE DETALLE DE EQUIPOS #
-- name: Push GITLAB "detalle-de-equipos.csv"
+- name: Push Git-Lab "detalle-de-equipos.csv"
   hosts: localhost
   gather_facts: no
   tasks:
