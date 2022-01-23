@@ -4,12 +4,12 @@
 #    INVENTORY          !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO            # 
 ############################################################################
 
-- name: Configuracion ETHERCHANNEL CAPA 2
+- name: Configuracion de etherchannel capa 2
   hosts: equipos-etherchannel-capa2 
   gather_facts: no
   tasks:   
     # # # CREANDO EL PORT-CHANNEL EN EL EQUIPO # # #  
-    - name: Preparando Etherchannel
+    - name: Preparando etherchannel
       ios_config:
         lines:
           - interface port-channel {{ item.etherchannel_numero }}  
@@ -33,13 +33,11 @@
           - interface port-channel {{ item.etherchannel_numero }}  
           - switchport trunk encapsulation dot1q
           - switchport mode trunk    
-      loop: "{{ etherchannel_capa2_parametros }}" 
-
+      loop: "{{ etherchannel_capa2_parametros }}"
     # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
     - include_role:
         name: guardar-configuracion
-
-- name: Configuracion ETHERCHANNEL CAPA 3
+- name: Configuracion de etherchannel capa 3
   hosts: equipos-etherchannel-capa3
   gather_facts: no
   tasks:
@@ -60,7 +58,7 @@
           - no ip address
           - channel-group {{ item.etherchannel_numero }} mode active
           - no shutdown
-      loop: "{{ etherchannel_capa3_parametros }}"
+      loop: "{{ etherchannel_capa3_parametros }}" 
     # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
     - include_role:
         name: guardar-configuracion

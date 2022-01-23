@@ -15,8 +15,7 @@
           - no shutdown
         parents: vlan {{ item.vlan_id }}
       loop: "{{ vlans_parametros }}"
-
-- name: Modo Troncal
+- name: Modo troncal
   hosts: equipos-vlan-trunk
   gather_facts: no
   serial: 1
@@ -30,8 +29,7 @@
           - switchport nonegotiate
           - no shutdown
       loop: "{{ trunk_parametros }}"
-
-- name: Modo Acceso
+- name: Modo acceso
   hosts: equipos-vlan-access
   gather_facts: no
   tasks:
@@ -43,20 +41,19 @@
           - switchport access vlan {{ item.access_vlan }}
           - no shutdown
       loop: "{{ access_parametros }}"
-
-- name: INTER-VLANS ROUTER
+- name: Inter-Vlans en un router
   hosts: equipo-inter-vlans-router
   gather_facts: no
   tasks:
     # # # ENCENDIDO DEL SUB-PUERTO DEL ROUTER # # #
-    - name: Encendiendo el puerto INTER-VLANS en ROUTER
+    - name: Encendiendo el puerto Inter-Vlans en el router
       ios_config:
         lines:
           - interface {{ item.inter_vlan_puerto }}
           - no shutdown 
       loop: "{{ inter_vlans_router_parametros }}"
     # # # CONFIGURANDO EL INTER-VLAN EN EL SUB-PUERTO DEL ROUTER # # #
-    - name: Configurando INTER-VLANS en ROUTER
+    - name: Configurando las Inter-Vlans en el router
       ios_config:
         lines:
           - interface {{ item.inter_vlan_puerto }}.{{ item.inter_vlan_numero }}  
@@ -64,13 +61,12 @@
           - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }} 
           - no shutdown  
       loop: "{{ inter_vlans_router_parametros }}"
-
-- name: INTER-VLANS SWITCH
+- name: Inter-Vlans en un switch
   hosts: equipo-inter-vlans-switch
   gather_facts: no
   tasks:
     # # # CONFIGURANDO EL MODO TRUNK EN LA SVI DEL SWITCH # # #
-    - name: Configuracion el puerto del switch
+    - name: Configuracion de los puertos del switch
       ios_config:
         lines:
           - ip routing
@@ -80,29 +76,17 @@
           - no shutdown  
       loop: "{{ inter_vlans_switch_parametros }}"
     # # # CONFIGURANDO LA IP EN LA SVI DEL SWITCH # # #
-    - name: Configuracion la ip de la INTER-VLAN 
+    - name: Configuracion de las ip's de la Inter-Vlan 
       ios_config:
         lines:
           - interface vlan {{ item.inter_vlan_numero }}  
           - ip address {{ item.inter_vlan_ip }} {{ item.inter_vlan_mascara }}
           - no shutdown
       loop: "{{ inter_vlans_switch_parametros }}"
-
-- name: Guardando la CONFIGURACION
+- name: Guardando la configuracion 
   hosts: equipos-vlan
   gather_facts: no
   tasks:
     # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
     - include_role:
         name: guardar-configuracion
-
-
-
-
-    
-
-
-
-
-
-

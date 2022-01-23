@@ -7,13 +7,11 @@
 - name: Configuración del login del banner
   hosts: all
   gather_facts: no
-
   tasks:
     - name: Remover antiguo banner
       ios_banner:
         banner: motd
         state: absent
-
     - name: Configurando el banner desde un archivo
       ios_banner:
         banner: motd

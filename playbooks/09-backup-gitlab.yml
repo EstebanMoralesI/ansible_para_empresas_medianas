@@ -13,7 +13,7 @@
         name: gitlab
       vars: 
         git_prefijo: ""
-        git_ruta: "cfg"
+        git_ruta: "07-backup_show_run-cfg"
         mensaje_commit: "backup equipos .CFG" 
         nombre_equipo: "{{ inventory_hostname }}"
         extension: ".cfg"

@@ -50,25 +50,3 @@ ips:
     ips_id: 192.168.122.95
   - ips_name: switch-access3
     ips_id: 192.168.122.96
-
-
-
-
-
-
-
-
-
-
-# # PARAMETROS DE SERVIDORES NTP
-# # En el parámetro "ntp_servers" introducir todas las ip's necesarias
-# ntp_servers:
-#     - 192.168.2.1
-#     - 192.168.2.2
-#     - 192.168.2.3
-
-# # DATOS DE SERVIDORES DNS
-# # En el parámetro "dns_servers" introducir todas las ip's necesarias
-# dns_servers:
-#     - 192.168.3.1
-#     - 192.168.3.2

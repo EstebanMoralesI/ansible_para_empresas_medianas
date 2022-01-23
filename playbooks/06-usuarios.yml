@@ -4,13 +4,11 @@
 #     INVENTORY         !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO            # 
 ############################################################################
 
-- name: Creando usuarios en los equipos
+- name: Creando usuarios en los equipos y encriptando passwords
   hosts: all
   gather_facts: no 
-
   tasks:
-    - name: Creando usuarios y encriptando passwords
-      ios_config:
+    - ios_config:
         lines:
           - username "{{ item.username }}" password "{{ item.password }}"
           - service password-encryption

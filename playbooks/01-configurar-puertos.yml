@@ -4,7 +4,7 @@
 #      INVENTORY           !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO         # 
 ############################################################################
 
-- name: Configuracion PUERTOS ROUTER
+- name: Configuracion de puertos de un router
   hosts: router-puertos
   gather_facts: no
   tasks:
@@ -14,13 +14,12 @@
     # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
     - include_role:
         name: guardar-configuracion
-
-- name: Configuracion PUERTOS SWITCH
+- name: Configuración de puertos de un switch
   hosts: switch-puertos
   gather_facts: no
   tasks:
     # # # CONFIGURANDO LOS PUERTOS A "NO SWITCHPORT" # # # 
-    - name: Configuracion PUERTOS a NO SWITCHPORT
+    - name: Configuracion de puertos a "no switchport"
       ios_config:
         lines:
           - ip routing
@@ -32,4 +31,4 @@
         name: configurar-puertos   
     # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
     - include_role:
-        name: guardar-configuracion  
+        name: guardar-configuracion 
