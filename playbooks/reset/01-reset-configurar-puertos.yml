@@ -4,7 +4,7 @@
 #        INVENTORY         !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO         # 
 ############################################################################
 
-- name: RESETEO DE PUERTOS ROUTER
+- name: Reseteo de puertos de un router
   hosts: router-puertos
   gather_facts: no
   tasks:
@@ -14,12 +14,11 @@
           - no ip address 
           - shutdown      
       loop: "{{ puertos_parametros }}"
-- name: RESETEO DE PUERTOS SWITCH
+- name: Reseteo de puertos de un switch
   hosts: switch-puertos
   gather_facts: no
   tasks:
-    - name: Configuracion PUERTOS a NO SWITCHPORT
-      ios_config:
+    - ios_config:
         lines:
           - interface {{ item.puerto_id }}  
           - no ip address        

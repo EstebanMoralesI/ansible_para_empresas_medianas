@@ -5,7 +5,9 @@
 ############################################################################
 
 - name: Comandos Show para OSPF
-  hosts: equipos-ospf-router, equipos-ospf-switch
+  hosts: 
+    equipos-ospf-router
+    equipos-ospf-switch
   gather_facts: no
   tasks:
     - name: Ejecutando el comando "show ip ospf neighbor"

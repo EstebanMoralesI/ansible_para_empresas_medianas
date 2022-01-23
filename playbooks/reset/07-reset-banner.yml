@@ -4,7 +4,7 @@
 #      INVENTORY             !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO       # 
 ############################################################################
 
-- name: RESETEAR BANNER
+- name: Reseteo de Banner Motd
   hosts: all
   gather_facts: no
   tasks:    

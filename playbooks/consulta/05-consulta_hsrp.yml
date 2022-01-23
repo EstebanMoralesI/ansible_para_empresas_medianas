@@ -4,21 +4,23 @@
 #                    PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                  #
 ############################################################################
 
-- name: Ejecutando el comando "show standby"  
+- name: Consultas HSRP  
   hosts: 
-    - equipo-hsrp-activo-switch
-    - equipos-hsrp-standby-switch
-    - equipo-hsrp-activo-router
-    - equipos-hsrp-standby-router
+    equipo-hsrp-activo-switch
+    equipos-hsrp-standby-switch
+    equipo-hsrp-activo-router
+    equipos-hsrp-standby-router
   gather_facts: no
   tasks:
     # # # LLAMADO A ROL VISUALIZAR # # #
-    - include_role:
+    - name: Ejecutando el comando "show standby"
+      include_role:
         name: visualizar
       vars: 
         comando_visualizar: "show standby"
     # # # LLAMADO A ROL VISUALIZAR # # #
-    - include_role:
+    - name: Ejecutando el comando "show standby brief"
+      include_role:
         name: visualizar
       vars: 
         comando_visualizar: "show standby brief"

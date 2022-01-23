@@ -10,7 +10,7 @@
   connection: local
   tasks:  
     # # # PING A TODA LA RED DE LA EMPRESA # # #
-    - name: TEST DE ACCESIBILIDAD A LA RED
+    - name: Test de accesibilidad a la red
       ios_ping:
         dest: "{{ item.ips_id }}" 
       loop: "{{ ips }}"   

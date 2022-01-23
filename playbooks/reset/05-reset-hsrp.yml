@@ -4,7 +4,7 @@
 #          INVENTORY     !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO           # 
 ############################################################################
 
-- name:  RESETEO SWITCH HSRP ACTIVO
+- name:  Reseteo de un switch HSRP Activo
   hosts: equipo-hsrp-activo-switch
   gather_facts: no
   tasks: 
@@ -13,8 +13,7 @@
           - interface vlan {{ item.hsrp_vlan }}
           - no standby {{ item.hsrp_numero }} 
       loop: "{{ hsrp_switch_activo }}"
-
-- name: RESETEO SWITCH HSRP STANDBY
+- name: Reseteo de un switch HSRP Standby 
   hosts: equipos-hsrp-standby-switch
   gather_facts: no
   tasks:
@@ -23,8 +22,7 @@
           - interface vlan {{ item.hsrp_vlan }}
           - no standby {{ item.hsrp_numero }}    
       loop: "{{ hsrp_switch_standby }}"
-        
-- name: RESETEO ROUTER HSRP ACTIVO
+- name: Reseteo de un router HSRP Activo
   hosts: equipo-hsrp-activo-router
   gather_facts: no
   tasks:
@@ -33,8 +31,7 @@
           - interface {{ item.hsrp_puerto }}.{{ item.hsrp_numero_vlan }} 
           - no standby {{ item.hsrp_numero}}        
       loop: "{{ hsrp_router_activo }}"
-
-- name: RESETEO ROUTER HSRP STANDBY
+- name: Reseteo de un router HSRP Standby
   hosts: equipos-hsrp-standby-router
   gather_facts: no
   tasks:

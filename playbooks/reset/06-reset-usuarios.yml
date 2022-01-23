@@ -4,7 +4,7 @@
 #        INVENTORY         !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO         # 
 ############################################################################
 
-- name: RESETEAR USUARIOS
+- name: Reseteo de usuario
   hosts: all
   gather_facts: no
   tasks:    

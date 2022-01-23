@@ -4,7 +4,7 @@
 #          INVENTORY      !!!PRECAUCIÓN!!! NO MODIFICAR EL CODIGO          # 
 ############################################################################
 
-- name: RESETEAR INTER-VLANS ROUTER
+- name: Resetear Inter-Vlans en un router
   hosts: equipo-inter-vlans-router
   gather_facts: no
   tasks:
@@ -16,9 +16,8 @@
         lines:
           - interface {{ item.inter_vlan_puerto }}
           - shutdown 
-      loop: "{{ inter_vlans_router_parametros }}"
-    
-- name: RESETEAR INTER-VLANS SWITCH
+      loop: "{{ inter_vlans_router_parametros }}"   
+- name: Resetear Inter-Vlans en un switch
   hosts: equipo-inter-vlans-switch
   gather_facts: no
   tasks:
@@ -34,8 +33,7 @@
           - no switchport mode
           - no switchport trunk encapsulation 
       loop: "{{ inter_vlans_switch_parametros }}"
-
-- name: RESETEAR VLANS 
+- name: Resetear Vlans 
   hosts: equipos-vlan
   gather_facts: no
   tasks:  
@@ -43,8 +41,7 @@
         lines:
           - no vlan "{{ item.vlan_id }}"     
       loop: "{{ vlans_parametros }}"
-
-- name: RESETEAR MODO TRONCAL
+- name: Resetear el modo troncal
   hosts: equipos-vlan-trunk
   gather_facts: no
   serial: 1
@@ -56,8 +53,7 @@
           - no switchport mode
           - no switchport trunk encapsulation         
       loop: "{{ trunk_parametros }}"
-
-- name: RESETEAR Modo Acceso
+- name: Resetear el modo acceso
   hosts: equipos-vlan-access
   gather_facts: no
   tasks:
