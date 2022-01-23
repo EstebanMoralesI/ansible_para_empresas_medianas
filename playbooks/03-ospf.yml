@@ -15,7 +15,9 @@
       loop: "{{ ospf_parametros }}"
 
 - name: Configuracion de OSPF
-  hosts: equipos-ospf-router, equipos-ospf-switch
+  hosts: 
+    equipos-ospf-router
+    equipos-ospf-switch
   gather_facts: no
   tasks:
     # # # CONFIGURANDO EL LOOPBACK EN EL EQUIPO # # # 

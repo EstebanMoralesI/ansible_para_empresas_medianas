@@ -30,13 +30,7 @@
           - standby {{ item.hsrp_numero }} ip {{ item.hsrp_ip_gateway }} 
           - no shutdown     
       loop: "{{ hsrp_switch_standby }}"   
-- name: Guardando la configuracion 
-  hosts: equipo-hsrp-activo-switch, equipos-hsrp-standby-switch
-  gather_facts: no
-  tasks:
-    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
-    - include_role:
-        name: guardar-configuracion
+
 - name: Configurando el router para HSRP Activo
   hosts: equipo-hsrp-activo-router
   gather_facts: no
@@ -63,3 +57,14 @@
           - ip address {{ item.hsrp_ip_equipo }} {{ item.hsrp_mascara }}
           - standby {{ item.hsrp_numero}} ip {{ item.hsrp_ip_gateway }}      
       loop: "{{ hsrp_router_standby }}"
+- name: Guardando la configuracion 
+  hosts: 
+    equipo-hsrp-activo-switch
+    equipos-hsrp-standby-switch
+    equipo-hsrp-activo-router
+    equipos-hsrp-standby-router
+  gather_facts: no
+  tasks:
+    # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
+    - include_role:
+        name: guardar-configuracion

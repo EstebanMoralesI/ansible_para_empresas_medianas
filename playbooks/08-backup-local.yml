@@ -69,7 +69,9 @@
         src: ./template/detalle-de-equipos.j2
         dest: ./playbooks/repositorio/{{ nombre_empresa }}/detalle-de-equipos/detalle-de-equipos.csv
 ### 02 ###
-- hosts: equipos-etherchannel-capa2 
+- hosts: 
+    equipos-etherchannel-capa2 
+    equipos-etherchannel-capa3
   gather_facts: no
   tasks: 
     # CREACIÓN DEL DIRECTORIO "02-backup-show_etherchannel_summary" #
@@ -86,25 +88,10 @@
         comando_backup: "show etherchannel summary" 
         backup_nombre_archivo: "02-ether_sum" 
         backup_nombre_carpeta: 02-backup-show_etherchannel_summary 
-- hosts: equipos-etherchannel-capa3
-  gather_facts: no
-  tasks: 
-    # CREACIÓN DEL DIRECTORIO "02-backup-show_etherchannel_summary" #
-    - name: Creando la carpeta "02-backup-show_etherchannel_summary"
-      include_role:
-        name: crear_repositorios
-      vars: 
-        repositorio_nombre_carpeta: 02-backup-show_etherchannel_summary
-    # BACKUP "show etherchannel summary" #
-    - name: Generando archivos "show etherchannel summary" 
-      include_role:
-        name: backups 
-      vars:
-        comando_backup: "show etherchannel summary" 
-        backup_nombre_archivo: "02-ether_sum" 
-        backup_nombre_carpeta: 02-backup-show_etherchannel_summary
 ### 03 ###
-- hosts: equipos-ospf-router, equipos-ospf-switch 
+- hosts: 
+    equipos-ospf-router
+    equipos-ospf-switch 
   gather_facts: no
   tasks:   
     # CREACIÓN DEL DIRECTORIO "03-backup-show_ip_ospf_neighbor" #
@@ -170,8 +157,13 @@
         comando_backup: "show interfaces trunk"
         backup_nombre_archivo: "04-int_trunk" 
         backup_nombre_carpeta: 04-backup_show_interfaces_trunk
-## 05 ###
-- hosts: equipo-hsrp-activo-switch, equipos-hsrp-standby-switch
+# 05 ###
+- hosts: 
+        equipo-hsrp-activo-router
+        equipos-hsrp-standby-router
+        equipo-hsrp-activo-switch
+        equipos-hsrp-standby-switch
+        
   gather_facts: no
   tasks:
     # CREACIÓN DEL DIRECTORIO "05-backup_show_standby" #
