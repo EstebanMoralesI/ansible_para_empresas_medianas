@@ -30,7 +30,6 @@
           - standby {{ item.hsrp_numero }} ip {{ item.hsrp_ip_gateway }} 
           - no shutdown     
       loop: "{{ hsrp_switch_standby }}"   
-
 - name: Configurando el router para HSRP Activo
   hosts: equipo-hsrp-activo-router
   gather_facts: no

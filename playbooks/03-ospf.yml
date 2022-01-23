@@ -13,7 +13,6 @@
         lines:
           - ip routing             
       loop: "{{ ospf_parametros }}"
-
 - name: Configuracion de OSPF
   hosts: 
     equipos-ospf-router

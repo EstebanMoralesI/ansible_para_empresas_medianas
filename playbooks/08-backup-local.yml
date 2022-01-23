@@ -3,17 +3,17 @@
 #         BACKUP GENERAL LOCAL DE EQUIPOS EN CARPETA REPOSITORIOS          # 
 #                   PRECAUCIÓN!!! NO MODIFICAR EL CODIGO                   # 
 ############################################################################
- 
+
 - hosts: all 
   gather_facts: no
   tasks:
 ### 01 ###
-    # CREACIÓN DEL DIRECTORIO "01-backup-show-ip_int_br" #
-    - name: Creando la carpeta "01-backup-show_ip_int_br"
+    # CREACIÓN DEL DIRECTORIO "01-ip_int_br" #
+    - name: Creando la carpeta "01-ip_int_br"
       include_role:
         name: crear_repositorios
       vars: 
-        repositorio_nombre_carpeta: 01-backup-show_ip_int_br
+        repositorio_nombre_carpeta: 01-ip_int_br
     # BACKUP "show ip interface brief" #
     - name: Generando archivos "show ip interface brief" 
       include_role:
@@ -21,14 +21,14 @@
       vars:
         comando_backup: "show ip interface brief" 
         backup_nombre_archivo: "01-ip_int_br" 
-        backup_nombre_carpeta: 01-backup-show_ip_int_br 
+        backup_nombre_carpeta: 01-ip_int_br 
 ### 06 ###
-    # CREACIÓN DEL DIRECTORIO "06-backup_show_run_|_include_username" #
-    - name: Creando la carpeta "06-backup_show_run_|_include_username"
+    # CREACIÓN DEL DIRECTORIO "06-username" #
+    - name: Creando la carpeta "06-username"
       include_role:
         name: crear_repositorios
       vars: 
-        repositorio_nombre_carpeta: 06-backup_show_run_|_include_username
+        repositorio_nombre_carpeta: 06-username
     # BACKUP "show run | include username" #
     - name: Generando archivos "show run | include username" 
       include_role:
@@ -36,14 +36,14 @@
       vars:
         comando_backup: "show run | include username"
         backup_nombre_archivo: "06-username" 
-        backup_nombre_carpeta: 06-backup_show_run_|_include_username
+        backup_nombre_carpeta: 06-username
 ### 07 ###
-    # CREACIÓN DEL DIRECTORIO "07-backup_show_run-cfg" #
-    - name: Creando la carpeta "07-backup_show_run-cfg"
+    # CREACIÓN DEL DIRECTORIO "07-show_run-cfg" #
+    - name: Creando la carpeta "07-show_run-cfg"
       include_role:
         name: crear_repositorios
       vars: 
-        repositorio_nombre_carpeta: 07-backup_show_run-cfg
+        repositorio_nombre_carpeta: 07-show_run-cfg
     # BACKUP DE EQUIPOS "cfg" #
     - name: Generando archivos ".CFG"
       ios_command:
@@ -53,7 +53,7 @@
     - name: Grabar la configuracion de los equipos de red
       copy:        
         content: "{{ output.stdout[0] }}"
-        dest: ./playbooks/repositorio/{{ nombre_empresa }}/07-backup_show_run-cfg/{{ inventory_hostname }}.cfg
+        dest: ./playbooks/repositorio/{{ nombre_empresa }}/07-show_run-cfg/{{ inventory_hostname }}.cfg
     # CREACIÓN DEL DIRECTORIO "detalle-de-equipos" # 
     - name: Creando la carpeta "detalle-de-equipos"
       include_role:
@@ -74,12 +74,12 @@
     equipos-etherchannel-capa3
   gather_facts: no
   tasks: 
-    # CREACIÓN DEL DIRECTORIO "02-backup-show_etherchannel_summary" #
-    - name: Creando la carpeta "02-backup-show_etherchannel_summary"
+    # CREACIÓN DEL DIRECTORIO "02-etherchannel" #
+    - name: Creando la carpeta "02-etherchannel"
       include_role:
         name: crear_repositorios
       vars: 
-        repositorio_nombre_carpeta: 02-backup-show_etherchannel_summary
+        repositorio_nombre_carpeta: 02-etherchannel
     # BACKUP "show etherchannel summary" #
     - name: Generando archivos "show etherchannel summary" 
       include_role:
@@ -87,19 +87,19 @@
       vars:
         comando_backup: "show etherchannel summary" 
         backup_nombre_archivo: "02-ether_sum" 
-        backup_nombre_carpeta: 02-backup-show_etherchannel_summary 
+        backup_nombre_carpeta: 02-etherchannel 
 ### 03 ###
 - hosts: 
     equipos-ospf-router
     equipos-ospf-switch 
   gather_facts: no
   tasks:   
-    # CREACIÓN DEL DIRECTORIO "03-backup-show_ip_ospf_neighbor" #
-    - name: Creando la carpeta "03-backup-show_ip_ospf_neighbor"
+    # CREACIÓN DEL DIRECTORIO "03-ip_ospf_neighbor" #
+    - name: Creando la carpeta "03-ip_ospf_neighbor"
       include_role:
         name: crear_repositorios
       vars: 
-        repositorio_nombre_carpeta: 03-backup-show_ip_ospf_neighbor
+        repositorio_nombre_carpeta: 03-ip_ospf_neighbor
     # BACKUP "show ip ospf neighbor" #
     - name: Generando archivos "show ip ospf neighbor" 
       include_role:
@@ -107,13 +107,13 @@
       vars:
         comando_backup: "show ip ospf neighbor" 
         backup_nombre_archivo: "03-ip_ospf_nei" 
-        backup_nombre_carpeta: 03-backup-show_ip_ospf_neighbor
-    # CREACIÓN DEL DIRECTORIO "03-backup-show_run_ospf" #
-    - name: Creando la carpeta "03-backup-show_run_ospf"
+        backup_nombre_carpeta: 03-ip_ospf_neighbor
+    # CREACIÓN DEL DIRECTORIO "03-run_ospf" #
+    - name: Creando la carpeta "03-run_ospf"
       include_role:
         name: crear_repositorios
       vars: 
-        repositorio_nombre_carpeta: 03-backup-show_run_ospf
+        repositorio_nombre_carpeta: 03-run_ospf
     # BACKUP "show run | section ospf" #
     - name: Generando archivos "show run | section ospf" 
       include_role:
@@ -121,17 +121,17 @@
       vars:
         comando_backup: "show run | section ospf"
         backup_nombre_archivo: "03-run_ospf" 
-        backup_nombre_carpeta: 03-backup-show_run_ospf
+        backup_nombre_carpeta: 03-run_ospf
 ### 04 ### 
 - hosts: equipos-vlan
   gather_facts: no
   tasks:
-    # CREACIÓN DEL DIRECTORIO "04-backup-show_vlan_brief" #
-    - name: Creando la carpeta "04-backup-show_vlan_brief"
+    # CREACIÓN DEL DIRECTORIO "04-vlan" #
+    - name: Creando la carpeta "04-vlan"
       include_role:
         name: crear_repositorios
       vars: 
-        repositorio_nombre_carpeta: 04-backup-show_vlan_brief
+        repositorio_nombre_carpeta: 04-vlan
     # BACKUP "show vlan brief" #
     - name: Generando archivos "show vlan brief" 
       include_role:
@@ -139,16 +139,16 @@
       vars:
         comando_backup: "show vlan brief"
         backup_nombre_archivo: "04-vlan_br" 
-        backup_nombre_carpeta: 04-backup-show_vlan_brief
+        backup_nombre_carpeta: 04-vlan
 - hosts: equipos-vlan-trunk 
   gather_facts: no
   tasks:
-    # CREACIÓN DEL DIRECTORIO "04-backup_show_interfaces_trunk" #
-    - name: Creando la carpeta "04-backup_show_interfaces_trunk"
+    # CREACIÓN DEL DIRECTORIO "04-trunk" #
+    - name: Creando la carpeta "04-trunk"
       include_role:
         name: crear_repositorios
       vars: 
-        repositorio_nombre_carpeta: 04-backup_show_interfaces_trunk
+        repositorio_nombre_carpeta: 04-trunk
     # BACKUP "show interfaces trunk" #
     - name: Generando archivos "show interfaces trunk" 
       include_role:
@@ -156,22 +156,21 @@
       vars:
         comando_backup: "show interfaces trunk"
         backup_nombre_archivo: "04-int_trunk" 
-        backup_nombre_carpeta: 04-backup_show_interfaces_trunk
+        backup_nombre_carpeta: 04-trunk
 # 05 ###
 - hosts: 
         equipo-hsrp-activo-router
         equipos-hsrp-standby-router
         equipo-hsrp-activo-switch
-        equipos-hsrp-standby-switch
-        
+        equipos-hsrp-standby-switch    
   gather_facts: no
   tasks:
-    # CREACIÓN DEL DIRECTORIO "05-backup_show_standby" #
-    - name: Creando la carpeta "05-backup_show_standby_brief"
+    # CREACIÓN DEL DIRECTORIO "05-hsrp" #
+    - name: Creando la carpeta "05-hsrp"
       include_role:
         name: crear_repositorios
       vars: 
-        repositorio_nombre_carpeta: 05-backup_show_standby
+        repositorio_nombre_carpeta: 05-hsrp
     # BACKUP "show standby brief" #
     - name: Generando archivos "show standby brief" 
       include_role:
@@ -179,4 +178,4 @@
       vars:
         comando_backup: "show standby brief"
         backup_nombre_archivo: "05-standby_br" 
-        backup_nombre_carpeta: 05-backup_show_standby
+        backup_nombre_carpeta: 05-hsrp

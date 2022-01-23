@@ -1,9 +1,0 @@
-Neighbor ID     Pri   State           Dead Time   Address         Interface
-3.3.3.3           1   FULL/DR         00:00:39    192.168.60.3    Vlan60
-3.3.3.3           1   FULL/DR         00:00:30    192.168.50.3    Vlan50
-3.3.3.3           1   FULL/DR         00:00:34    192.168.40.3    Vlan40
-3.3.3.3           1   FULL/DR         00:00:35    192.168.30.3    Vlan30
-3.3.3.3           1   FULL/DR         00:00:30    192.168.20.3    Vlan20
-3.3.3.3           1   FULL/DR         00:00:34    192.168.10.3    Vlan10
-3.3.3.3           1   FULL/DR         00:00:34    10.10.30.2      Port-channel1
-1.1.1.1           1   FULL/BDR        00:00:38    10.10.10.1      GigabitEthernet0/1
