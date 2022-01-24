@@ -4,7 +4,7 @@
 ############################################################################
 
 # # # CONFIGURACION DE PUERTOS # # #
-- name: Configurar PUERTOS
+- name: Configurar puertos
   ios_config:
     lines:
       - interface {{ item.puerto_id }}          
