@@ -1,0 +1,13 @@
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gi0/0, Gi0/1, Gi0/2, Gi0/3, Gi1/1, Gi1/2, Gi1/3, Gi2/1, Gi2/2, Gi2/3, Gi3/2, Gi3/3
+10   Redes                            active    Gi3/0
+20   Financiero                       active    Gi3/1
+30   Marketing                        active    
+40   Comercial                        active    
+50   Gestion                          active    
+60   Operaciones                      active    
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup

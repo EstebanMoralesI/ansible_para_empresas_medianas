@@ -62,4 +62,3 @@
     # # # LLAMADO A ROL GUARDAR CONFIGURACION # # #
     - include_role:
         name: guardar-configuracion
-

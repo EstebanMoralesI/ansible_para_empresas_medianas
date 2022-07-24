@@ -1,0 +1,4 @@
+username esteban privilege 15 password 7 030752180500
+username user1 password 7 090E5E080A16001D1908493F38213A6277
+username user2 password 7 0549160E325F59060B015A071809167869
+username user3 password 7 0046030717481C091D25015B1A1C174450
