@@ -1,5 +1,5 @@
 "Device hostname","Model","IOS verison","Serial number","Total memory left:","Image location:"
-"router1","IOSv","15.6(2)T","9Z0LVK1ISQRRYW7ZXYL1F","245297.5078125","flash0:/vios-adventerprisek9-m"
+"router1","IOSv","15.6(2)T","9Z0LVK1ISQRRYW7ZXYL1F","246679.0390625","flash0:/vios-adventerprisek9-m"
 "switch-core1","IOSv","15.2(20170321:233949)","9AW85M3M5QY","1634161.640625","flash0:/vios_l2-adventerprisek9-m"
 "switch-core2","IOSv","15.2(20170321:233949)","9IE4ND41ZES","1634161.640625","flash0:/vios_l2-adventerprisek9-m"
 "switch-access1","IOSv","15.2(20170321:233949)","9VL25HD948Y","1634161.640625","flash0:/vios_l2-adventerprisek9-m"
